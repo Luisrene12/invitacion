@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="jasmine">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años | Princesa Jazmín - Invitación Mágica</title>
+    <meta name="description"
+        content="Invitación digital interactiva para XV Años / Cumpleaños con temática de Princesa Jazmín (Aladdín).">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jasmine-gold': '#d4af37',
+                        'jasmine-turquoise': '#00c6ff',
+                        'jasmine-mint': '#dcf0e5'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="styles.css?v=20260824_cover">
+</head>
+
+<body>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="fx-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-crown logo-icon"></i>
+            <span>Mis XV Años</span>
+        </div>
+        <div class="nav-controls">
+            <button id="music-btn" class="nav-btn" title="Música Mágica">
+                <i class="fa-solid fa-music"></i>
+            </button>
+            <button id="share-btn" class="nav-btn" title="Compartir Invitación">
+                <i class="fa-solid fa-share-nodes"></i>
+            </button>
+            <button id="edit-btn" class="nav-btn primary-nav-btn" title="Personalizar Datos">
+                <i class="fa-solid fa-pen-to-square"></i> Personalizar
+            </button>
+        </div>
+    </header>
+
+    <!-- ================================================
+         HERO COVER - Portada Estilo Editorial (Revista)
+         ================================================ -->
+    <section class="hero-cover">
+
+        <!-- Foto de Ana Paula full screen -->
+        <div class="cover-photo"></div>
+
+        <!-- Vignette suave en bordes -->
+        <div class="cover-vignette"></div>
+
+        <!-- NOMBRE en cursiva grande en la parte SUPERIOR -->
+        <div class="cover-name-top">
+            <h1 class="cover-name" id="bday-name">Ana Paula</h1>
+        </div>
+
+        <!-- MIS XV AÑOS + Fecha en la parte INFERIOR -->
+        <div class="cover-bottom">
+            <div class="cover-xv-row">
+                <span class="cover-line"></span>
+                <span class="cover-xv-text">MIS XV AÑOS</span>
+                <span class="cover-line"></span>
+            </div>
+            <p class="cover-date" id="bday-date">2027</p>
+        </div>
+
+        <!-- Flecha de scroll -->
+        <div class="cover-scroll-arrow">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECCIÓN DE INVITACIÓN (Debajo del cover)
+         ================================================ -->
+    <section class="invitation-section" id="invitacion">
+
+        <!-- Badge -->
+        <div class="royal-badge animate-bounce inv-badge">
+            <i class="fa-solid fa-sparkles"></i> Una Noche Mágica e Inolvidable <i class="fa-solid fa-sparkles"></i>
+        </div>
+
+        <!-- Frase -->
+        <p class="hero-quote" id="bday-message">
+            Te invito a celebrar junto a mí una noche llena de magia,
+            encantos y momentos que guardaremos por siempre en el corazón.
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <h3><i class="fa-solid fa-hourglass-half"></i> Faltan para el Gran Día:</h3>
+            <div class="countdown-grid">
+                <div class="count-box">
+                    <span id="count-days">00</span>
+                    <small>Días</small>
+                </div>
+                <div class="count-box">
+                    <span id="count-hours">00</span>
+                    <small>Horas</small>
+                </div>
+                <div class="count-box">
+                    <span id="count-mins">00</span>
+                    <small>Minutos</small>
+                </div>
+                <div class="count-box">
+                    <span id="count-secs">00</span>
+                    <small>Segundos</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="hero-actions">
+            <a href="#rsvp-section" class="btn btn-primary">
+                <i class="fa-solid fa-envelope"></i> Confirmar Asistencia
+            </a>
+            <a href="#lamp-section" class="btn btn-secondary">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Lámpara Mágica
+            </a>
+            <a href="#itinerary-section" class="btn btn-outline">
+                <i class="fa-solid fa-location-dot"></i> Ubicaciones
+            </a>
+        </div>
+    </section>
+
+    <!-- PERGAMINO SCROLL & FAMILY CARDS SECTION (MATCHING VIDEO EXACTLY) -->
+    <section class="scroll-section">
+
+        <!-- SCROLL (PERGAMINO) -->
+        <div class="pergamino-container">
+
+            <!-- Floating Magic Carpet Top-Left -->
+            <div class="carpet-overlay">
+                <svg viewBox="0 0 100 60" width="75" height="45">
+                    <path d="M10,25 Q30,10 50,25 Q70,40 90,25 Q95,45 80,42 Q50,40 20,42 Z" fill="#0089b3"
+                        stroke="#d4af37" stroke-width="2" />
+                    <path d="M15,26 Q32,13 50,26 Q68,39 85,26" fill="none" stroke="#ffd700" stroke-width="1.5"
+                        stroke-dasharray="3,3" />
+                    <circle cx="10" cy="25" r="3" fill="#ffd700" />
+                    <circle cx="90" cy="25" r="3" fill="#ffd700" />
+                    <circle cx="20" cy="42" r="3" fill="#ffd700" />
+                    <circle cx="80" cy="42" r="3" fill="#ffd700" />
+                </svg>
+            </div>
+
+            <!-- Top Rolled Scroll End -->
+            <div class="scroll-roll-bar scroll-roll-bar-top">
+                <div class="roll-spiral roll-spiral-left"></div>
+                <div class="roll-cylinder"></div>
+                <div class="roll-spiral roll-spiral-right"></div>
+            </div>
+
+            <!-- Scroll Body Sheet -->
+            <div class="scroll-sheet-body">
+
+                <!-- Gold Filigree Ornament Top -->
+                <div class="scroll-filigree-divider">
+                    <svg viewBox="0 0 320 40" width="100%" height="38">
+                        <g fill="none" stroke="#c59b27" stroke-width="1.5">
+                            <path d="M10,20 Q60,20 100,20 Q120,5 140,20" />
+                            <path d="M310,20 Q260,20 220,20 Q200,5 180,20" />
+                            <path d="M60,20 C60,10 80,10 80,20 C80,26 70,26 70,20" stroke-width="1.2" />
+                            <path d="M260,20 C260,10 240,10 240,20 C240,26 250,26 250,20" stroke-width="1.2" />
+                            <circle cx="110" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
+                            <circle cx="210" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
+                            <ellipse cx="160" cy="20" rx="10" ry="13" fill="#c59b27" />
+                            <ellipse cx="160" cy="20" rx="7" ry="10" fill="url(#tealGemGrad1)" />
+                        </g>
+                        <defs>
+                            <radialGradient id="tealGemGrad1" cx="35%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#80ffff" />
+                                <stop offset="40%" stop-color="#00c6ff" />
+                                <stop offset="100%" stop-color="#006680" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Invitation Text -->
+                <p class="scroll-invitation-text" id="scroll-invitation-text">
+                    CON LA BENDICIÓN DE DIOS Y EL AMOR QUE MI FAMILIA ME HA DADO, ME SIENTO FELIZ DE LLEGAR A ESTE
+                    MOMENTO DE MI VIDA; EL DÍA QUE DEJARÉ ATRÁS MI INFANCIA Y COMENZARÉ UN NUEVO VIAJE. PORQUE SON PARTE
+                    DE MI VIDA ES MI DESEO QUE COMPARTAN CONMIGO LA ALEGRÍA DE MIS QUINCE AÑOS..
+                </p>
+
+                <!-- Gold Filigree Ornament Bottom -->
+                <div class="scroll-filigree-divider">
+                    <svg viewBox="0 0 320 40" width="100%" height="38">
+                        <g fill="none" stroke="#c59b27" stroke-width="1.5">
+                            <path d="M10,20 Q60,20 100,20 Q120,5 140,20" />
+                            <path d="M310,20 Q260,20 220,20 Q200,5 180,20" />
+                            <path d="M60,20 C60,10 80,10 80,20 C80,26 70,26 70,20" stroke-width="1.2" />
+                            <path d="M260,20 C260,10 240,10 240,20 C240,26 250,26 250,20" stroke-width="1.2" />
+                            <circle cx="110" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
+                            <circle cx="210" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
+                            <ellipse cx="160" cy="20" rx="10" ry="13" fill="#c59b27" />
+                            <ellipse cx="160" cy="20" rx="7" ry="10" fill="url(#tealGemGrad2)" />
+                        </g>
+                        <defs>
+                            <radialGradient id="tealGemGrad2" cx="35%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#80ffff" />
+                                <stop offset="40%" stop-color="#00c6ff" />
+                                <stop offset="100%" stop-color="#006680" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bottom Rolled Scroll End -->
+            <div class="scroll-roll-bar scroll-roll-bar-bottom">
+                <div class="roll-spiral roll-spiral-left"></div>
+                <div class="roll-cylinder"></div>
+                <div class="roll-spiral roll-spiral-right"></div>
+                <div class="sparkle-dust-cloud"></div>
+            </div>
+        </div>
+
+        <!-- FAMILY CARDS (MI MADRE / MI PADRE) --\>
+    </section>
+
+    <!-- ============================================================
+         FULL-PAGE SLIDE: MI MADRE + HONOR INVITATION  
+         (100vh — Abu, Floral Garlands, Book, Lamp, Butterflies)
+         ============================================================ -->
+        <section id="madre-fullpage-section" class="madre-fullpage-section">
+
+            <!-- Atmospheric Glow Layers -->
+            <div class="madre-fp-glow-layer"></div>
+            <div class="madre-fp-bokeh-dust"></div>
+
+            <!-- ===== LARGE ABU MONKEY (Top-Center) ===== -->
+            <div class="madre-fp-abu">
+                <svg viewBox="0 0 120 120" width="110" height="110" class="abu-svg">
+                    <path d="M42,100 Q28,78 42,58 Q60,36 82,58 Q96,78 82,100 Z" fill="#8c5828" />
+                    <path d="M48,80 Q60,68 72,80 Q69,95 48,95 Z" fill="#e8cfa5" />
+                    <circle cx="63" cy="42" r="24" fill="#8c5828" />
+                    <ellipse cx="63" cy="45" rx="20" ry="15" fill="#f5deb3" />
+                    <circle cx="38" cy="42" r="8" fill="#8c5828" />
+                    <circle cx="38" cy="42" r="5" fill="#f5deb3" />
+                    <circle cx="88" cy="42" r="8" fill="#8c5828" />
+                    <circle cx="88" cy="42" r="5" fill="#f5deb3" />
+                    <ellipse cx="55" cy="40" rx="4.5" ry="6" fill="#ffffff" />
+                    <ellipse cx="71" cy="40" rx="4.5" ry="6" fill="#ffffff" />
+                    <circle cx="57" cy="40" r="3" fill="#1a0d00" />
+                    <circle cx="69" cy="40" r="3" fill="#1a0d00" />
+                    <circle cx="58" cy="38" r="1" fill="#ffffff" />
+                    <circle cx="70" cy="38" r="1" fill="#ffffff" />
+                    <ellipse cx="63" cy="48" rx="3" ry="2.2" fill="#5c3815" />
+                    <path d="M56,52 Q63,58 70,52" fill="none" stroke="#5c3815" stroke-width="2"
+                        stroke-linecap="round" />
+                    <path d="M54,22 L72,22 L68,8 L58,8 Z" fill="#b31b1b" />
+                    <line x1="68" y1="12" x2="78" y2="19" stroke="#ffd700" stroke-width="2.5" />
+                    <circle cx="78" cy="19" r="1.8" fill="#ffd700" />
+                    <path d="M52,58 L58,78 L63,62 L68,78 L75,58" fill="#991515" />
+                    <path d="M45,65 Q32,75 36,92 L44,92" fill="none" stroke="#8c5828" stroke-width="7"
+                        stroke-linecap="round" />
+                    <path d="M78,65 Q92,75 88,92 L80,92" fill="none" stroke="#8c5828" stroke-width="7"
+                        stroke-linecap="round" />
+                    <path d="M78,92 Q105,94 102,70 Q98,52 112,42 Q118,36 114,30 Q106,28 104,40 Q100,55 76,85"
+                        fill="none" stroke="#8c5828" stroke-width="5.5" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <!-- ===== FLORAL GARLAND CORNERS ===== -->
+            <div class="madre-fp-garland garland-tl">
+                <svg viewBox="0 0 180 180" width="160" height="160">
+                    <ellipse cx="50" cy="120" rx="18" ry="40" fill="#88af88" transform="rotate(-40 50 120)" />
+                    <ellipse cx="120" cy="50" rx="18" ry="40" fill="#9dbf9d" transform="rotate(45 120 50)" />
+                    <ellipse cx="80" cy="80" rx="16" ry="36" fill="#a4c7a4" transform="rotate(10 80 80)" />
+                    <ellipse cx="40" cy="60" rx="14" ry="32" fill="#7da37d" transform="rotate(-20 40 60)" />
+                    <g transform="translate(75, 75) scale(1.2)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-18" r="15" fill="#e2f0e6" />
+                        <circle cx="18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="0" cy="18" r="15" fill="#e2f0e6" />
+                        <circle cx="-18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="-13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="-13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="0" cy="0" r="10" fill="#d4af37" />
+                        <polygon points="0,-7 5.5,0 0,7 -5.5,0" fill="#00c6ff" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="madre-fp-garland garland-tr">
+                <svg viewBox="0 0 180 180" width="160" height="160">
+                    <ellipse cx="130" cy="120" rx="18" ry="40" fill="#88af88" transform="rotate(40 130 120)" />
+                    <ellipse cx="60" cy="50" rx="18" ry="40" fill="#9dbf9d" transform="rotate(-45 60 50)" />
+                    <ellipse cx="100" cy="80" rx="16" ry="36" fill="#a4c7a4" transform="rotate(-10 100 80)" />
+                    <ellipse cx="140" cy="60" rx="14" ry="32" fill="#7da37d" transform="rotate(20 140 60)" />
+                    <g transform="translate(105, 75) scale(1.2)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-18" r="15" fill="#e2f0e6" />
+                        <circle cx="18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="0" cy="18" r="15" fill="#e2f0e6" />
+                        <circle cx="-18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="-13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="-13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="0" cy="0" r="10" fill="#d4af37" />
+                        <polygon points="0,-7 5.5,0 0,7 -5.5,0" fill="#00c6ff" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="madre-fp-garland garland-bl">
+                <svg viewBox="0 0 160 160" width="140" height="140">
+                    <ellipse cx="50" cy="40" rx="16" ry="36" fill="#88af88" transform="rotate(40 50 40)" />
+                    <ellipse cx="110" cy="110" rx="16" ry="36" fill="#9dbf9d" transform="rotate(-45 110 110)" />
+                    <ellipse cx="80" cy="80" rx="14" ry="30" fill="#a4c7a4" transform="rotate(-10 80 80)" />
+                    <g transform="translate(70, 70) scale(1)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-14" r="12" fill="#e2f0e6" />
+                        <circle cx="14" cy="0" r="12" fill="#e2f0e6" />
+                        <circle cx="0" cy="14" r="12" fill="#e2f0e6" />
+                        <circle cx="-14" cy="0" r="12" fill="#e2f0e6" />
+                        <circle cx="0" cy="0" r="8" fill="#d4af37" />
+                        <polygon points="0,-6 4.5,0 0,6 -4.5,0" fill="#00c6ff" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="madre-fp-garland garland-br">
+                <svg viewBox="0 0 160 160" width="140" height="140">
+                    <ellipse cx="110" cy="40" rx="16" ry="36" fill="#88af88" transform="rotate(-40 110 40)" />
+                    <ellipse cx="50" cy="110" rx="16" ry="36" fill="#9dbf9d" transform="rotate(45 50 110)" />
+                    <ellipse cx="80" cy="80" rx="14" ry="30" fill="#a4c7a4" transform="rotate(10 80 80)" />
+                    <g transform="translate(90, 70) scale(1)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-14" r="12" fill="#e2f0e6" />
+                        <circle cx="14" cy="0" r="12" fill="#e2f0e6" />
+                        <circle cx="0" cy="14" r="12" fill="#e2f0e6" />
+                        <circle cx="-14" cy="0" r="12" fill="#e2f0e6" />
+                        <circle cx="0" cy="0" r="8" fill="#d4af37" />
+                        <polygon points="0,-6 4.5,0 0,6 -4.5,0" fill="#00c6ff" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- ===== INNER CARD: Mi Madre Title + Name ===== -->
+            <div class="madre-fp-inner-card">
+                <div class="madre-fp-gold-frame"></div>
+                <div class="family-role-title-box grand-title-box">
+                    <div class="gold-filigree-wing filigree-left">
+                        <svg viewBox="0 0 70 30" width="55" height="24">
+                            <path d="M65,15 Q40,3 20,15 Q8,8 4,15 Q8,22 20,15 Q40,27 65,15" fill="none" stroke="#c59b27"
+                                stroke-width="1.8" />
+                            <circle cx="15" cy="15" r="2.5" fill="#d4af37" />
+                            <circle cx="40" cy="15" r="2" fill="#00c6ff" />
+                        </svg>
+                    </div>
+                    <span class="role-title-text grand-script-title">Mi querida familia</span>
+                    <div class="gold-filigree-wing filigree-right">
+                        <svg viewBox="0 0 70 30" width="55" height="24">
+                            <path d="M5,15 Q30,3 50,15 Q62,8 66,15 Q62,22 50,15 Q30,27 5,15" fill="none"
+                                stroke="#c59b27" stroke-width="1.8" />
+                            <circle cx="55" cy="15" r="2.5" fill="#d4af37" />
+                            <circle cx="30" cy="15" r="2" fill="#00c6ff" />
+                        </svg>
+                    </div>
+                    <div class="role-gem-drop-ornate">
+                        <svg viewBox="0 0 30 22" width="22" height="16">
+                            <path d="M3,3 Q15,14 27,3" fill="none" stroke="#c59b27" stroke-width="1.5" />
+                            <polygon points="15,7 19,13 15,19 11,13" fill="#00a8a8" stroke="#d4af37" stroke-width="1" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="family-person-name-wrap">
+                    <p class="family-person-name grand-person-name" id="madre-nombre">
+                        <span>GUADALUPE RODRÍGUEZ</span>
+                        <span>JUACHE</span>
+                    </p>
+                </div>
+                <div class="card-bottom-accents grand-bottom-accents">
+                    <div class="accent-book magic-glowing-book">
+                        <div class="book-sparkles-container">
+                            <span class="magic-star star-1">✦</span>
+                            <span class="magic-star star-2">✧</span>
+                        </div>
+                        <svg viewBox="0 0 70 55" width="68" height="54" class="book-svg">
+                            <path d="M6,44 Q35,33 35,46 L35,16 Q35,5 6,13 Z" fill="#2d1a0e" stroke="#c59b27"
+                                stroke-width="1.2" />
+                            <path d="M64,44 Q35,33 35,46 L35,16 Q35,5 64,13 Z" fill="#2d1a0e" stroke="#c59b27"
+                                stroke-width="1.2" />
+                            <path d="M8,40 Q35,30 35,41 L35,14 Q35,3 8,11 Z" fill="#fff8e7" />
+                            <path d="M62,40 Q35,30 35,41 L35,14 Q35,3 62,11 Z" fill="#fff8e7" />
+                            <ellipse cx="35" cy="22" rx="16" ry="10" fill="url(#bookGlowGradFP)" opacity="0.85" />
+                            <polygon points="35,12 37,20 45,22 37,24 35,32 33,24 25,22 33,20" fill="#ffffff"
+                                filter="drop-shadow(0 0 4px #fff9d2)" />
+                            <defs>
+                                <radialGradient id="bookGlowGradFP" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#fff9d2" stop-opacity="0.95" />
+                                    <stop offset="60%" stop-color="#f7d568" stop-opacity="0.5" />
+                                    <stop offset="100%" stop-color="#d4af37" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="accent-lamp grand-magic-lamp">
+                        <svg viewBox="0 0 95 60" width="90" height="56" class="lamp-svg">
+                            <ellipse cx="48" cy="52" rx="18" ry="5" fill="#8c6208" />
+                            <ellipse cx="48" cy="49" rx="16" ry="4" fill="#d4af37" />
+                            <path d="M38,49 L41,38 L55,38 L58,49 Z" fill="#b38728" />
+                            <path d="M26,38 Q12,30 30,24 Q55,19 78,28 Q90,33 66,38 Z" fill="url(#madreLampGradFP)" />
+                            <path d="M24,33 C8,30 8,14 24,24" fill="none" stroke="#d4af37" stroke-width="3.5"
+                                stroke-linecap="round" />
+                            <path d="M73,28 Q90,22 88,18 Q78,22 68,28 Z" fill="#ffd700" />
+                            <ellipse cx="42" cy="22" rx="8" ry="3" fill="#ffd700" />
+                            <circle cx="42" cy="17" r="2.5" fill="#ffe066" />
+                            <circle cx="88" cy="17" r="1.8" fill="#ffffff" class="lamp-spout-sparkle" />
+                            <defs>
+                                <linearGradient id="madreLampGradFP" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fff099" />
+                                    <stop offset="40%" stop-color="#d4af37" />
+                                    <stop offset="85%" stop-color="#8c6208" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== HONOR INVITATION TEXT (Bottom) ===== -->
+            <div class="madre-fp-honor-section">
+                <div class="madre-fp-flourish-br">
+                    <svg viewBox="0 0 90 70" width="80" height="62">
+                        <path d="M10,60 Q30,60 45,45 Q60,30 80,25 Q88,22 85,15 Q80,10 72,18 Q55,35 38,48 Q20,58 10,60"
+                            fill="none" stroke="#c59b27" stroke-width="2.2" stroke-linecap="round" />
+                        <ellipse cx="70" cy="22" rx="4" ry="8" fill="#2d6a4f" transform="rotate(-30 70 22)" />
+                        <ellipse cx="55" cy="35" rx="4" ry="8" fill="#1b4332" transform="rotate(35 55 35)" />
+                        <circle cx="42" cy="48" r="2.5" fill="#d4af37" />
+                    </svg>
+                </div>
+                <div class="madre-fp-emblem-bl">
+                    <svg viewBox="0 0 60 60" width="55" height="55" class="emblem-spin-glow">
+                        <path d="M30,5 L34,22 L51,22 L38,32 L43,49 L30,39 L17,49 L22,32 L9,22 L26,22 Z" fill="#d4af37"
+                            stroke="#996515" stroke-width="1" />
+                        <circle cx="30" cy="30" r="14" fill="#b8860b" />
+                        <polygon points="30,16 44,30 30,44 16,30" fill="#d4af37" />
+                        <polygon points="30,20 40,30 30,40 20,30" fill="#007f5f" />
+                        <polygon points="30,22 38,30 30,38 22,30" fill="#2ec4b6" />
+                        <polygon points="30,25 35,30 30,35 25,30" fill="#cbf3f0" />
+                    </svg>
+                </div>
+                <div class="honor-text-wrap">
+                    <p class="honor-text-line-1">Tiene el honor de invitarlos a</p>
+                    <p class="honor-text-line-2">festejar</p>
+                    <p class="honor-text-line-3">los XV años de su hija</p>
+                </div>
+                <div class="honor-butterfly-trail">
+                    <svg viewBox="0 0 250 200" width="240" height="190" class="stardust-trail-svg">
+                        <path d="M240,40 Q230,100 180,140 Q130,175 40,190" fill="none" stroke="url(#goldDustGradFP)"
+                            stroke-width="14" stroke-linecap="round" opacity="0.4" filter="blur(3px)" />
+                        <circle cx="235" cy="50" r="1.5" fill="#f7d568" />
+                        <circle cx="225" cy="75" r="2.5" fill="#ffd700" />
+                        <circle cx="195" cy="120" r="2.2" fill="#ffd700" />
+                        <circle cx="170" cy="145" r="3" fill="#f7d568" />
+                        <circle cx="140" cy="165" r="2" fill="#ffd700" />
+                        <circle cx="50" cy="190" r="2.5" fill="#ffd700" />
+                        <defs>
+                            <linearGradient id="goldDustGradFP" x1="100%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ffd700" stop-opacity="0.8" />
+                                <stop offset="50%" stop-color="#f7d568" stop-opacity="0.5" />
+                                <stop offset="100%" stop-color="#d4af37" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="gold-butterfly bfly-1"><svg viewBox="0 0 30 30" width="24" height="24">
+                            <path d="M15,15 Q8,2 2,8 Q0,16 12,16 Q4,26 10,28 Q16,24 15,15" fill="#d4af37" />
+                            <path d="M15,15 Q22,2 28,8 Q30,16 18,16 Q26,26 20,28 Q14,24 15,15" fill="#ffd700" />
+                        </svg></div>
+                    <div class="gold-butterfly bfly-2"><svg viewBox="0 0 30 30" width="20" height="20">
+                            <path d="M15,15 Q8,2 2,8 Q0,16 12,16 Q4,26 10,28 Q16,24 15,15" fill="#d4af37" />
+                            <path d="M15,15 Q22,2 28,8 Q30,16 18,16 Q26,26 20,28 Q14,24 15,15" fill="#ffd700" />
+                        </svg></div>
+                    <div class="gold-butterfly bfly-3"><svg viewBox="0 0 30 30" width="28" height="28">
+                            <path d="M15,15 Q8,2 2,8 Q0,16 12,16 Q4,26 10,28 Q16,24 15,15" fill="#d4af37" />
+                            <path d="M15,15 Q22,2 28,8 Q30,16 18,16 Q26,26 20,28 Q14,24 15,15" fill="#ffd700" />
+                        </svg></div>
+                    <div class="gold-butterfly bfly-4"><svg viewBox="0 0 30 30" width="18" height="18">
+                            <path d="M15,15 Q8,2 2,8 Q0,16 12,16 Q4,26 10,28 Q16,24 15,15" fill="#d4af37" />
+                            <path d="M15,15 Q22,2 28,8 Q30,16 18,16 Q26,26 20,28 Q14,24 15,15" fill="#ffd700" />
+                        </svg></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FULL PAGE INVITATION SLIDE: QUINCEAÑERA ROYAL NAME (Princesa Jazmín with Title Banner & 3D Depth Carousel) -->
+        <section id="quince-fullpage-section" class="quince-fullpage-section">
+
+            <!-- Multi-layer Atmospheric Bokeh & Golden Dust Glow -->
+            <div class="fullpage-bg-particles"></div>
+            <div class="fullpage-golden-glitter-burst"></div>
+
+            <!-- Flying Butterflies around full page -->
+            <div class="flying-bfly flying-bfly-top-left">
+                <svg viewBox="0 0 40 40" width="34" height="34">
+                    <path d="M20,20 Q12,2 2,12 Q0,24 16,22 Q5,36 13,38 Q21,32 20,20" fill="#ffd700" opacity="0.9" />
+                    <path d="M20,20 Q28,2 38,12 Q40,24 24,22 Q35,36 27,38 Q19,32 20,20" fill="#f7d568" opacity="0.9" />
+                    <circle cx="10" cy="14" r="1.5" fill="#d4af37" />
+                    <circle cx="30" cy="14" r="1.5" fill="#d4af37" />
+                </svg>
+            </div>
+
+            <div class="flying-bfly flying-bfly-top-right">
+                <svg viewBox="0 0 55 55" width="48" height="48">
+                    <path d="M27,27 Q15,2 3,15 Q0,32 22,30 Q6,50 17,52 Q28,45 27,27" fill="#99d98c" opacity="0.9" />
+                    <path d="M27,27 Q39,2 51,15 Q54,32 32,30 Q48,50 37,52 Q26,45 27,27" fill="#b5e48c" opacity="0.9" />
+                    <circle cx="12" cy="18" r="2" fill="#2d6a4f" opacity="0.6" />
+                    <circle cx="42" cy="18" r="2" fill="#2d6a4f" opacity="0.6" />
+                </svg>
+            </div>
+
+            <!-- Royal Cartouche Horizontal Rectangle Title Banner Stage -->
+            <div class="quince-cartouche-plaque quince-banner-rect">
+
+                <!-- Mint Butterfly Resting on Top-Left Edge of Plaque -->
+                <div class="cartouche-perched-butterfly">
+                    <svg viewBox="0 0 85 85" width="65" height="65">
+                        <path d="M42,42 Q22,6 5,22 Q0,48 34,45 Q10,75 27,78 Q44,68 42,42" fill="#a7d7c5"
+                            stroke="#52b788" stroke-width="1.2" />
+                        <path d="M42,42 Q62,6 79,22 Q84,48 50,45 Q74,75 57,78 Q40,68 42,42" fill="#c7f9cc"
+                            stroke="#52b788" stroke-width="1.2" />
+                        <path d="M42,42 Q24,24 14,29 M42,42 Q26,36 21,44 M42,42 Q60,24 70,29 M42,42 Q58,36 63,44"
+                            fill="none" stroke="#2d6a4f" stroke-width="1" opacity="0.6" />
+                        <circle cx="20" cy="26" r="2" fill="#1b4332" opacity="0.5" />
+                        <circle cx="64" cy="26" r="2" fill="#1b4332" opacity="0.5" />
+                        <path d="M42,34 Q36,18 28,22 M42,34 Q48,18 56,22" fill="none" stroke="#1b4332"
+                            stroke-width="1.5" />
+                    </svg>
+                </div>
+
+                <!-- Eucalyptus Foliage Branch on Right Edge -->
+                <div class="cartouche-foliage-right">
+                    <svg viewBox="0 0 90 140" width="70" height="110">
+                        <path d="M15,130 Q30,70 12,10" fill="none" stroke="#52796f" stroke-width="3"
+                            stroke-linecap="round" />
+                        <ellipse cx="30" cy="28" rx="12" ry="19" fill="#84a59d" transform="rotate(35 30 28)" />
+                        <ellipse cx="8" cy="52" rx="11" ry="18" fill="#6b9080" transform="rotate(-30 8 52)" />
+                        <ellipse cx="36" cy="80" rx="12" ry="19" fill="#a4c3b2" transform="rotate(30 36 80)" />
+                        <ellipse cx="14" cy="108" rx="11" ry="17" fill="#84a59d" transform="rotate(-25 14 108)" />
+                        <ellipse cx="44" cy="118" rx="9" ry="14" fill="#6b9080" transform="rotate(40 44 118)" />
+                    </svg>
+                </div>
+
+                <!-- Plaque Interior: Quinceañera Name Title Header Banner -->
+                <div class="cartouche-inner-content quince-banner-content">
+                    <span class="name-sparkle sp-1">✦</span>
+                    <span class="name-sparkle sp-2">✦</span>
+                    <span class="name-sparkle sp-3">✧</span>
+
+                    <div class="banner-title-flex">
+                        <span class="banner-script-title">Princesa</span>
+                        <h2 class="quince-name-script" id="bday-name-cartouche">ANA PAULA</h2>
+                    </div>
+
+                    <!-- Magic Lamp embedded inside Banner -->
+                    <div class="cartouche-magic-lamp banner-lamp">
+                        <svg viewBox="0 0 110 65" width="70" height="42" class="plaque-lamp-svg">
+                            <ellipse cx="55" cy="54" rx="20" ry="6" fill="#8c6208" />
+                            <ellipse cx="55" cy="51" rx="18" ry="5" fill="#d4af37" />
+                            <path d="M46,51 L49,42 L61,42 L64,51 Z" fill="#b38728" />
+                            <path d="M32,42 Q16,33 37,26 Q65,21 88,30 Q102,35 75,42 Z"
+                                fill="url(#plaqueLampGradFull)" />
+                            <path d="M30,37 C12,33 12,16 30,26" fill="none" stroke="#d4af37" stroke-width="4"
+                                stroke-linecap="round" />
+                            <path d="M83,30 Q102,23 100,20 Q91,23 79,30 Z" fill="#ffd700" />
+                            <ellipse cx="51" cy="23" rx="10" ry="3.5" fill="#ffd700" />
+                            <circle cx="51" cy="17" r="3" fill="#ffe066" />
+                            <circle cx="100" cy="19" r="2.2" fill="#ffffff" class="lamp-spout-sparkle" />
+                            <defs>
+                                <linearGradient id="plaqueLampGradFull" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fff5b8" />
+                                    <stop offset="45%" stop-color="#d4af37" />
+                                    <stop offset="85%" stop-color="#8c6208" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 3D DEPTH CAROUSEL COMPONENT ===== -->
+            <div class="depth-carousel-wrap">
+                <div class="depth-carousel" id="quince-depth-carousel">
+                    <button class="depth-nav-btn depth-prev" id="quince-depth-prev" aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="depth-cards-stage" id="quince-depth-stage">
+                        <div class="depth-card-item active" data-index="0">
+                            <div class="depth-card-frame">
+                                <img src="image1.jpeg" alt="Vestido Rojo">
+                                <div class="depth-card-overlay">
+                                    <span class="depth-card-title">Vestido Rojo ♥️</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="depth-card-item" data-index="1">
+                            <div class="depth-card-frame">
+                                <img src="assets/image2.2.jpeg" alt="Magia en el Puente">
+                                <div class="depth-card-overlay">
+                                    <span class="depth-card-title">Magia en el Puente ✨</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="depth-card-item" data-index="2">
+                            <div class="depth-card-frame">
+                                <img src="assets/image2.jpeg" alt="Reina de la Noche">
+                                <div class="depth-card-overlay">
+                                    <span class="depth-card-title">Reina de la Noche 💙</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="depth-card-item" data-index="3">
+                            <div class="depth-card-frame">
+                                <img src="assets/image4.jpeg" alt="Jardín Encantado">
+                                <div class="depth-card-overlay">
+                                    <span class="depth-card-title">Jardín Encantado 🌿</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="depth-nav-btn depth-next" id="quince-depth-next" aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="depth-dots" id="quince-depth-dots">
+                    <span class="depth-dot active" data-index="0"></span>
+                    <span class="depth-dot" data-index="1"></span>
+                    <span class="depth-dot" data-index="2"></span>
+                    <span class="depth-dot" data-index="3"></span>
+                </div>
+            </div>
+
+            <!-- Floating Satin Magic Carpet (Bottom-Left) -->
+            <div class="floating-magic-carpet-bottom">
+                <svg viewBox="0 0 180 110" width="140" height="85" class="carpet-svg-wave">
+                    <path d="M22,78 Q56,50 96,72 Q135,95 163,56 L152,39 Q118,78 84,56 Q50,34 11,62 Z"
+                        fill="url(#carpetSatinGradFull)" stroke="#c59b27" stroke-width="2.5"
+                        filter="drop-shadow(0 15px 22px rgba(0,0,0,0.4))" />
+                    <path d="M31,71 Q58,52 90,70 Q126,88 148,53" fill="none" stroke="#ffd700" stroke-width="2.5"
+                        stroke-dasharray="5,3" />
+                    <path d="M22,65 Q54,44 86,61 Q120,79 142,44" fill="none" stroke="#ffe066" stroke-width="1.5" />
+                    <circle cx="11" cy="62" r="3.5" fill="#ffd700" />
+                    <line x1="11" y1="62" x2="4" y2="70" stroke="#d4af37" stroke-width="3" />
+                    <circle cx="152" cy="39" r="3.5" fill="#ffd700" />
+                    <line x1="152" y1="39" x2="160" y2="33" stroke="#d4af37" stroke-width="3" />
+                    <circle cx="22" cy="78" r="3.5" fill="#ffd700" />
+                    <line x1="22" y1="78" x2="16" y2="87" stroke="#d4af37" stroke-width="3" />
+                    <circle cx="163" cy="56" r="3.5" fill="#ffd700" />
+                    <line x1="163" y1="56" x2="171" y2="62" stroke="#d4af37" stroke-width="3" />
+                    <defs>
+                        <linearGradient id="carpetSatinGradFull" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0077b6" />
+                            <stop offset="35%" stop-color="#00b4d8" />
+                            <stop offset="65%" stop-color="#90e0ef" />
+                            <stop offset="100%" stop-color="#0096c7" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Extra Magic Carpet (Right Side) -->
+            <div class="floating-magic-carpet-right">
+                <svg viewBox="0 0 180 110" width="140" height="85" class="carpet-svg-wave-alt">
+                    <path d="M158,78 Q124,50 84,72 Q45,95 17,56 L28,39 Q62,78 96,56 Q130,34 169,62 Z"
+                        fill="url(#carpetSatinGradFull)" stroke="#c59b27" stroke-width="2.5"
+                        filter="drop-shadow(0 15px 22px rgba(0,0,0,0.4))" />
+                    <path d="M149,71 Q122,52 90,70 Q54,88 32,53" fill="none" stroke="#ffd700" stroke-width="2.5"
+                        stroke-dasharray="5,3" />
+                    <path d="M158,65 Q126,44 94,61 Q60,79 38,44" fill="none" stroke="#ffe066" stroke-width="1.5" />
+                    <circle cx="169" cy="62" r="3.5" fill="#ffd700" />
+                    <line x1="169" y1="62" x2="176" y2="70" stroke="#d4af37" stroke-width="3" />
+                    <circle cx="28" cy="39" r="3.5" fill="#ffd700" />
+                    <line x1="28" y1="39" x2="20" y2="33" stroke="#d4af37" stroke-width="3" />
+                    <circle cx="158" cy="78" r="3.5" fill="#ffd700" />
+                    <line x1="158" y1="78" x2="164" y2="87" stroke="#d4af37" stroke-width="3" />
+                    <circle cx="17" cy="56" r="3.5" fill="#ffd700" />
+                    <line x1="17" y1="56" x2="9" y2="62" stroke="#d4af37" stroke-width="3" />
+                </svg>
+            </div>
+
+            <!-- Extra Butterflies -->
+            <div class="flying-bfly flying-bfly-extra-1">
+                <svg viewBox="0 0 40 40" width="28" height="28">
+                    <path d="M20,20 Q12,2 2,12 Q0,24 16,22 Q5,36 13,38 Q21,32 20,20" fill="#ffd700" opacity="0.9" />
+                    <path d="M20,20 Q28,2 38,12 Q40,24 24,22 Q35,36 27,38 Q19,32 20,20" fill="#f7d568" opacity="0.9" />
+                </svg>
+            </div>
+            <div class="flying-bfly flying-bfly-extra-2">
+                <svg viewBox="0 0 55 55" width="40" height="40">
+                    <path d="M27,27 Q15,2 3,15 Q0,32 22,30 Q6,50 17,52 Q28,45 27,27" fill="#99d98c" opacity="0.9" />
+                    <path d="M27,27 Q39,2 51,15 Q54,32 32,30 Q48,50 37,52 Q26,45 27,27" fill="#b5e48c" opacity="0.9" />
+                </svg>
+            </div>
+
+            <!-- Extra Flowers (Bottom Right/Left clusters) -->
+            <div class="quince-fp-extra-flowers fp-flowers-right">
+                <svg viewBox="0 0 100 100" width="80" height="80">
+                    <g class="flower-bloom-sway">
+                        <circle cx="50" cy="30" r="15" fill="#e2f0e6" />
+                        <circle cx="70" cy="50" r="15" fill="#e2f0e6" />
+                        <circle cx="50" cy="70" r="15" fill="#e2f0e6" />
+                        <circle cx="30" cy="50" r="15" fill="#e2f0e6" />
+                        <circle cx="50" cy="50" r="10" fill="#d4af37" />
+                    </g>
+                </svg>
+            </div>
+            <div class="quince-fp-extra-flowers fp-flowers-left">
+                <svg viewBox="0 0 100 100" width="60" height="60">
+                    <g class="flower-bloom-sway">
+                        <circle cx="50" cy="30" r="15" fill="#e2f0e6" />
+                        <circle cx="70" cy="50" r="15" fill="#e2f0e6" />
+                        <circle cx="50" cy="70" r="15" fill="#e2f0e6" />
+                        <circle cx="30" cy="50" r="15" fill="#e2f0e6" />
+                        <circle cx="50" cy="50" r="10" fill="#d4af37" />
+                    </g>
+                </svg>
+            </div>
+
+        </section>
+
+        <!-- ===================================================
+             FULL-PAGE SLIDE: MIS PADRINOS (Standalone 100vh)
+             =================================================== -->
+        <section id="padrinos-fullpage-section" class="quince-fullpage-section padrinos-standalone">
+
+            <!-- Multi-layer Atmospheric Bokeh & Golden Dust Glow -->
+            <div class="fullpage-bg-particles"></div>
+            <div class="fullpage-golden-glitter-burst"></div>
+
+            <!-- Treasure Chest: Top Left -->
+            <div class="pad-chest-topleft">
+                <img src="assets/treasure_chest.jpg" alt="Cofre del Tesoro" class="pad-chest-img">
+            </div>
+
+            <!-- Magic Lamp: Bottom Right -->
+            <div class="pad-lamp-bottomright">
+                <svg viewBox="0 0 120 75" width="130" height="82" class="lamp-svg">
+                    <ellipse cx="60" cy="66" rx="22" ry="6" fill="#8c6208" />
+                    <ellipse cx="60" cy="63" rx="20" ry="5.5" fill="#d4af37" />
+                    <path d="M48,63 L51,50 L69,50 L72,63 Z" fill="#b38728" />
+                    <path d="M32,50 Q15,40 38,32 Q68,25 95,35 Q110,42 82,50 Z" fill="url(#padLampGrad2)" />
+                    <path d="M30,44 C10,40 10,20 30,32" fill="none" stroke="#d4af37" stroke-width="4.5"
+                        stroke-linecap="round" />
+                    <path d="M90,35 Q112,26 110,22 Q100,26 86,35 Z" fill="#ffd700" />
+                    <ellipse cx="54" cy="28" rx="11" ry="4" fill="#ffd700" />
+                    <circle cx="54" cy="21" r="3.5" fill="#ffe066" />
+                    <circle cx="110" cy="21" r="2.5" fill="#ffffff" class="lamp-spout-sparkle" />
+                    <defs>
+                        <linearGradient id="padLampGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fff099" />
+                            <stop offset="40%" stop-color="#d4af37" />
+                            <stop offset="85%" stop-color="#8c6208" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Floral Garland Corners (same as Madre section style) -->
+            <div class="madre-fp-garland garland-tl" style="z-index:3;">
+                <svg viewBox="0 0 180 180" width="150" height="150">
+                    <ellipse cx="50" cy="120" rx="18" ry="40" fill="#88af88" transform="rotate(-40 50 120)" />
+                    <ellipse cx="120" cy="50" rx="18" ry="40" fill="#9dbf9d" transform="rotate(45 120 50)" />
+                    <ellipse cx="80" cy="80" rx="16" ry="36" fill="#a4c7a4" transform="rotate(10 80 80)" />
+                    <ellipse cx="40" cy="60" rx="14" ry="32" fill="#7da37d" transform="rotate(-20 40 60)" />
+                    <g transform="translate(75, 75) scale(1.2)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-18" r="15" fill="#e2f0e6" />
+                        <circle cx="18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="0" cy="18" r="15" fill="#e2f0e6" />
+                        <circle cx="-18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="-13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="-13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="0" cy="0" r="10" fill="#d4af37" />
+                    </g>
+                </svg>
+            </div>
+            <div class="madre-fp-garland garland-tr" style="z-index:3;">
+                <svg viewBox="0 0 180 180" width="150" height="150">
+                    <ellipse cx="130" cy="120" rx="18" ry="40" fill="#88af88" transform="rotate(40 130 120)" />
+                    <ellipse cx="60" cy="50" rx="18" ry="40" fill="#9dbf9d" transform="rotate(-45 60 50)" />
+                    <ellipse cx="100" cy="80" rx="16" ry="36" fill="#a4c7a4" transform="rotate(-10 100 80)" />
+                    <ellipse cx="140" cy="60" rx="14" ry="32" fill="#7da37d" transform="rotate(20 140 60)" />
+                    <g transform="translate(105, 75) scale(1.2)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-18" r="15" fill="#e2f0e6" />
+                        <circle cx="18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="0" cy="18" r="15" fill="#e2f0e6" />
+                        <circle cx="-18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="-13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="-13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="0" cy="0" r="10" fill="#d4af37" />
+                    </g>
+                </svg>
+            </div>
+            <div class="madre-fp-garland garland-bl" style="z-index:3;">
+                <svg viewBox="0 0 180 180" width="150" height="150">
+                    <ellipse cx="50" cy="60" rx="18" ry="40" fill="#88af88" transform="rotate(40 50 60)" />
+                    <ellipse cx="120" cy="130" rx="18" ry="40" fill="#9dbf9d" transform="rotate(-45 120 130)" />
+                    <ellipse cx="80" cy="100" rx="16" ry="36" fill="#a4c7a4" transform="rotate(-10 80 100)" />
+                    <ellipse cx="40" cy="120" rx="14" ry="32" fill="#7da37d" transform="rotate(20 40 120)" />
+                    <g transform="translate(75, 105) scale(1.2)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-18" r="15" fill="#e2f0e6" />
+                        <circle cx="18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="0" cy="18" r="15" fill="#e2f0e6" />
+                        <circle cx="-18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="-13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="-13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="0" cy="0" r="10" fill="#d4af37" />
+                    </g>
+                </svg>
+            </div>
+            <div class="madre-fp-garland garland-br" style="z-index:3;">
+                <svg viewBox="0 0 180 180" width="150" height="150">
+                    <ellipse cx="130" cy="60" rx="18" ry="40" fill="#88af88" transform="rotate(-40 130 60)" />
+                    <ellipse cx="60" cy="130" rx="18" ry="40" fill="#9dbf9d" transform="rotate(45 60 130)" />
+                    <ellipse cx="100" cy="100" rx="16" ry="36" fill="#a4c7a4" transform="rotate(10 100 100)" />
+                    <ellipse cx="140" cy="120" rx="14" ry="32" fill="#7da37d" transform="rotate(-20 140 120)" />
+                    <g transform="translate(105, 105) scale(1.2)" class="flower-bloom-sway">
+                        <circle cx="0" cy="-18" r="15" fill="#e2f0e6" />
+                        <circle cx="18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="0" cy="18" r="15" fill="#e2f0e6" />
+                        <circle cx="-18" cy="0" r="15" fill="#e2f0e6" />
+                        <circle cx="-13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="-13" r="14" fill="#d0e6d6" />
+                        <circle cx="13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="-13" cy="13" r="14" fill="#d0e6d6" />
+                        <circle cx="0" cy="0" r="10" fill="#d4af37" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Butterflies -->
+            <div class="flying-bfly flying-bfly-top-left" style="z-index:4;">
+                <svg viewBox="0 0 40 40" width="34" height="34">
+                    <path d="M20,20 Q12,2 2,12 Q0,24 16,22 Q5,36 13,38 Q21,32 20,20" fill="#ffd700" opacity="0.9" />
+                    <path d="M20,20 Q28,2 38,12 Q40,24 24,22 Q35,36 27,38 Q19,32 20,20" fill="#f7d568" opacity="0.9" />
+                </svg>
+            </div>
+            <div class="flying-bfly flying-bfly-top-right" style="z-index:4;">
+                <svg viewBox="0 0 55 55" width="48" height="48">
+                    <path d="M27,27 Q15,2 3,15 Q0,32 22,30 Q6,50 17,52 Q28,45 27,27" fill="#99d98c" opacity="0.9" />
+                    <path d="M27,27 Q39,2 51,15 Q54,32 32,30 Q48,50 37,52 Q26,45 27,27" fill="#b5e48c" opacity="0.9" />
+                </svg>
+            </div>
+
+            <!-- ====  CENTER CONTENT: Fold Text ==== -->
+            <div class="padrinos-center-content" style="perspective: 1200px;">
+
+                <!-- Gold ornament line -->
+                <div class="pad-ornament-top">
+                    <svg viewBox="0 0 320 20" width="280" height="20">
+                        <path d="M10,10 Q80,2 160,10 Q240,18 310,10" fill="none" stroke="#c59b27" stroke-width="1.8" />
+                        <circle cx="60" cy="6" r="3" fill="#d4af37" />
+                        <circle cx="160" cy="10" r="5" fill="#d4af37" />
+                        <polygon points="160,5 164,10 160,15 156,10" fill="#00c6ff" />
+                        <circle cx="260" cy="6" r="3" fill="#d4af37" />
+                    </svg>
+                </div>
+
+                <h2 class="pad-title-fold">
+                    <span class="fold-char" style="animation-delay:0.00s;">M</span><span class="fold-char"
+                        style="animation-delay:0.06s;">i</span><span class="fold-char"
+                        style="animation-delay:0.12s;">s</span>&thinsp;<span class="fold-char"
+                        style="animation-delay:0.18s;">P</span><span class="fold-char"
+                        style="animation-delay:0.24s;">a</span><span class="fold-char"
+                        style="animation-delay:0.30s;">d</span><span class="fold-char"
+                        style="animation-delay:0.36s;">r</span><span class="fold-char"
+                        style="animation-delay:0.42s;">i</span><span class="fold-char"
+                        style="animation-delay:0.48s;">n</span><span class="fold-char"
+                        style="animation-delay:0.54s;">o</span><span class="fold-char"
+                        style="animation-delay:0.60s;">s</span>
+                </h2>
+
+                <div class="pad-divider-rule">
+                    <svg viewBox="0 0 300 14" width="260" height="14">
+                        <line x1="5" y1="7" x2="128" y2="7" stroke="#c59b27" stroke-width="1.5" />
+                        <polygon points="144,3 154,7 144,11 134,7" fill="#d4af37" />
+                        <line x1="160" y1="7" x2="295" y2="7" stroke="#c59b27" stroke-width="1.5" />
+                    </svg>
+                </div>
+
+                <p class="pad-name-primary">
+                    <span class="fold-char" style="animation-delay:0.70s;">R</span><span class="fold-char"
+                        style="animation-delay:0.76s;">E</span><span class="fold-char"
+                        style="animation-delay:0.82s;">B</span><span class="fold-char"
+                        style="animation-delay:0.88s;">E</span><span class="fold-char"
+                        style="animation-delay:0.94s;">C</span><span class="fold-char"
+                        style="animation-delay:1.00s;">A</span>
+                </p>
+                <p class="pad-name-secondary">
+                    <span class="fold-char" style="animation-delay:1.06s;">R</span><span class="fold-char"
+                        style="animation-delay:1.12s;">O</span><span class="fold-char"
+                        style="animation-delay:1.18s;">D</span><span class="fold-char"
+                        style="animation-delay:1.24s;">R</span><span class="fold-char"
+                        style="animation-delay:1.30s;">Í</span><span class="fold-char"
+                        style="animation-delay:1.36s;">G</span><span class="fold-char"
+                        style="animation-delay:1.42s;">U</span><span class="fold-char"
+                        style="animation-delay:1.48s;">E</span><span class="fold-char"
+                        style="animation-delay:1.54s;">Z</span>&thinsp;<span class="fold-char"
+                        style="animation-delay:1.60s;">J</span><span class="fold-char"
+                        style="animation-delay:1.66s;">U</span><span class="fold-char"
+                        style="animation-delay:1.72s;">A</span><span class="fold-char"
+                        style="animation-delay:1.78s;">C</span><span class="fold-char"
+                        style="animation-delay:1.84s;">H</span><span class="fold-char"
+                        style="animation-delay:1.90s;">E</span>
+                </p>
+
+                <p class="pad-ampersand fold-char" style="animation-delay:2.00s;">&amp;</p>
+
+                <p class="pad-name-primary">
+                    <span class="fold-char" style="animation-delay:2.10s;">R</span><span class="fold-char"
+                        style="animation-delay:2.16s;">O</span><span class="fold-char"
+                        style="animation-delay:2.22s;">D</span><span class="fold-char"
+                        style="animation-delay:2.28s;">O</span><span class="fold-char"
+                        style="animation-delay:2.34s;">L</span><span class="fold-char"
+                        style="animation-delay:2.40s;">F</span><span class="fold-char"
+                        style="animation-delay:2.46s;">O</span>
+                </p>
+                <p class="pad-name-secondary">
+                    <span class="fold-char" style="animation-delay:2.52s;">M</span><span class="fold-char"
+                        style="animation-delay:2.58s;">E</span><span class="fold-char"
+                        style="animation-delay:2.64s;">N</span><span class="fold-char"
+                        style="animation-delay:2.70s;">D</span><span class="fold-char"
+                        style="animation-delay:2.76s;">O</span><span class="fold-char"
+                        style="animation-delay:2.82s;">Z</span><span class="fold-char"
+                        style="animation-delay:2.88s;">A</span>&thinsp;<span class="fold-char"
+                        style="animation-delay:2.94s;">P</span><span class="fold-char"
+                        style="animation-delay:3.00s;">I</span><span class="fold-char"
+                        style="animation-delay:3.06s;">Ñ</span><span class="fold-char"
+                        style="animation-delay:3.12s;">A</span>
+                </p>
+
+                <!-- Bottom ornament -->
+                <div class="pad-ornament-top" style="margin-top: 1.2rem;">
+                    <svg viewBox="0 0 320 20" width="280" height="20">
+                        <path d="M10,10 Q80,18 160,10 Q240,2 310,10" fill="none" stroke="#c59b27" stroke-width="1.8" />
+                        <circle cx="60" cy="14" r="3" fill="#d4af37" />
+                        <circle cx="160" cy="10" r="5" fill="#d4af37" />
+                        <circle cx="260" cy="14" r="3" fill="#d4af37" />
+                    </svg>
+                </div>
+
+            </div>
+            <!-- END CENTER CONTENT -->
+
+        </section>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- 1. Magic Lamp Section -->
+            <section id="lamp-section" class="card-section glass-card">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Experiencia Mágica</span>
+                    <h2>La Lámpara de los Deseos</h2>
+                    <p>Frota la lámpara mágica de Aladdín para liberar al Genio y recibir una bendición especial.</p>
+                </div>
+
+                <div class="lamp-experience">
+                    <div class="lamp-container">
+                        <img src="assets/magic_lamp.jpg" alt="Lámpara Mágica de Aladdín" id="magic-lamp-img"
+                            class="magic-lamp-img">
+                        <div class="lamp-sparkles"></div>
+                    </div>
+
+                    <button id="rub-lamp-btn" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-hand-sparkles"></i> Frotar Lámpara y Pedir Deseo
+                    </button>
+
+                    <div id="genie-wish-box" class="genie-wish-box hidden animate-pop">
+                        <i class="fa-solid fa-gem genie-icon"></i>
+                        <h3 id="genie-title">¡El Genio te ha concedido 3 Deseos! ✨</h3>
+                        <p id="genie-text">"Que el amor, la felicidad y la salud te acompañen siempre en esta nueva
+                            etapa de tu vida."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Itinerary Section -->
+            <section id="itinerary-section" class="card-section glass-card">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> Programa del Evento</span>
+                    <h2>Itinerario de la Celebración</h2>
+                    <p>Acompáñanos en los momentos más importantes de nuestra noche real.</p>
+                </div>
+
+                <div class="itinerary-grid">
+                    <!-- Ceremony -->
+                    <div class="itinerary-card">
+                        <div class="itinerary-icon"><i class="fa-solid fa-church"></i></div>
+                        <h3>Misa de Acción de Gracias</h3>
+                        <p class="time"><i class="fa-solid fa-clock"></i> 18:00 HRS</p>
+                        <p class="place-name" id="church-name">Parroquia de San Juan Bautista</p>
+                        <p class="address" id="church-address">Av. Principal #123, Colonia Centro</p>
+                        <a href="https://maps.google.com" target="_blank" id="church-map-link"
+                            class="btn btn-sm btn-outline">
+                            <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+                        </a>
+                    </div>
+
+                    <!-- Party -->
+                    <div class="itinerary-card highlight-card">
+                        <div class="itinerary-icon"><i class="fa-solid fa-glass-cheers"></i></div>
+                        <h3>Recepción Real en el Palacio</h3>
+                        <p class="time"><i class="fa-solid fa-clock"></i> 20:30 HRS</p>
+                        <p class="place-name" id="hall-name">Gran Salón de Eventos "Palacio Imperial"</p>
+                        <p class="address" id="hall-address">Blvd. de las Estrellas #456</p>
+                        <a href="https://maps.google.com" target="_blank" id="hall-map-link"
+                            class="btn btn-sm btn-primary">
+                            <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+                        </a>
+                    </div>
+
+                    <!-- Dresscode -->
+                    <div class="itinerary-card">
+                        <div class="itinerary-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <h3>Código de Vestimenta</h3>
+                        <p class="time"><i class="fa-solid fa-shirt"></i> ELEGANTE / GALA</p>
+                        <p class="place-name">Traje Formal / Vestido de Noche</p>
+                        <p class="address">Reservemos el color Turquesa y Dorado para la Quinceañera 👑</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Interactive Birthday Cake -->
+            <section id="cake-section" class="card-section glass-card">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-cake-candles"></i> Pastel Real</span>
+                    <h2>El Pastel de la Princesa</h2>
+                    <p>Haz clic en las velas o activa el micrófono para soplarlas y activar los fuegos artificiales.</p>
+                </div>
+
+                <div class="cake-experience">
+                    <div class="cake-controls">
+                        <button id="mic-btn" class="btn-sm btn-glass">
+                            <i class="fa-solid fa-microphone"></i> Soplar con Micrófono
+                        </button>
+                        <button id="relight-btn" class="btn-sm btn-glass">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Encender Velas
+                        </button>
+                    </div>
+
+                    <div class="cake-wrapper">
+                        <div class="cake">
+                            <div class="plate"></div>
+                            <div class="layer layer-bottom">
+                                <div class="frosting-drip"></div>
+                            </div>
+                            <div class="layer layer-middle">
+                                <div class="frosting-drip"></div>
+                            </div>
+                            <div class="layer layer-top">
+                                <div class="frosting-drip"></div>
+                            </div>
+                            <div class="candles-container" id="candles-group"></div>
+                        </div>
+                    </div>
+
+                    <div id="celebration-banner" class="celebration-banner hidden">
+                        <div class="banner-content animate-pop">
+                            <i class="fa-solid fa-trophy banner-icon"></i>
+                            <h3>¡Que Todos Tus Deseos Se Cumplan! 🎉✨</h3>
+                            <button id="fireworks-trigger" class="btn btn-accent">
+                                <i class="fa-solid fa-burst"></i> ¡Más Fuegos Artificiales!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. RSVP Section -->
+            <section id="rsvp-section" class="card-section glass-card">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> RSVP</span>
+                    <h2>Confirmación de Asistencia</h2>
+                    <p>Por favor confirma tu asistencia antes del 15 de Octubre para asegurar tu lugar en el palacio.
+                    </p>
+                </div>
+
+                <form id="rsvp-form" class="rsvp-form">
+                    <div class="form-group">
+                        <label for="rsvp-name"><i class="fa-solid fa-user"></i> Tu Nombre Completo:</label>
+                        <input type="text" id="rsvp-name" placeholder="Ej. Familia Rodríguez / Juan Pérez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvp-passes"><i class="fa-solid fa-ticket"></i> Número de Pases / Personas:</label>
+                        <select id="rsvp-passes" required>
+                            <option value="1">1 Persona</option>
+                            <option value="2" selected>2 Personas</option>
+                            <option value="3">3 Personas</option>
+                            <option value="4">4 Personas</option>
+                            <option value="5">5 Personas (Familia)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvp-status"><i class="fa-solid fa-circle-check"></i> Asistencia:</label>
+                        <select id="rsvp-status" required>
+                            <option value="Sí, asistiré con gusto">¡Sí! Asistiré con gusto 🎉</option>
+                            <option value="Lamentablemente no podré asistir">Lamentablemente no podré asistir 😢
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvp-msg"><i class="fa-solid fa-heart"></i> Mensaje para la Quinceañera:</label>
+                        <textarea id="rsvp-msg" rows="3"
+                            placeholder="¡Estamos muy felices de acompañarte en tu gran noche!"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia por WhatsApp
+                    </button>
+                </form>
+            </section>
+
+            <!-- 5. Gift Table / Envelope Rain -->
+            <section id="gifts-info-section" class="card-section glass-card">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-gift"></i> Muestra de Cariño</span>
+                    <h2>Mesa de Regalos & Lluvia de Sobres</h2>
+                    <p>Tu presencia es nuestro mejor regalo. Si deseas hacerme un obsequio adicional:</p>
+                </div>
+
+                <div class="gifts-grid">
+                    <div class="gift-info-card">
+                        <i class="fa-solid fa-envelope-open-dollar gift-card-icon"></i>
+                        <h3>Lluvia de Sobres</h3>
+                        <p>En la entrada del salón habrá un buzón especial donde podrás depositar tu sobre con los
+                            mejores deseos.</p>
+                    </div>
+
+                    <div class="gift-info-card">
+                        <i class="fa-solid fa-piggy-bank gift-card-icon"></i>
+                        <h3>Transferencia Bancaria</h3>
+                        <p>Si prefieres realizar una transferencia:</p>
+                        <div class="bank-details">
+                            <p><strong>Banco:</strong> <span id="bank-name">BBVA / Banco Central</span></p>
+                            <p><strong>Titular:</strong> <span id="bank-owner">Familia de la Quinceañera</span></p>
+                            <p><strong>CLABE / CBU / ALIAS:</strong> <span id="bank-cbu">012345678901234567</span></p>
+                            <button id="copy-cbu-btn" class="btn btn-sm btn-outline">
+                                <i class="fa-solid fa-copy"></i> Copiar Datos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Gallery Section -->
+            <section id="gallery-section" class="card-section glass-card">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-camera-retro"></i> Recuerdos Reales</span>
+                    <h2>Galería de Fotos</h2>
+                    <p>Un recorrido por los mejores momentos de la Princesa.</p>
+                </div>
+
+                <div class="polaroid-grid" id="polaroid-container"></div>
+            </section>
+
+            <!-- 7. Wishes Wall -->
+            <section id="wishes-section" class="card-section glass-card">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-comments"></i> Libro de Deseos</span>
+                    <h2>Deja tu Felicitación</h2>
+                    <p>Escribe tu mensaje en el muro mágico de la fiesta.</p>
+                </div>
+
+                <div class="wishes-wrapper">
+                    <form id="wish-form" class="wish-form">
+                        <div class="form-group">
+                            <label for="author-input"><i class="fa-solid fa-user"></i> Tu Nombre:</label>
+                            <input type="text" id="author-input" placeholder="Ej. Tía María" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="msg-input"><i class="fa-solid fa-pen"></i> Tu Mensaje:</label>
+                            <textarea id="msg-input" rows="3" placeholder="¡Felicidades en tu día especial!"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-paper-plane"></i> Publicar en el Muro
+                        </button>
+                    </form>
+
+                    <div class="wishes-board" id="wishes-board"></div>
+                </div>
+            </section>
+
+
+            <!-- 8. Video Especial Section -->
+            <section id="video-section" class="card-section glass-card video-card-section">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fa-solid fa-clapperboard"></i> Video Especial</span>
+                    <h2>Momento Especial ✨</h2>
+                    <p>Un recuento mágico grabado con mucho cariño para este día inolvidable.</p>
+                </div>
+
+                <div class="video-container-wrap">
+                    <div class="video-player-frame">
+                        <video id="custom-video-player" controls preload="metadata" poster="assets/hero_bg.jpg">
+                            <source src="assets/video.mp4" type="video/mp4">
+                            Tu navegador no soporta el reproductor de video.
+                        </video>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Invitación Mágica de XV Años | Estilo Princesa Jazmín 👑 ✨</p>
+        </footer>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox hidden">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="Vista ampliada">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+
+        <!-- Live Customizer Modal -->
+        <div id="customizer-modal" class="modal hidden">
+            <div class="modal-content glass-card">
+                <div class="modal-header">
+                    <h3><i class="fa-solid fa-sliders"></i> Personalizar Invitación</h3>
+                    <button class="modal-close" id="close-customizer-btn">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edit-name"><i class="fa-solid fa-crown"></i> Nombre de la Quinceañera /
+                            Festejada:</label>
+                        <input type="text" id="edit-name" value="Princesa Jazmín">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-date"><i class="fa-solid fa-calendar"></i> Fecha del Evento
+                            (YYYY-MM-DD):</label>
+                        <input type="date" id="edit-date" value="2026-10-15">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-hero-msg"><i class="fa-solid fa-paragraph"></i> Frase de Portada:</label>
+                        <textarea id="edit-hero-msg"
+                            rows="3">Te invito a celebrar junto a mí una noche llena de magia, encantos y momentos que guardaremos por siempre en el corazón.</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-church"><i class="fa-solid fa-church"></i> Nombre y Dirección de
+                            Iglesia:</label>
+                        <input type="text" id="edit-church" value="Parroquia de San Juan Bautista - Av. Principal #123">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-hall"><i class="fa-solid fa-glass-cheers"></i> Nombre y Dirección de
+                            Salón:</label>
+                        <input type="text" id="edit-hall"
+                            value="Gran Salón de Eventos Palacio Imperial - Blvd. de las Estrellas #456">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-bank"><i class="fa-solid fa-piggy-bank"></i> CBU / Alias Bancario:</label>
+                        <input type="text" id="edit-bank" value="JAZMIN.XV.ALADDIN">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-whatsapp"><i class="fa-brands fa-whatsapp"></i> Número de WhatsApp para RSVP
+                            (con código de país):</label>
+                        <input type="text" id="edit-whatsapp" value="5215551234567">
+                    </div>
+
+                    <hr style="border-color: rgba(200,150,12,0.3); margin: 0.5rem 0;">
+
+                    <div class="form-group">
+                        <label for="edit-scroll-text"><i class="fa-solid fa-scroll"></i> Texto del Pergamino:</label>
+                        <textarea id="edit-scroll-text"
+                            rows="4">CON LA BENDICIÓN DE DIOS Y EL AMOR QUE MI FAMILIA ME HA DADO, ME SIENTO FELIZ DE LLEGAR A ESTE MOMENTO DE MI VIDA; EL DÍA QUE DEJARÉ ATRÁS MI INFANCIA Y COMENZARÉ UN NUEVO VIAJE. PORQUE SON PARTE DE MI VIDA ES MI DESEO QUE COMPARTAN CONMIGO LA ALEGRÍA DE MIS QUINCE AÑOS..</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-madre"><i class="fa-solid fa-heart"></i> Nombre de la Madre:</label>
+                        <input type="text" id="edit-madre" value="Guadalupe Rodríguez Juache">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-padre"><i class="fa-solid fa-star"></i> Nombre del Padre:</label>
+                        <input type="text" id="edit-padre" value="José Rodríguez Martínez">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button id="save-customizer-btn" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
+                    </button>
+                    <button id="copy-share-url-btn" class="btn btn-secondary">
+                        <i class="fa-solid fa-link"></i> Copiar Enlace Personalizado
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Toast -->
+        <div id="toast" class="toast hidden">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <span id="toast-message">Mensaje de notificación</span>
+        </div>
+
+        <script src="script.js?v=20260823_1835"></script>
+</body>
+
+</html>
