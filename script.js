@@ -143,7 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyStateToUI() {
         bdayNameEl.textContent = appState.name;
-        bdayMsgEl.textContent = appState.heroMsg;
+        if (bdayMsgEl) {
+            bdayMsgEl.textContent = appState.heroMsg;
+        }
         churchNameEl.textContent = appState.churchName;
         churchAddressEl.textContent = appState.churchAddress;
         hallNameEl.textContent = appState.hallName;
@@ -260,19 +262,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    musicBtn.addEventListener('click', () => {
-        initAudio();
-        if (isPlayingMusic) {
-            isPlayingMusic = false;
-            musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
-            showToast('Música pausada');
-        } else {
-            isPlayingMusic = true;
-            musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-            showToast('🎶 Música Mágica Real Activada');
-            playFanfareSFX();
-        }
-    });
+    if (musicBtn) {
+        musicBtn.addEventListener('click', () => {
+            initAudio();
+            if (isPlayingMusic) {
+                isPlayingMusic = false;
+                musicBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+                showToast('Música pausada');
+            } else {
+                isPlayingMusic = true;
+                musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                showToast('🎶 Música Mágica Real Activada');
+                playFanfareSFX();
+            }
+        });
+    }
 
     // --- 5. CANVAS PARTICLE ENGINE ---
     const canvas = document.getElementById('fx-canvas');
@@ -386,19 +390,26 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCanvas();
 
     // --- 6. MAGIC LAMP LOGIC ---
-    rubLampBtn.addEventListener('click', () => {
-        playFanfareSFX();
-        spawnConfetti(width / 2, height / 3, 150);
-        magicLampImg.style.transform = 'scale(1.15) rotate(5deg)';
-        setTimeout(() => magicLampImg.style.transform = 'scale(1) rotate(0deg)', 400);
+    if (rubLampBtn) {
+        rubLampBtn.addEventListener('click', () => {
+            playFanfareSFX();
+            spawnConfetti(width / 2, height / 3, 150);
+            if (magicLampImg) {
+                magicLampImg.style.transform = 'scale(1.15) rotate(5deg)';
+                setTimeout(() => magicLampImg.style.transform = 'scale(1) rotate(0deg)', 400);
+            }
 
-        genieWishBox.classList.remove('hidden');
-        genieWishBox.scrollIntoView({ behavior: 'smooth' });
-        showToast('✨ ¡El Genio de la Lámpara ha aparecido!');
-    });
+            if (genieWishBox) {
+                genieWishBox.classList.remove('hidden');
+                genieWishBox.scrollIntoView({ behavior: 'smooth' });
+            }
+            showToast('✨ ¡El Genio de la Lámpara ha aparecido!');
+        });
+    }
 
     // --- 7. CAKE CANDLES LOGIC ---
     function renderCandles(num) {
+        if (!candlesGroupEl) return;
         candlesGroupEl.innerHTML = '';
         for (let i = 0; i < num; i++) {
             const candle = document.createElement('div');
@@ -410,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function blowOutCandle(candle) {
+        if (!candlesGroupEl || !candle) return;
         if (candle.classList.contains('blown-out')) return;
         candle.classList.add('blown-out');
         playPopSFX();
@@ -418,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const unblown = candlesGroupEl.querySelectorAll('.candle:not(.blown-out)');
         if (unblown.length === 0) {
             playFanfareSFX();
-            celebrationBanner.classList.remove('hidden');
+            if (celebrationBanner) celebrationBanner.classList.remove('hidden');
             for (let i = 0; i < 5; i++) {
                 setTimeout(() => spawnFireworks(), i * 300);
             }
@@ -426,39 +438,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    relightBtn.addEventListener('click', () => {
-        renderCandles(5);
-        celebrationBanner.classList.add('hidden');
-        showToast('Velas encendidas 🕯️');
-    });
+    if (relightBtn) {
+        relightBtn.addEventListener('click', () => {
+            renderCandles(5);
+            if (celebrationBanner) celebrationBanner.classList.add('hidden');
+            showToast('Velas encendidas 🕯️');
+        });
+    }
 
-    fireworksTrigger.addEventListener('click', () => {
-        for (let i = 0; i < 8; i++) setTimeout(() => spawnFireworks(), i * 200);
-    });
+    if (fireworksTrigger) {
+        fireworksTrigger.addEventListener('click', () => {
+            for (let i = 0; i < 8; i++) setTimeout(() => spawnFireworks(), i * 200);
+        });
+    }
 
     // --- 8. RSVP FORM TO WHATSAPP ---
-    rsvpForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('rsvp-name').value.trim();
-        const passes = document.getElementById('rsvp-passes').value;
-        const status = document.getElementById('rsvp-status').value;
-        const msg = document.getElementById('rsvp-msg').value.trim();
+    if (rsvpForm) {
+        rsvpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameField = document.getElementById('rsvp-name');
+            const passesField = document.getElementById('rsvp-passes');
+            const statusField = document.getElementById('rsvp-status');
+            const msgField = document.getElementById('rsvp-msg');
 
-        const text = `¡Hola! Confirmo mi asistencia para los XV Años de ${appState.name}.\n\n*Nombre:* ${name}\n*Pases:* ${passes}\n*Asistencia:* ${status}\n*Mensaje:* ${msg}`;
-        const waUrl = `https://wa.me/${appState.whatsappNum}?text=${encodeURIComponent(text)}`;
+            if (!nameField || !passesField || !statusField || !msgField) return;
 
-        window.open(waUrl, '_blank');
-        showToast('¡Abriendo WhatsApp para confirmar! 📲');
-    });
+            const name = nameField.value.trim();
+            const passes = passesField.value;
+            const status = statusField.value;
+            const msg = msgField.value.trim();
+
+            const text = `¡Hola! Confirmo mi asistencia para los XV Años de ${appState.name}.\n\n*Nombre:* ${name}\n*Pases:* ${passes}\n*Asistencia:* ${status}\n*Mensaje:* ${msg}`;
+            const waUrl = `https://wa.me/${appState.whatsappNum}?text=${encodeURIComponent(text)}`;
+
+            window.open(waUrl, '_blank');
+            showToast('¡Abriendo WhatsApp para confirmar! 📲');
+        });
+    }
 
     // --- 9. BANK COPY CBU ---
-    copyCbuBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(appState.bankCbu).then(() => {
-            showToast('¡Datos bancarios copiados! 📋');
-        }).catch(() => {
-            prompt('Copia estos datos bancarios:', appState.bankCbu);
+    if (copyCbuBtn) {
+        copyCbuBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(appState.bankCbu).then(() => {
+                showToast('¡Datos bancarios copiados! 📋');
+            }).catch(() => {
+                prompt('Copia estos datos bancarios:', appState.bankCbu);
+            });
         });
-    });
+    }
 
     // --- 10. GALLERY & WISHES ---
     function renderGallery() {
@@ -479,7 +506,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    lightboxClose.addEventListener('click', () => lightbox.classList.add('hidden'));
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => lightbox.classList.add('hidden'));
+    }
 
     function renderWishes() {
         wishesBoard.innerHTML = '';
@@ -511,65 +540,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 11. CUSTOMIZER MODAL ---
-    editBtn.addEventListener('click', () => customizerModal.classList.remove('hidden'));
-    closeCustomizerBtn.addEventListener('click', () => customizerModal.classList.add('hidden'));
+    if (editBtn) {
+        editBtn.addEventListener('click', () => customizerModal && customizerModal.classList.remove('hidden'));
+    }
+    if (closeCustomizerBtn) {
+        closeCustomizerBtn.addEventListener('click', () => customizerModal && customizerModal.classList.add('hidden'));
+    }
 
-    saveCustomizerBtn.addEventListener('click', () => {
-        appState.name = editNameInput.value.trim() || defaultData.name;
-        appState.eventDate = editDateInput.value ? editDateInput.value + "T18:00:00" : defaultData.eventDate;
-        appState.heroMsg = editHeroMsgInput.value.trim() || defaultData.heroMsg;
-        appState.scrollText = editScrollTextInput ? (editScrollTextInput.value.trim() || defaultData.scrollText) : defaultData.scrollText;
-        appState.madreName = editMadreInput ? (editMadreInput.value.trim() || defaultData.madreName) : defaultData.madreName;
-        appState.padreName = editPadreInput ? (editPadreInput.value.trim() || defaultData.padreName) : defaultData.padreName;
+    if (saveCustomizerBtn) {
+        saveCustomizerBtn.addEventListener('click', () => {
+            appState.name = editNameInput.value.trim() || defaultData.name;
+            appState.eventDate = editDateInput.value ? editDateInput.value + "T18:00:00" : defaultData.eventDate;
+            appState.heroMsg = editHeroMsgInput.value.trim() || defaultData.heroMsg;
+            appState.scrollText = editScrollTextInput ? (editScrollTextInput.value.trim() || defaultData.scrollText) : defaultData.scrollText;
+            appState.madreName = editMadreInput ? (editMadreInput.value.trim() || defaultData.madreName) : defaultData.madreName;
+            appState.padreName = editPadreInput ? (editPadreInput.value.trim() || defaultData.padreName) : defaultData.padreName;
 
-        const churchParts = editChurchInput.value.split('-');
-        appState.churchName = churchParts[0] ? churchParts[0].trim() : defaultData.churchName;
-        appState.churchAddress = churchParts[1] ? churchParts[1].trim() : defaultData.churchAddress;
+            const churchParts = editChurchInput.value.split('-');
+            appState.churchName = churchParts[0] ? churchParts[0].trim() : defaultData.churchName;
+            appState.churchAddress = churchParts[1] ? churchParts[1].trim() : defaultData.churchAddress;
 
-        const hallParts = editHallInput.value.split('-');
-        appState.hallName = hallParts[0] ? hallParts[0].trim() : defaultData.hallName;
-        appState.hallAddress = hallParts[1] ? hallParts[1].trim() : defaultData.hallAddress;
+            const hallParts = editHallInput.value.split('-');
+            appState.hallName = hallParts[0] ? hallParts[0].trim() : defaultData.hallName;
+            appState.hallAddress = hallParts[1] ? hallParts[1].trim() : defaultData.hallAddress;
 
-        appState.bankCbu = editBankInput.value.trim() || defaultData.bankCbu;
-        appState.whatsappNum = editWhatsappInput.value.trim().replace(/[^0-9]/g, '') || defaultData.whatsappNum;
+            appState.bankCbu = editBankInput.value.trim() || defaultData.bankCbu;
+            appState.whatsappNum = editWhatsappInput.value.trim().replace(/[^0-9]/g, '') || defaultData.whatsappNum;
 
-        saveStateToLocalStorage();
-        applyStateToUI();
-        customizerModal.classList.add('hidden');
-        spawnConfetti();
-        showToast('¡Invitación actualizada! ✨');
-    });
-
-    copyShareUrlBtn.addEventListener('click', () => {
-        const baseUrl = window.location.origin + window.location.pathname;
-        const params = new URLSearchParams({
-            name: appState.name,
-            date: appState.eventDate,
-            msg: appState.heroMsg,
-            church: appState.churchName,
-            hall: appState.hallName,
-            bank: appState.bankCbu,
-            wa: appState.whatsappNum
+            saveStateToLocalStorage();
+            applyStateToUI();
+            if (customizerModal) customizerModal.classList.add('hidden');
+            spawnConfetti();
+            showToast('¡Invitación actualizada! ✨');
         });
-        const shareUrl = `${baseUrl}?${params.toString()}`;
-        navigator.clipboard.writeText(shareUrl).then(() => {
-            showToast('¡Enlace de invitación copiado! 🔗');
-        });
-    });
+    }
 
-    shareBtn.addEventListener('click', () => {
-        const baseUrl = window.location.origin + window.location.pathname;
-        const shareUrl = `${baseUrl}?name=${encodeURIComponent(appState.name)}`;
-        if (navigator.share) {
-            navigator.share({
-                title: `Invitación Mis XV Años - ${appState.name}`,
-                text: `¡Estás invitado/a a celebrar los XV Años de ${appState.name}!`,
-                url: shareUrl
-            }).catch(() => { });
-        } else {
-            navigator.clipboard.writeText(shareUrl).then(() => showToast('Enlace copiado al portapapeles 🔗'));
-        }
-    });
+    if (copyShareUrlBtn) {
+        copyShareUrlBtn.addEventListener('click', () => {
+            const baseUrl = window.location.origin + window.location.pathname;
+            const params = new URLSearchParams({
+                name: appState.name,
+                date: appState.eventDate,
+                msg: appState.heroMsg,
+                church: appState.churchName,
+                hall: appState.hallName,
+                bank: appState.bankCbu,
+                wa: appState.whatsappNum
+            });
+            const shareUrl = `${baseUrl}?${params.toString()}`;
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                showToast('¡Enlace de invitación copiado! 🔗');
+            });
+        });
+    }
+
+    if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+            const baseUrl = window.location.origin + window.location.pathname;
+            const shareUrl = `${baseUrl}?name=${encodeURIComponent(appState.name)}`;
+            if (navigator.share) {
+                navigator.share({
+                    title: `Invitación Mis XV Años - ${appState.name}`,
+                    text: `¡Estás invitado/a a celebrar los XV Años de ${appState.name}!`,
+                    url: shareUrl
+                }).catch(() => { });
+            } else {
+                navigator.clipboard.writeText(shareUrl).then(() => showToast('Enlace copiado al portapapeles 🔗'));
+            }
+        });
+    }
 
     function showToast(msg) {
         toastMsg.textContent = msg;
