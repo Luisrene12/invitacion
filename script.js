@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- INITIAL RENDER ---
     applyStateToUI();
     startCountdown();
+    initHomeAudioAutoplay();
 
     // Welcome burst of fireworks and confetti after 1 second
     setTimeout(() => {
@@ -111,6 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
         spawnFireworks(width * 0.25, height * 0.3);
         spawnFireworks(width * 0.75, height * 0.25);
     }, 1800);
+
+    function initHomeAudioAutoplay() {
+        const audioCard = document.querySelector('.home-audio-card');
+        const audio = audioCard ? audioCard.querySelector('audio') : null;
+        if (!audio || !('IntersectionObserver' in window)) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    audio.play().catch(() => {});
+                }
+            });
+        }, { threshold: 0.55 });
+
+        observer.observe(audioCard);
+    }
 
     // --- 2. PERSISTENCE HELPERS ---
     function loadStateFromURL() {

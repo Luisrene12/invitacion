@@ -1297,8 +1297,9 @@ body {
     position: relative;
     z-index: 5;
     align-self: center;
-    width: min(calc(100% - 2rem), 390px);
-    margin: 0.7rem auto 0;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 0.75rem 1rem;
     text-align: center;
     background: linear-gradient(180deg, rgba(255, 250, 241, 0.96) 0%, rgba(238, 225, 197, 0.98) 100%);
@@ -1326,12 +1327,49 @@ body {
     display: block;
 }
 
+.home-audio-flowers {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    color: #d97c9b;
+    font-size: 1.55rem;
+    line-height: 0.85;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.home-audio-flowers span {
+    color: #e4b84b;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.home-audio-flowers-left {
+    left: 1rem;
+    transform: translateY(-50%) rotate(-12deg);
+}
+
+.home-audio-flowers-right {
+    right: 1rem;
+    transform: translateY(-50%) rotate(12deg);
+}
+
 @media (max-width: 768px) {
     .home-audio-card {
-        width: calc(100% - 2rem);
-        margin: 0.7rem auto 1rem;
+        width: 100%;
+        margin: 0;
         padding: 0.75rem;
         overflow: visible;
+    }
+
+    .home-audio-flowers-left {
+        left: 0.5rem;
+    }
+
+    .home-audio-flowers-right {
+        right: 0.5rem;
     }
 }
 
