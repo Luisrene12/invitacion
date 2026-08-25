@@ -1335,6 +1335,173 @@ body {
 }
 
 /* ===================================================
+   SECCIÓN DE BENDICIÓN - FULL SCREEN EDITORIAL STYLE
+   =================================================== */
+
+.blessing-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* Foto de fondo (vestido rojo de Ana Paula) */
+.blessing-bg-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('image1.jpeg');
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    z-index: 0;
+    animation: blessingZoom 30s ease-in-out infinite alternate;
+}
+
+@keyframes blessingZoom {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.06); }
+}
+
+/* Overlay oscuro elegante - permite leer el texto */
+.blessing-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(5, 5, 15, 0.72) 0%,
+        rgba(10, 10, 30, 0.55) 40%,
+        rgba(5, 5, 15, 0.72) 100%
+    );
+    z-index: 1;
+}
+
+/* Partículas doradas flotantes decorativas */
+.blessing-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.bp {
+    position: absolute;
+    color: rgba(255, 215, 0, 0.55);
+    font-size: 1.1rem;
+    animation: bpFloat 6s ease-in-out infinite;
+}
+.bp1 { top: 12%; left: 8%;  animation-delay: 0s;    animation-duration: 7s; }
+.bp2 { top: 18%; right: 10%; animation-delay: 1.5s; animation-duration: 9s; }
+.bp3 { top: 45%; left: 5%;  animation-delay: 3s;    animation-duration: 8s; }
+.bp4 { top: 65%; right: 7%; animation-delay: 0.8s;  animation-duration: 6s; }
+.bp5 { top: 80%; left: 12%; animation-delay: 2s;    animation-duration: 10s; }
+.bp6 { top: 88%; right: 15%; animation-delay: 4s;   animation-duration: 7s; }
+
+@keyframes bpFloat {
+    0%, 100% { transform: translateY(0) scale(1);    opacity: 0.4; }
+    50%       { transform: translateY(-18px) scale(1.3); opacity: 0.9; }
+}
+
+/* Contenido central */
+.blessing-content {
+    position: relative;
+    z-index: 10;
+    max-width: 750px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* Separadores dorados */
+.blessing-ornament {
+    width: 100%;
+    max-width: 500px;
+    opacity: 0.85;
+}
+
+/* Corona dorada top */
+.blessing-crown-icon {
+    font-size: 2.2rem;
+    color: #ffd700;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+    animation: crownGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes crownGlow {
+    from { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5)); }
+    to   { filter: drop-shadow(0 0 22px rgba(255, 215, 0, 0.95)); transform: scale(1.08); }
+}
+
+/* Texto de la bendición */
+.blessing-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+    font-weight: 400;
+    line-height: 2.1;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.97);
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.9),
+        0 0 6px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    max-width: 680px;
+    border-left: 2px solid rgba(255, 215, 0, 0.45);
+    border-right: 2px solid rgba(255, 215, 0, 0.45);
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+}
+
+/* Firma */
+.blessing-signature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.4rem;
+}
+
+.blessing-signature-dash {
+    color: rgba(255, 215, 0, 0.7);
+    font-size: 1.3rem;
+}
+
+.blessing-signature-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ffd700;
+    text-shadow:
+        0 2px 20px rgba(255, 215, 0, 0.6),
+        0 1px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .blessing-content {
+        padding: 3.5rem 1.2rem;
+        gap: 1.2rem;
+    }
+    .blessing-text {
+        font-size: 0.95rem;
+        line-height: 1.95;
+        letter-spacing: 1px;
+        padding: 1.2rem 1.3rem;
+    }
+    .blessing-signature-name {
+        font-size: 2rem;
+    }
+}
+
+/* ===================================================
    PERGAMINO SCROLL & FAMILY CARDS (EXACT REFERENCE DESIGN)
    =================================================== */
 
