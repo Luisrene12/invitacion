@@ -1322,6 +1322,17 @@ body {
 
 .home-audio-card audio {
     width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .home-audio-card {
+        width: calc(100% - 2rem);
+        margin: 0.7rem auto 1rem;
+        padding: 0.75rem;
+        overflow: visible;
+    }
 }
 
 /* --- 7. WISHES WALL --- */
