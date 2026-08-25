@@ -475,7 +475,7 @@ body {
         min-height: 520px;
     }
     .cover-photo {
-        background-position: center 15%;
+        background-position: center center;
     }
     .cover-name-top {
         padding-top: 70px;
@@ -1291,6 +1291,34 @@ body {
     font-size: 1.4rem;
     text-align: center;
     font-weight: 700;
+}
+
+.gallery-audio-card {
+    align-self: center;
+    width: min(100%, 360px);
+    padding: 1.4rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(197, 155, 39, 0.65);
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    color: #222;
+}
+
+.gallery-audio-icon {
+    color: #187d78;
+    font-size: 1.6rem;
+}
+
+.gallery-audio-title {
+    margin: 0.6rem 0 1rem;
+    font-family: var(--font-fancy);
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.gallery-audio-card audio {
+    width: 100%;
 }
 
 /* --- 7. WISHES WALL --- */

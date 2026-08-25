@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. DEFAULT DATA & INITIALIZATION ---
     const defaultData = {
         name: "ANA PAULA",
-        eventDate: "2027-10-15T18:00:00",
+        eventDate: "2026-09-04T18:00:00",
         heroMsg: "Te invito a celebrar junto a mí una noche llena de magia, encantos y momentos que guardaremos por siempre en el corazón.",
         scrollText: "CON LA BENDICIÓN DE DIOS Y EL AMOR QUE MI FAMILIA ME HA DADO, ME SIENTO FELIZ DE LLEGAR A ESTE MOMENTO DE MI VIDA; EL DÍA QUE DEJARÉ ATRÁS MI INFANCIA Y COMENZARÉ UN NUEVO VIAJE. PORQUE SON PARTE DE MI VIDA ES MI DESEO QUE COMPARTAN CONMIGO LA ALEGRÍA DE MIS QUINCE AÑOS..",
         madreName: "Guadalupe Rodríguez Juache",
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clear old conflicting localStorage state from previous version
     const savedVersion = localStorage.getItem('jazmin_xv_version');
-    if (savedVersion !== '3') {
+    if (savedVersion !== '4') {
         localStorage.removeItem('jazmin_xv_state');
-        localStorage.setItem('jazmin_xv_version', '3');
+        localStorage.setItem('jazmin_xv_version', '4');
     }
 
     let appState = loadStateFromURL() || loadStateFromLocalStorage() || defaultData;
@@ -503,6 +503,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 lightbox.classList.remove('hidden');
             });
             polaroidContainer.appendChild(card);
+
+            if (polaroidContainer.children.length === 1) {
+                const audioCard = document.createElement('div');
+                audioCard.className = 'gallery-audio-card';
+                audioCard.innerHTML = `
+                    <div class="gallery-audio-icon"><i class="fa-solid fa-music"></i></div>
+                    <p class="gallery-audio-title">Dale play a mi canción favorita</p>
+                    <audio controls preload="metadata">
+                        <source src="assets/audio-cumple.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el reproductor de audio.
+                    </audio>
+                `;
+                polaroidContainer.appendChild(audioCard);
+            }
         });
     }
 
