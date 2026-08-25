@@ -34,7 +34,7 @@
         }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=20260824_cover">
+    <link rel="stylesheet" href="styles.css?v=20260824_mobile_responsive">
 </head>
 
 <body>
@@ -94,55 +94,66 @@
     </section>
 
     <!-- ================================================
-         SECCIÓN DE INVITACIÓN (Debajo del cover)
+         SECCIÓN DE COUNTDOWN & INVITACIÓN (Estilo Editorial)
          ================================================ -->
     <section class="invitation-section" id="invitacion">
 
-        <!-- Badge -->
-        <div class="royal-badge animate-bounce inv-badge">
-            <i class="fa-solid fa-sparkles"></i> Una Noche Mágica e Inolvidable <i class="fa-solid fa-sparkles"></i>
-        </div>
+        <!-- Foto de fondo de Ana Paula en el puente -->
+        <div class="invitation-bg-photo"></div>
+        <div class="invitation-vignette"></div>
 
-        <!-- Frase -->
-        <p class="hero-quote" id="bday-message">
-            Te invito a celebrar junto a mí una noche llena de magia,
-            encantos y momentos que guardaremos por siempre en el corazón.
-        </p>
+        <div class="invitation-content">
 
-        <!-- Countdown Timer -->
-        <div class="countdown-container">
-            <h3><i class="fa-solid fa-hourglass-half"></i> Faltan para el Gran Día:</h3>
-            <div class="countdown-grid">
-                <div class="count-box">
-                    <span id="count-days">00</span>
-                    <small>Días</small>
-                </div>
-                <div class="count-box">
-                    <span id="count-hours">00</span>
-                    <small>Horas</small>
-                </div>
-                <div class="count-box">
-                    <span id="count-mins">00</span>
-                    <small>Minutos</small>
-                </div>
-                <div class="count-box">
-                    <span id="count-secs">00</span>
-                    <small>Segundos</small>
+            <!-- Título Script Top -->
+            <h2 class="countdown-script-title">Tan solo faltan</h2>
+
+            <!-- Timer minimalista estilo referencia -->
+            <div class="countdown-minimal-container">
+                <span class="countdown-small-label">Faltan</span>
+                <div class="countdown-digits-row">
+                    <div class="countdown-digit-block">
+                        <span id="count-days" class="digit-val">00</span>
+                        <small class="digit-lbl">DÍAS</small>
+                    </div>
+                    <span class="digit-colon">:</span>
+                    <div class="countdown-digit-block">
+                        <span id="count-hours" class="digit-val">00</span>
+                        <small class="digit-lbl">HORAS</small>
+                    </div>
+                    <span class="digit-colon">:</span>
+                    <div class="countdown-digit-block">
+                        <span id="count-mins" class="digit-val">00</span>
+                        <small class="digit-lbl">MINUTOS</small>
+                    </div>
+                    <span class="digit-colon">:</span>
+                    <div class="countdown-digit-block">
+                        <span id="count-secs" class="digit-val">00</span>
+                        <small class="digit-lbl">SEGUNDOS</small>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Botones -->
-        <div class="hero-actions">
-            <a href="#rsvp-section" class="btn btn-primary">
-                <i class="fa-solid fa-envelope"></i> Confirmar Asistencia
-            </a>
-            <a href="#lamp-section" class="btn btn-secondary">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Lámpara Mágica
-            </a>
-            <a href="#itinerary-section" class="btn btn-outline">
-                <i class="fa-solid fa-location-dot"></i> Ubicaciones
-            </a>
+            <!-- Título Script Bottom -->
+            <h3 class="countdown-script-subtitle">Para este día tan especial</h3>
+
+            <!-- Frase de invitación -->
+            <p class="hero-quote inv-quote" id="bday-message">
+                Te invito a celebrar junto a mí una noche llena de magia, encantos y momentos que guardaremos por siempre en el corazón.
+            </p>
+
+            <!-- Botones de Acción -->
+            <div class="hero-actions inv-actions">
+                <a href="#rsvp-section" class="btn btn-primary">
+                    <i class="fa-solid fa-envelope"></i> Confirmar Asistencia
+                </a>
+                <a href="#lamp-section" class="btn btn-secondary">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Lámpara Mágica
+                </a>
+                <a href="#itinerary-section" class="btn btn-outline">
+                    <i class="fa-solid fa-location-dot"></i> Ubicaciones
+                </a>
+            </div>
+
         </div>
     </section>
 
