@@ -1293,31 +1293,34 @@ body {
     font-weight: 700;
 }
 
-.gallery-audio-card {
+.home-audio-card {
+    position: relative;
+    z-index: 5;
     align-self: center;
-    width: min(100%, 360px);
-    padding: 1.4rem;
+    width: min(calc(100% - 2rem), 390px);
+    margin: 0.7rem auto 0;
+    padding: 0.75rem 1rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(197, 155, 39, 0.65);
-    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(255, 250, 241, 0.96) 0%, rgba(238, 225, 197, 0.98) 100%);
+    border: 2px solid rgba(184, 138, 54, 0.8);
+    border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     color: #222;
 }
 
-.gallery-audio-icon {
+.home-audio-icon {
     color: #187d78;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 
-.gallery-audio-title {
-    margin: 0.6rem 0 1rem;
+.home-audio-title {
+    margin: 0.3rem 0 0.55rem;
     font-family: var(--font-fancy);
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     font-weight: 700;
 }
 
-.gallery-audio-card audio {
+.home-audio-card audio {
     width: 100%;
 }
 

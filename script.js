@@ -503,20 +503,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 lightbox.classList.remove('hidden');
             });
             polaroidContainer.appendChild(card);
-
-            if (polaroidContainer.children.length === 1) {
-                const audioCard = document.createElement('div');
-                audioCard.className = 'gallery-audio-card';
-                audioCard.innerHTML = `
-                    <div class="gallery-audio-icon"><i class="fa-solid fa-music"></i></div>
-                    <p class="gallery-audio-title">Dale play a mi canción favorita</p>
-                    <audio controls preload="metadata">
-                        <source src="assets/audio-cumple.mp3" type="audio/mpeg">
-                        Tu navegador no soporta el reproductor de audio.
-                    </audio>
-                `;
-                polaroidContainer.appendChild(audioCard);
-            }
         });
     }
 
