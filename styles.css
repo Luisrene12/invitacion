@@ -164,43 +164,41 @@ body {
     to   { transform: scale(1.06); }
 }
 
-/* Vignette: oscurece bordes suavemente, centro despejado */
+/* Vignette: sombra sutil top y bottom para dejar la foto 100% brillante y original */
 .cover-vignette {
     position: absolute;
     inset: 0;
-    background:
-        /* Sombra superior para el nombre */
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.55) 0%,
-            rgba(0, 0, 0, 0.18) 22%,
-            rgba(0, 0, 0, 0.0)  45%,
-            rgba(0, 0, 0, 0.0)  60%,
-            rgba(0, 0, 0, 0.35) 80%,
-            rgba(0, 0, 0, 0.72) 100%
-        );
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.0) 25%,
+        rgba(0, 0, 0, 0.0) 70%,
+        rgba(0, 0, 0, 0.45) 100%
+    );
     z-index: 1;
 }
 
-/* NOMBRE - Parte superior centrada */
+/* NOMBRE - Tipografía clara, legible y elegante */
 .cover-name-top {
     position: relative;
     z-index: 10;
     width: 100%;
     text-align: center;
-    padding-top: 80px;   /* espacio bajo el navbar */
+    padding-top: 85px;   /* espacio bajo el navbar */
     pointer-events: none;
 }
 
 .cover-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 10vw, 8rem);
-    line-height: 1;
-    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: 8px;
     text-shadow:
-        0 2px 25px rgba(0,0,0,0.55),
-        0 1px  4px rgba(0,0,0,0.6);
-    letter-spacing: 2px;
+        0 2px 15px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(0, 0, 0, 0.6);
     animation: coverNameFade 1.4s ease both;
 }
 
@@ -314,23 +312,17 @@ body {
     to   { transform: scale(1.08); }
 }
 
-/* Overlay / Vignette cinematográfico */
+/* Overlay sutil para dejar la foto 100% brillante y clara */
 .invitation-vignette {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(5, 8, 17, 0.75) 0%,
-            rgba(7, 13, 25, 0.45) 35%,
-            rgba(7, 13, 25, 0.55) 65%,
-            rgba(7, 13, 25, 0.92) 100%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            transparent 30%,
-            rgba(5, 8, 17, 0.6) 100%
-        );
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.1) 30%,
+        rgba(0, 0, 0, 0.1) 70%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
     z-index: 1;
 }
 
@@ -488,7 +480,8 @@ body {
         padding-top: 70px;
     }
     .cover-name {
-        font-size: clamp(3rem, 13vw, 5.5rem);
+        font-size: clamp(1.8rem, 8vw, 3.2rem);
+        letter-spacing: 4px;
         padding: 0 0.5rem;
     }
     .cover-bottom {
