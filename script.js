@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const genieWishBox = document.getElementById('genie-wish-box');
     const magicLampImg = document.getElementById('magic-lamp-img');
     const copyCbuBtn = document.getElementById('copy-cbu-btn');
-    
+
     // Cake Controls
     const candlesGroupEl = document.getElementById('candles-group');
     const celebrationBanner = document.getElementById('celebration-banner');
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gain.connect(audioCtx.destination);
             osc.start();
             osc.stop(audioCtx.currentTime + duration);
-        } catch (e) {}
+        } catch (e) { }
     }
 
     function playPopSFX() {
@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appState.scrollText = editScrollTextInput ? (editScrollTextInput.value.trim() || defaultData.scrollText) : defaultData.scrollText;
         appState.madreName = editMadreInput ? (editMadreInput.value.trim() || defaultData.madreName) : defaultData.madreName;
         appState.padreName = editPadreInput ? (editPadreInput.value.trim() || defaultData.padreName) : defaultData.padreName;
-        
+
         const churchParts = editChurchInput.value.split('-');
         appState.churchName = churchParts[0] ? churchParts[0].trim() : defaultData.churchName;
         appState.churchAddress = churchParts[1] ? churchParts[1].trim() : defaultData.churchAddress;
@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: `Invitación Mis XV Años - ${appState.name}`,
                 text: `¡Estás invitado/a a celebrar los XV Años de ${appState.name}!`,
                 url: shareUrl
-            }).catch(() => {});
+            }).catch(() => { });
         } else {
             navigator.clipboard.writeText(shareUrl).then(() => showToast('Enlace copiado al portapapeles 🔗'));
         }
