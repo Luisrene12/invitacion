@@ -720,19 +720,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
 
-        // Auto rotate every 4.5 seconds
-        let autoTimer = setInterval(() => {
+        const rotateCarousel = () => {
             currentIndex = (currentIndex + 1) % total;
             updateCarousel();
-        }, 4500);
+        };
+
+        // Auto rotate while the page is visible.
+        let autoTimer = setInterval(rotateCarousel, 2000);
 
         stage.addEventListener('mouseenter', () => clearInterval(autoTimer));
         stage.addEventListener('mouseleave', () => {
             clearInterval(autoTimer);
-            autoTimer = setInterval(() => {
-                currentIndex = (currentIndex + 1) % total;
-                updateCarousel();
-            }, 4500);
+            autoTimer = setInterval(rotateCarousel, 2000);
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            clearInterval(autoTimer);
+            if (!document.hidden) autoTimer = setInterval(rotateCarousel, 2000);
         });
 
         updateCarousel();
