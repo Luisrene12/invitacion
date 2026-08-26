@@ -505,7 +505,7 @@ body {
         padding: 4.5rem 1rem 3rem;
     }
     .invitation-bg-photo {
-        background-position: 100% center;
+        background-position: 85% center;
     }
     .invitation-content {
         gap: 0.8rem;
@@ -1841,6 +1841,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
+    flex-wrap: nowrap;
     position: relative;
     z-index: 6;
 }
@@ -2026,14 +2027,12 @@ body {
 }
 
 .role-title-text.grand-script-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.6rem, 5.5vw, 3.4rem);
-    background: linear-gradient(135deg, #7c540a 0%, #d4af37 35%, #fff2b2 50%, #c59b27 75%, #7c540a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-    filter: drop-shadow(0 2px 4px rgba(124, 84, 10, 0.25));
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 5vw, 2.4rem);
+    color: #b8860b;
+    display: block;
+    white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
     line-height: 1.1;
     padding: 0 0.3rem;
 }
@@ -3186,6 +3185,17 @@ body {
     }
     .madre-fp-honor-section {
         padding: 1rem;
+    }
+    .family-role-title-box.grand-title-box {
+        gap: 0.15rem;
+    }
+    .family-role-title-box.grand-title-box .gold-filigree-wing svg {
+        width: 38px;
+        height: 18px;
+    }
+    .role-title-text.grand-script-title {
+        font-size: 1.15rem;
+        padding: 0;
     }
 }
 
