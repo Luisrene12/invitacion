@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@700;900&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome icons -->
@@ -148,17 +148,40 @@
         <!-- SCROLL (PERGAMINO) -->
         <div class="pergamino-container">
 
-            <!-- Floating Magic Carpet Top-Left -->
-            <div class="carpet-overlay">
-                <svg viewBox="0 0 100 60" width="75" height="45">
-                    <path d="M10,25 Q30,10 50,25 Q70,40 90,25 Q95,45 80,42 Q50,40 20,42 Z" fill="#0089b3"
-                        stroke="#d4af37" stroke-width="2" />
-                    <path d="M15,26 Q32,13 50,26 Q68,39 85,26" fill="none" stroke="#ffd700" stroke-width="1.5"
-                        stroke-dasharray="3,3" />
-                    <circle cx="10" cy="25" r="3" fill="#ffd700" />
-                    <circle cx="90" cy="25" r="3" fill="#ffd700" />
-                    <circle cx="20" cy="42" r="3" fill="#ffd700" />
-                    <circle cx="80" cy="42" r="3" fill="#ffd700" />
+            <!-- Floating Magic Carpet Top-Left (Matching Reference) -->
+            <div class="carpet-overlay" aria-hidden="true">
+                <svg viewBox="0 0 140 90" width="110" height="70" class="carpet-svg">
+                    <defs>
+                        <linearGradient id="carpetBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="35%" stop-color="#0284c7"/>
+                            <stop offset="70%" stop-color="#0369a1"/>
+                            <stop offset="100%" stop-color="#082f49"/>
+                        </linearGradient>
+                        <linearGradient id="carpetGoldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffe066"/>
+                            <stop offset="50%" stop-color="#d4af37"/>
+                            <stop offset="100%" stop-color="#8c6208"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Carpet body wave -->
+                    <path d="M15,35 Q40,10 75,30 Q105,48 125,25 Q130,55 105,62 Q65,42 30,68 Q10,55 15,35 Z" fill="url(#carpetBodyGrad)" stroke="url(#carpetGoldBorder)" stroke-width="4"/>
+                    <!-- Inner golden patterns -->
+                    <path d="M22,38 Q43,18 73,34 Q100,50 118,32 Q120,50 100,56 Q66,39 34,60 Q18,48 22,38 Z" fill="none" stroke="url(#carpetGoldBorder)" stroke-width="2" stroke-dasharray="4,3"/>
+                    <!-- Center oriental medallion -->
+                    <ellipse cx="68" cy="42" rx="14" ry="8" fill="none" stroke="#ffe066" stroke-width="1.8" transform="rotate(-5 68 42)"/>
+                    <circle cx="68" cy="42" r="3.5" fill="#f59e0b"/>
+                    <!-- Corner gold tassels -->
+                    <g fill="#d4af37" stroke="#8c6208" stroke-width="0.5">
+                        <circle cx="14" cy="35" r="3"/>
+                        <path d="M14,38 L10,50 L18,50 Z"/>
+                        <circle cx="125" cy="25" r="3"/>
+                        <path d="M125,28 L121,40 L129,40 Z"/>
+                        <circle cx="10" cy="56" r="3"/>
+                        <path d="M10,59 L6,71 L14,71 Z"/>
+                        <circle cx="106" cy="63" r="3"/>
+                        <path d="M106,66 L102,78 L110,78 Z"/>
+                    </g>
                 </svg>
             </div>
 
@@ -171,65 +194,145 @@
 
             <!-- Scroll Body Sheet -->
             <div class="scroll-sheet-body">
-
-                <!-- Gold Filigree Ornament Top -->
-                <div class="scroll-filigree-divider">
-                    <svg viewBox="0 0 320 40" width="100%" height="38">
-                        <g fill="none" stroke="#c59b27" stroke-width="1.5">
-                            <path d="M10,20 Q60,20 100,20 Q120,5 140,20" />
-                            <path d="M310,20 Q260,20 220,20 Q200,5 180,20" />
-                            <path d="M60,20 C60,10 80,10 80,20 C80,26 70,26 70,20" stroke-width="1.2" />
-                            <path d="M260,20 C260,10 240,10 240,20 C240,26 250,26 250,20" stroke-width="1.2" />
-                            <circle cx="110" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
-                            <circle cx="210" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
-                            <ellipse cx="160" cy="20" rx="10" ry="13" fill="#c59b27" />
-                            <ellipse cx="160" cy="20" rx="7" ry="10" fill="url(#tealGemGrad1)" />
+                <!-- Princess Jasmine Silhouette Watermark in Background -->
+                <div class="jasmine-watermark" aria-hidden="true">
+                    <svg viewBox="0 0 200 300" width="220" height="330" opacity="0.14">
+                        <g fill="#0284c7">
+                            <!-- Jasmine profile & hair silhouette -->
+                            <path d="M100,50 Q120,40 130,60 Q135,75 125,85 Q135,100 120,110 Q110,115 100,115 Q85,115 75,100 Q65,80 75,60 Q85,45 100,50 Z"/>
+                            <!-- Headband & jewel -->
+                            <path d="M78,65 Q100,58 122,65 Q115,70 100,68 Q85,70 78,65 Z" fill="#d4af37" opacity="0.8"/>
+                            <ellipse cx="100" cy="66" rx="4" ry="5" fill="#0284c7" opacity="0.9"/>
+                            <!-- Ponytail segments -->
+                            <ellipse cx="128" cy="115" rx="18" ry="24" transform="rotate(25 128 115)"/>
+                            <ellipse cx="140" cy="155" rx="22" ry="28" transform="rotate(20 140 155)"/>
+                            <ellipse cx="148" cy="205" rx="20" ry="30" transform="rotate(15 148 205)"/>
+                            <ellipse cx="152" cy="255" rx="15" ry="25" transform="rotate(10 152 255)"/>
+                            <!-- Ponytail gold bands -->
+                            <ellipse cx="134" cy="133" rx="10" ry="4" fill="#d4af37" opacity="0.8" transform="rotate(20 134 133)"/>
+                            <ellipse cx="144" cy="180" rx="10" ry="4" fill="#d4af37" opacity="0.8" transform="rotate(15 144 180)"/>
+                            <ellipse cx="150" cy="230" rx="8" ry="3" fill="#d4af37" opacity="0.8" transform="rotate(10 150 230)"/>
+                            <!-- Torso / Shoulders -->
+                            <path d="M75,120 Q100,125 125,120 Q145,150 150,210 Q100,230 50,210 Q55,150 75,120 Z"/>
                         </g>
+                    </svg>
+                </div>
+
+                <!-- Gold Filigree Ornament Top (Matching Reference Image) -->
+                <div class="scroll-filigree-divider">
+                    <svg viewBox="0 0 380 60" width="100%" height="52">
+                        <g fill="none" stroke="#c59b27" stroke-width="1.8">
+                            <!-- Left baroque scrollwork -->
+                            <path d="M30,30 C50,8 90,12 110,32 C125,48 150,48 165,30" />
+                            <path d="M30,30 C45,18 60,24 62,32 C65,42 55,48 42,42" />
+                            <path d="M110,32 C120,20 138,20 148,32" stroke-width="1.2"/>
+                            <!-- Right baroque scrollwork -->
+                            <path d="M350,30 C330,8 290,12 270,32 C255,48 230,48 215,30" />
+                            <path d="M350,30 C335,18 320,24 318,32 C315,42 325,48 338,42" />
+                            <path d="M270,32 C260,20 242,20 232,32" stroke-width="1.2"/>
+                            <!-- Top crown leaf -->
+                            <path d="M175,25 Q190,8 205,25" />
+                            <path d="M185,18 Q190,10 195,18" stroke-width="1"/>
+                        </g>
+                        <!-- Sparkles ✦ on sides -->
+                        <path d="M12,30 L16,30 M14,26 L14,34" stroke="#c59b27" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M368,30 L364,30 M366,26 L366,34" stroke="#c59b27" stroke-width="2" stroke-linecap="round"/>
+                        <!-- White flowers with gold centers -->
+                        <g fill="#ffffff" stroke="#c59b27" stroke-width="0.8">
+                            <!-- Left flower -->
+                            <circle cx="85" cy="30" r="3.5"/>
+                            <circle cx="80" cy="27" r="3"/>
+                            <circle cx="90" cy="27" r="3"/>
+                            <circle cx="82" cy="35" r="3"/>
+                            <circle cx="88" cy="35" r="3"/>
+                            <circle cx="85" cy="30" r="2.2" fill="#d4af37" stroke="none"/>
+                            <!-- Right flower -->
+                            <circle cx="295" cy="30" r="3.5"/>
+                            <circle cx="290" cy="27" r="3"/>
+                            <circle cx="300" cy="27" r="3"/>
+                            <circle cx="292" cy="35" r="3"/>
+                            <circle cx="298" cy="35" r="3"/>
+                            <circle cx="295" cy="30" r="2.2" fill="#d4af37" stroke="none"/>
+                        </g>
+                        <!-- Center Gold Bezel with Teal Gem -->
+                        <ellipse cx="190" cy="30" rx="14" ry="17" fill="#c59b27" stroke="#ffe066" stroke-width="1.5"/>
+                        <ellipse cx="190" cy="30" rx="10" ry="13" fill="url(#tealGemGradTop)"/>
+                        <ellipse cx="187" cy="24" rx="3.5" ry="5" fill="#ffffff" opacity="0.6"/>
                         <defs>
-                            <radialGradient id="tealGemGrad1" cx="35%" cy="30%" r="70%">
-                                <stop offset="0%" stop-color="#80ffff" />
-                                <stop offset="40%" stop-color="#00c6ff" />
-                                <stop offset="100%" stop-color="#006680" />
+                            <radialGradient id="tealGemGradTop" cx="35%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#a5f3fc"/>
+                                <stop offset="35%" stop-color="#06b6d4"/>
+                                <stop offset="75%" stop-color="#0891b2"/>
+                                <stop offset="100%" stop-color="#164e63"/>
                             </radialGradient>
                         </defs>
                     </svg>
                 </div>
 
-                <!-- Invitation Text -->
+                <!-- Invitation Text (Faithful layout & typography) -->
                 <p class="scroll-invitation-text" id="scroll-invitation-text">
-                    CON LA BENDICIÓN DE DIOS Y EL AMOR QUE MI FAMILIA ME HA DADO, ME SIENTO FELIZ DE LLEGAR A ESTE
-                    MOMENTO DE MI VIDA; EL DÍA QUE DEJARÉ ATRÁS MI INFANCIA Y COMENZARÉ UN NUEVO VIAJE. PORQUE SON PARTE
-                    DE MI VIDA ES MI DESEO QUE COMPARTAN CONMIGO LA ALEGRÍA DE MIS QUINCE AÑOS..
+                    CON LA BENDICIÓN DE DIOS Y EL AMOR QUE MI FAMILIA ME HA DADO, ME SIENTO FELIZ DE LLEGAR A ESTE MOMENTO DE MI VIDA; EL DÍA QUE DEJARÉ ATRÁS MI INFANCIA Y COMENZARÉ UN NUEVO VIAJE. PORQUE SON PARTE DE MI VIDA ES MI DESEO QUE COMPARTAN CONMIGO LA ALEGRÍA DE MIS QUINCE AÑOS..
                 </p>
 
-                <!-- Gold Filigree Ornament Bottom -->
+                <!-- Gold Filigree Ornament Bottom (Matching Reference Image) -->
                 <div class="scroll-filigree-divider">
-                    <svg viewBox="0 0 320 40" width="100%" height="38">
-                        <g fill="none" stroke="#c59b27" stroke-width="1.5">
-                            <path d="M10,20 Q60,20 100,20 Q120,5 140,20" />
-                            <path d="M310,20 Q260,20 220,20 Q200,5 180,20" />
-                            <path d="M60,20 C60,10 80,10 80,20 C80,26 70,26 70,20" stroke-width="1.2" />
-                            <path d="M260,20 C260,10 240,10 240,20 C240,26 250,26 250,20" stroke-width="1.2" />
-                            <circle cx="110" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
-                            <circle cx="210" cy="14" r="3.5" fill="#ffffff" stroke="#c59b27" stroke-width="1" />
-                            <ellipse cx="160" cy="20" rx="10" ry="13" fill="#c59b27" />
-                            <ellipse cx="160" cy="20" rx="7" ry="10" fill="url(#tealGemGrad2)" />
+                    <svg viewBox="0 0 380 60" width="100%" height="52">
+                        <g fill="none" stroke="#c59b27" stroke-width="1.8">
+                            <!-- Left baroque scrollwork -->
+                            <path d="M30,30 C50,8 90,12 110,32 C125,48 150,48 165,30" />
+                            <path d="M30,30 C45,18 60,24 62,32 C65,42 55,48 42,42" />
+                            <path d="M110,32 C120,20 138,20 148,32" stroke-width="1.2"/>
+                            <!-- Right baroque scrollwork -->
+                            <path d="M350,30 C330,8 290,12 270,32 C255,48 230,48 215,30" />
+                            <path d="M350,30 C335,18 320,24 318,32 C315,42 325,48 338,42" />
+                            <path d="M270,32 C260,20 242,20 232,32" stroke-width="1.2"/>
+                            <!-- Bottom crown leaf -->
+                            <path d="M175,35 Q190,52 205,35" />
+                            <path d="M185,42 Q190,50 195,42" stroke-width="1"/>
                         </g>
+                        <!-- Sparkles ✦ on sides -->
+                        <path d="M12,30 L16,30 M14,26 L14,34" stroke="#c59b27" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M368,30 L364,30 M366,26 L366,34" stroke="#c59b27" stroke-width="2" stroke-linecap="round"/>
+                        <!-- White flowers with gold centers -->
+                        <g fill="#ffffff" stroke="#c59b27" stroke-width="0.8">
+                            <!-- Left flower -->
+                            <circle cx="85" cy="30" r="3.5"/>
+                            <circle cx="80" cy="27" r="3"/>
+                            <circle cx="90" cy="27" r="3"/>
+                            <circle cx="82" cy="35" r="3"/>
+                            <circle cx="88" cy="35" r="3"/>
+                            <circle cx="85" cy="30" r="2.2" fill="#d4af37" stroke="none"/>
+                            <!-- Right flower -->
+                            <circle cx="295" cy="30" r="3.5"/>
+                            <circle cx="290" cy="27" r="3"/>
+                            <circle cx="300" cy="27" r="3"/>
+                            <circle cx="292" cy="35" r="3"/>
+                            <circle cx="298" cy="35" r="3"/>
+                            <circle cx="295" cy="30" r="2.2" fill="#d4af37" stroke="none"/>
+                        </g>
+                        <!-- Center Gold Bezel with Teal Gem -->
+                        <ellipse cx="190" cy="30" rx="14" ry="17" fill="#c59b27" stroke="#ffe066" stroke-width="1.5"/>
+                        <ellipse cx="190" cy="30" rx="10" ry="13" fill="url(#tealGemGradBtm)"/>
+                        <ellipse cx="187" cy="24" rx="3.5" ry="5" fill="#ffffff" opacity="0.6"/>
                         <defs>
-                            <radialGradient id="tealGemGrad2" cx="35%" cy="30%" r="70%">
-                                <stop offset="0%" stop-color="#80ffff" />
-                                <stop offset="40%" stop-color="#00c6ff" />
-                                <stop offset="100%" stop-color="#006680" />
+                            <radialGradient id="tealGemGradBtm" cx="35%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#a5f3fc"/>
+                                <stop offset="35%" stop-color="#06b6d4"/>
+                                <stop offset="75%" stop-color="#0891b2"/>
+                                <stop offset="100%" stop-color="#164e63"/>
                             </radialGradient>
                         </defs>
                     </svg>
                 </div>
             </div>
 
-            <!-- Bottom Rolled Scroll End -->
+            <!-- Bottom Rolled Scroll End with Sparkle Glitter Trail -->
             <div class="scroll-roll-bar scroll-roll-bar-bottom">
                 <div class="roll-spiral roll-spiral-left"></div>
-                <div class="roll-cylinder"></div>
+                <div class="roll-cylinder">
+                    <!-- Glitter Dust Swirl across bottom cylinder -->
+                    <div class="cylinder-sparkle-trail"></div>
+                </div>
                 <div class="roll-spiral roll-spiral-right"></div>
                 <div class="sparkle-dust-cloud"></div>
             </div>
@@ -734,35 +837,283 @@
 
     </section>
 
-    <section class="misa-card-wrap" aria-label="Datos de la misa">
-        <div class="misa-card">
-            <div class="misa-spray misa-spray-left" aria-hidden="true"></div>
-            <div class="misa-spray misa-spray-right" aria-hidden="true"></div>
-            <div class="misa-bloom misa-bloom-top" aria-hidden="true"></div>
-
-            <div class="misa-ornament-top">
-                <span class="ornament-dot ornament-left"></span>
-                <span class="ornament-center"></span>
-                <span class="ornament-dot ornament-right"></span>
+    <!-- CEREMONIA / MISA (MATCHING REFERENCE IMAGE 1:1) -->
+    <section class="misa-card-wrap" id="ceremonia-section" aria-label="Datos de la misa y ceremonia">
+        <div class="misa-card-container">
+            
+            <!-- Hanging Clouds & Lanterns (Top-Left Decor) -->
+            <div class="misa-decor-cloud-lamp" aria-hidden="true">
+                <svg viewBox="0 0 100 130" width="80" height="104">
+                    <!-- Cloud -->
+                    <path d="M20,35 Q10,35 10,25 Q10,12 25,12 Q32,2 48,6 Q60,0 72,8 Q85,5 88,18 Q98,18 96,30 Q96,38 85,38 Z" fill="#e0f2fe" opacity="0.85"/>
+                    <path d="M25,32 Q18,32 18,24 Q22,16 32,16 Q38,8 52,12 Q64,6 74,14 Q82,12 85,22 Q90,24 88,32 Z" fill="#ffffff" opacity="0.9"/>
+                    <!-- Hanging Lantern 1 -->
+                    <line x1="32" y1="32" x2="32" y2="70" stroke="#d4af37" stroke-width="1.2"/>
+                    <g transform="translate(24, 70) scale(0.65)">
+                        <polygon points="12,0 24,8 18,28 6,28 0,8" fill="#d4af37"/>
+                        <polygon points="12,4 20,9 15,25 9,25 4,9" fill="#fef08a"/>
+                        <circle cx="12" cy="16" r="3.5" fill="#f59e0b"/>
+                        <line x1="12" y1="28" x2="12" y2="36" stroke="#d4af37" stroke-width="2"/>
+                    </g>
+                    <!-- Hanging Lantern 2 -->
+                    <line x1="56" y1="28" x2="56" y2="85" stroke="#d4af37" stroke-width="1.2"/>
+                    <g transform="translate(47, 85) scale(0.8)">
+                        <polygon points="12,0 24,8 18,28 6,28 0,8" fill="#d4af37"/>
+                        <polygon points="12,4 20,9 15,25 9,25 4,9" fill="#fef08a"/>
+                        <circle cx="12" cy="16" r="4" fill="#f59e0b"/>
+                        <line x1="12" y1="28" x2="12" y2="38" stroke="#d4af37" stroke-width="2"/>
+                    </g>
+                </svg>
             </div>
 
-            <div class="misa-arch-frame">
-                <div class="misa-floral floral-left"></div>
-                <div class="misa-floral floral-right"></div>
+            <!-- Golden Botanical Orchid Line-Art (Right Decor) -->
+            <div class="misa-decor-orchid" aria-hidden="true">
+                <svg viewBox="0 0 120 280" width="100" height="230">
+                    <g fill="none" stroke="#d4af37" stroke-width="1.4" opacity="0.65">
+                        <!-- Stem -->
+                        <path d="M100,270 Q60,180 85,90 Q95,40 70,10"/>
+                        <!-- Flowers -->
+                        <path d="M85,90 C60,75 50,100 70,110 C90,120 105,100 85,90 Z"/>
+                        <circle cx="80" cy="100" r="4" fill="#d4af37" opacity="0.5"/>
+                        <path d="M72,40 C50,30 40,55 60,65 C80,75 95,55 72,40 Z"/>
+                        <circle cx="68" cy="50" r="3.5" fill="#d4af37" opacity="0.5"/>
+                        <path d="M90,160 C70,145 60,170 80,180 C100,190 115,170 90,160 Z"/>
+                        <circle cx="86" cy="170" r="4" fill="#d4af37" opacity="0.5"/>
+                        <!-- Buds & Tendrils -->
+                        <path d="M70,10 Q50,0 55,20"/>
+                        <circle cx="55" cy="20" r="3" fill="#d4af37"/>
+                    </g>
+                </svg>
+            </div>
 
-                <div class="misa-arch-inner">
-                    <div class="misa-script">Oracion de accion de Gracias:</div>
-                    <p class="misa-address">Parroquia basílica de guadalupe,<br>#1005 Col. Santuario.<br>20:30 PM.</p>
-                    <div class="misa-cross" aria-hidden="true"></div>
+            <!-- Side Filigree with Green Gem (Left Decor) -->
+            <div class="misa-decor-side-gem" aria-hidden="true">
+                <svg viewBox="0 0 60 60" width="40" height="40">
+                    <path d="M5,30 Q20,15 35,30 Q20,45 5,30" fill="none" stroke="#c59b27" stroke-width="1.5"/>
+                    <path d="M35,30 Q45,20 55,30 Q45,40 35,30" fill="none" stroke="#c59b27" stroke-width="1.2"/>
+                    <polygon points="20,24 26,30 20,36 14,30" fill="#059669" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+            </div>
+
+            <!-- TOP DATE HEADER: OCTUBRE / SÁB | 03 | 2026 -->
+            <div class="misa-header-date">
+                <h2 class="misa-month-title">OCTUBRE</h2>
+                <div class="misa-day-row">
+                    <span class="misa-day-name">SÁB</span>
+                    <div class="misa-date-divider-v">
+                        <span class="v-line"></span>
+                        <span class="v-diamond">✦</span>
+                        <span class="v-line"></span>
+                    </div>
+                    <span class="misa-day-number">03</span>
+                    <div class="misa-date-divider-v">
+                        <span class="v-line"></span>
+                        <span class="v-diamond">✦</span>
+                        <span class="v-line"></span>
+                    </div>
+                    <span class="misa-year-name">2026</span>
+                </div>
+
+                <!-- Ornate Gold Bar with Green Gem -->
+                <div class="misa-date-ornament-bar">
+                    <svg viewBox="0 0 360 40" width="100%" height="32">
+                        <g fill="none" stroke="#c59b27" stroke-width="1.8">
+                            <line x1="10" y1="20" x2="145" y2="20"/>
+                            <line x1="215" y1="20" x2="350" y2="20"/>
+                            <circle cx="15" cy="20" r="3" fill="#d4af37"/>
+                            <circle cx="345" cy="20" r="3" fill="#d4af37"/>
+                            <!-- Scrollwork loops near gem -->
+                            <path d="M125,20 C135,10 150,10 158,20 C150,30 135,30 125,20"/>
+                            <path d="M235,20 C225,10 210,10 202,20 C210,30 225,30 235,20"/>
+                        </g>
+                        <!-- Center Gold Bezel with Green/Teal Emerald Gem -->
+                        <polygon points="180,6 194,20 180,34 166,20" fill="#c59b27" stroke="#ffe066" stroke-width="1"/>
+                        <polygon points="180,9 190,20 180,31 170,20" fill="url(#misaGreenGem)"/>
+                        <polygon points="180,12 186,20 180,26 174,20" fill="#6ee7b7" opacity="0.6"/>
+                        <defs>
+                            <linearGradient id="misaGreenGem" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#34d399"/>
+                                <stop offset="40%" stop-color="#059669"/>
+                                <stop offset="100%" stop-color="#064e3b"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
                 </div>
             </div>
 
-            <div class="misa-map-bar">
-                <a href="https://www.google.com/maps?q=-18.329088,-59.754815" target="_blank" rel="noopener noreferrer">
-                    <span class="map-pin">📍</span>
+            <!-- CENTRAL GOLDEN ARCH (PORTAL DE LA MISA) -->
+            <div class="misa-golden-portal-wrap">
+
+                <!-- White Roses & Eucalyptus Floral Crown (Top of Arch) -->
+                <div class="misa-arch-floral-crown" aria-hidden="true">
+                    <svg viewBox="0 0 320 110" width="280" height="96" class="floral-crown-svg">
+                        <!-- Foliage / Eucalyptus leaves -->
+                        <g fill="#93a895" stroke="#5d7360" stroke-width="0.5">
+                            <ellipse cx="60" cy="65" rx="14" ry="7" transform="rotate(-30 60 65)"/>
+                            <ellipse cx="80" cy="45" rx="15" ry="8" transform="rotate(-40 80 45)"/>
+                            <ellipse cx="105" cy="30" rx="16" ry="8" transform="rotate(-20 105 30)"/>
+                            <ellipse cx="215" cy="30" rx="16" ry="8" transform="rotate(20 215 30)"/>
+                            <ellipse cx="240" cy="45" rx="15" ry="8" transform="rotate(40 240 45)"/>
+                            <ellipse cx="260" cy="65" rx="14" ry="7" transform="rotate(30 260 65)"/>
+                            <ellipse cx="140" cy="20" rx="12" ry="6" transform="rotate(-10 140 20)"/>
+                            <ellipse cx="180" cy="20" rx="12" ry="6" transform="rotate(10 180 20)"/>
+                        </g>
+                        <!-- White & Ivory Roses with soft petal layering -->
+                        <g filter="drop-shadow(0 4px 8px rgba(0,0,0,0.12))">
+                            <!-- Left Rose -->
+                            <g transform="translate(110, 60)">
+                                <circle cx="0" cy="0" r="22" fill="#fdfbf7" stroke="#e5dec9" stroke-width="1"/>
+                                <path d="M-14,-6 C-8,-18 8,-18 14,-6 C18,6 6,18 -4,16 C-14,14 -18,2 -14,-6 Z" fill="#f5eedc"/>
+                                <path d="M-8,-2 C-4,-10 4,-10 8,-2 C10,6 2,12 -4,10 Z" fill="#eadfbe"/>
+                                <circle cx="0" cy="0" r="4" fill="#dfd0a5"/>
+                            </g>
+                            <!-- Right Rose -->
+                            <g transform="translate(210, 60)">
+                                <circle cx="0" cy="0" r="22" fill="#fdfbf7" stroke="#e5dec9" stroke-width="1"/>
+                                <path d="M-14,-6 C-8,-18 8,-18 14,-6 C18,6 6,18 -4,16 C-14,14 -18,2 -14,-6 Z" fill="#f5eedc"/>
+                                <path d="M-8,-2 C-4,-10 4,-10 8,-2 C10,6 2,12 -4,10 Z" fill="#eadfbe"/>
+                                <circle cx="0" cy="0" r="4" fill="#dfd0a5"/>
+                            </g>
+                            <!-- Center Big Rose -->
+                            <g transform="translate(160, 45)">
+                                <circle cx="0" cy="0" r="28" fill="#ffffff" stroke="#e5dec9" stroke-width="1.2"/>
+                                <path d="M-18,-8 C-10,-24 10,-24 18,-8 C24,8 8,24 -6,22 C-18,20 -24,4 -18,-8 Z" fill="#faf5e8"/>
+                                <path d="M-11,-3 C-5,-14 5,-14 11,-3 C14,8 3,16 -6,14 Z" fill="#f0e5c9"/>
+                                <circle cx="0" cy="0" r="5.5" fill="#e0ce99"/>
+                            </g>
+                            <!-- Small Accent Blooms -->
+                            <circle cx="82" cy="72" r="9" fill="#ffffff" stroke="#e5dec9"/>
+                            <circle cx="82" cy="72" r="3" fill="#ecdba8"/>
+                            <circle cx="238" cy="72" r="9" fill="#ffffff" stroke="#e5dec9"/>
+                            <circle cx="238" cy="72" r="3" fill="#ecdba8"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Golden Arch Window -->
+                <div class="misa-arch-window">
+                    
+                    <!-- Top Script Heading: Misa: -->
+                    <h3 class="misa-script-title">Misa:</h3>
+
+                    <!-- Address details -->
+                    <div class="misa-details-block">
+                        <p class="misa-church-title" id="church-name">Parroquia basílica de guadalupe,</p>
+                        <p class="misa-church-col" id="church-address">#1005 Col. Santuario.</p>
+                        <p class="misa-church-hour">20:30 PM.</p>
+                    </div>
+
+                    <!-- Soft Turquoise Watercolor Background + 3D Golden Cross -->
+                    <div class="misa-cross-stage">
+                        <div class="misa-mint-watercolor"></div>
+                        
+                        <!-- 3D Golden Cross SVG -->
+                        <svg viewBox="0 0 100 150" width="85" height="128" class="misa-gold-cross-svg">
+                            <defs>
+                                <linearGradient id="crossBevelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fffbeb"/>
+                                    <stop offset="25%" stop-color="#fde047"/>
+                                    <stop offset="55%" stop-color="#d4af37"/>
+                                    <stop offset="85%" stop-color="#a16207"/>
+                                    <stop offset="100%" stop-color="#713f12"/>
+                                </linearGradient>
+                                <filter id="crossGlow" x="-30%" y="-30%" width="160%" height="160%">
+                                    <feGaussianBlur stdDeviation="6" result="blur"/>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                </filter>
+                            </defs>
+                            <!-- Glow aura -->
+                            <rect x="42" y="5" width="16" height="140" fill="#fde047" opacity="0.4" filter="url(#crossGlow)"/>
+                            <rect x="15" y="40" width="70" height="16" fill="#fde047" opacity="0.4" filter="url(#crossGlow)"/>
+                            <!-- Cross Body with Golden Bevel -->
+                            <g fill="url(#crossBevelGrad)" stroke="#b45309" stroke-width="1.2">
+                                <rect x="42" y="10" width="16" height="130" rx="2"/>
+                                <rect x="18" y="42" width="64" height="16" rx="2"/>
+                            </g>
+                            <!-- Inner Shine Highlights -->
+                            <line x1="50" y1="14" x2="50" y2="136" stroke="#ffffff" stroke-width="2.5" opacity="0.75" stroke-linecap="round"/>
+                            <line x1="22" y1="50" x2="78" y2="50" stroke="#ffffff" stroke-width="2.5" opacity="0.75" stroke-linecap="round"/>
+                            <!-- Center Diamond Jewel -->
+                            <polygon points="50,44 56,50 50,56 44,50" fill="#ffffff" stroke="#d4af37" stroke-width="1"/>
+                        </svg>
+                    </div>
+
+                    <!-- Bottom Arch Filigree -->
+                    <div class="misa-arch-bottom-filigree" aria-hidden="true">
+                        <svg viewBox="0 0 200 40" width="160" height="32">
+                            <g fill="none" stroke="#d4af37" stroke-width="1.5">
+                                <path d="M100,5 Q100,25 75,25 Q50,25 40,15 Q30,5 20,20 Q10,35 0,35"/>
+                                <path d="M100,5 Q100,25 125,25 Q150,25 160,15 Q170,5 180,20 Q190,35 200,35"/>
+                                <circle cx="100" cy="5" r="3" fill="#d4af37"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Floating Genie (Bottom-Left Character from Aladdin) -->
+                <div class="misa-genie-floating" aria-hidden="true">
+                    <svg viewBox="0 0 160 180" width="130" height="146" class="genie-svg">
+                        <defs>
+                            <linearGradient id="genieBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#7dd3fc"/>
+                                <stop offset="35%" stop-color="#38bdf8"/>
+                                <stop offset="70%" stop-color="#0284c7"/>
+                                <stop offset="100%" stop-color="#0369a1"/>
+                            </linearGradient>
+                            <linearGradient id="genieGoldBands" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fef08a"/>
+                                <stop offset="50%" stop-color="#eab308"/>
+                                <stop offset="100%" stop-color="#a16207"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Smoke Tail swirling from left -->
+                        <path d="M10,165 Q45,175 70,140 Q90,110 85,95 Q75,125 40,145 Q15,150 10,165 Z" fill="url(#genieBodyGrad)" opacity="0.9"/>
+                        <!-- Red Sash / Belt -->
+                        <ellipse cx="82" cy="98" rx="22" ry="9" fill="#dc2626" stroke="#991b1b" stroke-width="1" transform="rotate(-5 82 98)"/>
+                        <!-- Muscular Torso -->
+                        <path d="M60,48 Q40,55 45,85 Q60,102 85,98 Q110,102 120,82 Q125,55 105,48 Z" fill="url(#genieBodyGrad)"/>
+                        <!-- Chest Muscles definition -->
+                        <path d="M82,50 L82,85 M65,68 Q82,75 82,68 M100,68 Q82,75 82,68" fill="none" stroke="#0284c7" stroke-width="2"/>
+                        <!-- Crossed Arms -->
+                        <!-- Left Arm & Gold Wristband -->
+                        <path d="M45,55 Q20,70 45,85 L75,82" fill="none" stroke="url(#genieBodyGrad)" stroke-width="14" stroke-linecap="round"/>
+                        <rect x="26" y="65" width="12" height="14" rx="3" fill="url(#genieGoldBands)" stroke="#854d0e" stroke-width="0.8" transform="rotate(20 26 65)"/>
+                        <!-- Right Arm & Gold Wristband -->
+                        <path d="M118,55 Q145,68 118,85 L85,84" fill="none" stroke="url(#genieBodyGrad)" stroke-width="14" stroke-linecap="round"/>
+                        <rect x="122" y="65" width="12" height="14" rx="3" fill="url(#genieGoldBands)" stroke="#854d0e" stroke-width="0.8" transform="rotate(-20 122 65)"/>
+                        <!-- Genie Head & Face -->
+                        <circle cx="82" cy="32" r="19" fill="url(#genieBodyGrad)"/>
+                        <!-- Cheerful Smile & Big Beard -->
+                        <path d="M68,36 Q82,54 96,36 Q82,42 68,36 Z" fill="#ffffff"/>
+                        <path d="M68,36 Q82,48 96,36" fill="none" stroke="#0f172a" stroke-width="2"/>
+                        <!-- Pointy Black Beard swirl -->
+                        <path d="M74,40 Q82,58 90,44 Q85,55 78,54 Z" fill="#0f172a"/>
+                        <!-- Eyes & Eyebrows -->
+                        <ellipse cx="75" cy="28" rx="2.5" ry="3.5" fill="#0f172a"/>
+                        <ellipse cx="89" cy="28" rx="2.5" ry="3.5" fill="#0f172a"/>
+                        <circle cx="76" cy="27" r="1" fill="#ffffff"/>
+                        <circle cx="90" cy="27" r="1" fill="#ffffff"/>
+                        <path d="M71,23 Q76,18 80,23" fill="none" stroke="#0f172a" stroke-width="2"/>
+                        <path d="M85,23 Q89,18 94,23" fill="none" stroke="#0f172a" stroke-width="2"/>
+                        <!-- Big Friendly Nose -->
+                        <ellipse cx="82" cy="30" rx="3.5" ry="2.5" fill="#0284c7"/>
+                        <!-- Genie Topknot / Hair & Gold Hairband -->
+                        <path d="M82,14 Q82,2 92,6 Q88,14 82,14 Z" fill="#0f172a"/>
+                        <ellipse cx="82" cy="14" rx="5" ry="2.5" fill="url(#genieGoldBands)"/>
+                        <!-- Gold Earring -->
+                        <circle cx="63" cy="32" r="4.5" fill="none" stroke="url(#genieGoldBands)" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- "CÓMO LLEGAR" ACTION BUTTON (GOLD PILL) -->
+            <div class="misa-action-btn-wrap">
+                <a href="https://www.google.com/maps?q=-18.329088,-59.754815" target="_blank" rel="noopener noreferrer" id="church-map-link" class="btn-misa-gold-pill">
+                    <span class="btn-pin">📍</span>
                     <span>CÓMO LLEGAR</span>
                 </a>
             </div>
+
         </div>
     </section>
 
@@ -784,23 +1135,269 @@
         </article>
 
         <article class="event-feature-card dress-feature-card">
-            <div class="event-feature-floral event-feature-floral-left" aria-hidden="true">✿</div>
-            <div class="event-feature-floral event-feature-floral-right" aria-hidden="true">✿</div>
-            <span class="event-feature-kicker">Código de vestimenta</span>
-            <div class="dress-feature-ornament" aria-hidden="true">✦ ◆ ✦</div>
-            <h2>DE GALA</h2>
-            <div class="dress-symbols" aria-hidden="true">
-                <div class="dress-symbol-item">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <small>Caballeros</small>
-                </div>
-                <span>✦</span>
-                <div class="dress-symbol-item">
-                    <i class="fa-solid fa-person-dress"></i>
-                    <small>Damas</small>
+            <!-- Palace Background Silhouette -->
+            <div class="dress-palace-bg" aria-hidden="true"></div>
+
+            <!-- Left Magic Lamp Decoration -->
+            <div class="dress-lamp dress-lamp-left" aria-hidden="true">
+                <svg viewBox="0 0 60 90" width="36" height="54">
+                    <line x1="30" y1="0" x2="30" y2="18" stroke="#c59b27" stroke-width="2"/>
+                    <ellipse cx="30" cy="22" rx="6" ry="4" fill="#d4af37"/>
+                    <path d="M18,22 Q6,30 14,44 Q30,55 46,44 Q54,30 42,22 Z" fill="url(#lampGradDress)"/>
+                    <path d="M14,38 C2,34 2,18 14,28" fill="none" stroke="#d4af37" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M46,33 Q56,27 55,24 Q48,27 40,33 Z" fill="#ffd700"/>
+                    <ellipse cx="28" cy="18" rx="7" ry="3" fill="#ffd700"/>
+                    <circle cx="28" cy="13" r="2.5" fill="#ffe066"/>
+                    <ellipse cx="30" cy="50" rx="12" ry="4" fill="#c59b27"/>
+                    <ellipse cx="30" cy="48" rx="10" ry="3" fill="#d4af37"/>
+                    <defs>
+                        <linearGradient id="lampGradDress" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fff5b8"/>
+                            <stop offset="45%" stop-color="#d4af37"/>
+                            <stop offset="85%" stop-color="#8c6208"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="dress-clouds">
+                    <div class="d-cloud"></div>
+                    <div class="d-cloud"></div>
                 </div>
             </div>
-            <p class="dress-feature-note">Se reserva el color verde y azul<br>(en cualquier tono)<br>solo para la quinceañera</p>
+
+            <!-- Right Magic Lamp Decoration -->
+            <div class="dress-lamp dress-lamp-right" aria-hidden="true">
+                <svg viewBox="0 0 60 90" width="36" height="54">
+                    <line x1="30" y1="0" x2="30" y2="18" stroke="#c59b27" stroke-width="2"/>
+                    <ellipse cx="30" cy="22" rx="6" ry="4" fill="#d4af37"/>
+                    <path d="M18,22 Q6,30 14,44 Q30,55 46,44 Q54,30 42,22 Z" fill="url(#lampGradDress2)"/>
+                    <path d="M46,38 C58,34 58,18 46,28" fill="none" stroke="#d4af37" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M14,33 Q4,27 5,24 Q12,27 20,33 Z" fill="#ffd700"/>
+                    <ellipse cx="32" cy="18" rx="7" ry="3" fill="#ffd700"/>
+                    <circle cx="32" cy="13" r="2.5" fill="#ffe066"/>
+                    <ellipse cx="30" cy="50" rx="12" ry="4" fill="#c59b27"/>
+                    <ellipse cx="30" cy="48" rx="10" ry="3" fill="#d4af37"/>
+                    <defs>
+                        <linearGradient id="lampGradDress2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fff5b8"/>
+                            <stop offset="45%" stop-color="#d4af37"/>
+                            <stop offset="85%" stop-color="#8c6208"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="dress-clouds">
+                    <div class="d-cloud"></div>
+                    <div class="d-cloud"></div>
+                </div>
+            </div>
+
+            <!-- Title Banner: "Código de Vestimenta" -->
+            <div class="dress-title-banner">
+                <!-- Left filigree wing -->
+                <svg class="dress-banner-wing" viewBox="0 0 60 20" width="60" height="20">
+                    <path d="M55,10 Q40,2 20,10 Q10,5 5,10 Q10,15 20,10 Q40,18 55,10" fill="none" stroke="#c59b27" stroke-width="1.8"/>
+                    <circle cx="10" cy="10" r="2.5" fill="#d4af37"/>
+                    <circle cx="35" cy="10" r="2" fill="#2ec4b6"/>
+                </svg>
+                <div class="dress-title-text-wrap">
+                    <!-- Small gem above title -->
+                    <svg viewBox="0 0 24 28" width="18" height="22" style="display:block;margin:0 auto -4px;">
+                        <polygon points="12,0 24,10 12,28 0,10" fill="#2563eb" stroke="#d4af37" stroke-width="1.5"/>
+                        <polygon points="12,4 20,10 12,24 4,10" fill="#60a5fa" opacity="0.7"/>
+                        <polygon points="12,6 8,10 12,6" fill="#ffffff" opacity="0.5"/>
+                    </svg>
+                    <span class="dress-title-label">Código de Vestimenta</span>
+                </div>
+                <!-- Right filigree wing -->
+                <svg class="dress-banner-wing dress-banner-wing-r" viewBox="0 0 60 20" width="60" height="20">
+                    <path d="M5,10 Q20,2 40,10 Q50,5 55,10 Q50,15 40,10 Q20,18 5,10" fill="none" stroke="#c59b27" stroke-width="1.8"/>
+                    <circle cx="50" cy="10" r="2.5" fill="#d4af37"/>
+                    <circle cx="25" cy="10" r="2" fill="#2ec4b6"/>
+                </svg>
+            </div>
+
+            <!-- Baroque Gold Ornament -->
+            <div class="dress-baroque-ornament" aria-hidden="true">
+                <svg viewBox="0 0 320 55" width="100%" height="50">
+                    <g fill="none" stroke="#c59b27" stroke-width="1.8">
+                        <!-- Left scrollwork -->
+                        <path d="M10,28 C20,8 50,8 60,28 C70,48 90,48 100,28"/>
+                        <path d="M10,28 C18,18 28,22 30,28 C32,34 28,38 20,35"/>
+                        <!-- Right scrollwork -->
+                        <path d="M310,28 C300,8 270,8 260,28 C250,48 230,48 220,28"/>
+                        <path d="M310,28 C302,18 292,22 290,28 C288,34 292,38 300,35"/>
+                        <!-- Inner connecting curves -->
+                        <path d="M100,28 Q130,10 150,28"/>
+                        <path d="M220,28 Q190,10 170,28"/>
+                        <circle cx="108" cy="22" r="3" fill="#d4af37" stroke="none"/>
+                        <circle cx="212" cy="22" r="3" fill="#d4af37" stroke="none"/>
+                        <!-- Top leaf/fleur -->
+                        <path d="M150,28 Q158,15 160,5 Q162,15 170,28"/>
+                        <path d="M155,22 Q160,16 165,22" stroke-width="1"/>
+                    </g>
+                    <!-- Center gem -->
+                    <polygon points="160,10 167,20 160,30 153,20" fill="#2563eb" stroke="#d4af37" stroke-width="1.5"/>
+                    <polygon points="160,13 165,20 160,27 155,20" fill="#93c5fd" opacity="0.7"/>
+                    <!-- Small side gems -->
+                    <polygon points="100,25 104,30 100,35 96,30" fill="#2ec4b6" stroke="#d4af37" stroke-width="1"/>
+                    <polygon points="220,25 224,30 220,35 216,30" fill="#2ec4b6" stroke="#d4af37" stroke-width="1"/>
+                    <!-- Gold dots -->
+                    <circle cx="130" cy="28" r="2.5" fill="#d4af37"/>
+                    <circle cx="190" cy="28" r="2.5" fill="#d4af37"/>
+                    <circle cx="60" cy="28" r="2" fill="#d4af37"/>
+                    <circle cx="260" cy="28" r="2" fill="#d4af37"/>
+                </svg>
+            </div>
+
+            <!-- DE GALA heading with gems -->
+            <div class="dress-gala-row">
+                <svg viewBox="0 0 20 24" width="20" height="24">
+                    <polygon points="10,0 20,9 10,24 0,9" fill="#2563eb" stroke="#d4af37" stroke-width="1.5"/>
+                    <polygon points="10,3 17,9 10,21 3,9" fill="#93c5fd" opacity="0.7"/>
+                </svg>
+                <h2 class="dress-gala-title">✦ DE GALA ✦</h2>
+                <svg viewBox="0 0 20 24" width="20" height="24">
+                    <polygon points="10,0 20,9 10,24 0,9" fill="#2563eb" stroke="#d4af37" stroke-width="1.5"/>
+                    <polygon points="10,3 17,9 10,21 3,9" fill="#93c5fd" opacity="0.7"/>
+                </svg>
+            </div>
+
+            <!-- Suits: Tuxedo (left) | Divider | Evening Gown (right) -->
+            <div class="dress-outfits-row">
+                <!-- Tuxedo (Caballeros) -->
+                <div class="dress-outfit-item">
+                    <svg viewBox="0 0 120 220" width="95" height="175" class="dress-svg-outfit">
+                        <!-- Legs -->
+                        <rect x="35" y="145" width="20" height="70" rx="4" fill="#1a1a1a"/>
+                        <rect x="65" y="145" width="20" height="70" rx="4" fill="#1a1a1a"/>
+                        <!-- Pants -->
+                        <path d="M25,120 Q30,145 35,145 L55,145 L60,145 L65,145 L85,145 Q90,145 95,120 Z" fill="#1a1a1a"/>
+                        <!-- Jacket body -->
+                        <path d="M25,60 L20,120 L95,120 L100,60 L85,50 L60,70 L35,50 Z" fill="#1a1a1a"/>
+                        <!-- Left lapel -->
+                        <path d="M35,50 L60,70 L55,95 L30,85 Z" fill="#222222"/>
+                        <!-- Right lapel -->
+                        <path d="M85,50 L60,70 L65,95 L90,85 Z" fill="#222222"/>
+                        <!-- White shirt -->
+                        <path d="M55,70 L60,65 L65,70 L65,100 L55,100 Z" fill="#f0f0f0"/>
+                        <!-- Bow tie -->
+                        <path d="M52,68 L60,72 L68,68 L60,64 Z" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+                        <!-- Left arm -->
+                        <path d="M25,60 L15,105 L28,108 L35,65 Z" fill="#1a1a1a"/>
+                        <!-- Right arm -->
+                        <path d="M95,60 L105,105 L92,108 L85,65 Z" fill="#1a1a1a"/>
+                        <!-- Pocket square -->
+                        <polygon points="28,72 35,70 33,80 26,80" fill="#ffffff" opacity="0.9"/>
+                        <!-- Shoulders -->
+                        <ellipse cx="28" cy="62" rx="10" ry="7" fill="#1a1a1a"/>
+                        <ellipse cx="92" cy="62" rx="10" ry="7" fill="#1a1a1a"/>
+                        <!-- Head/neck -->
+                        <circle cx="60" cy="38" r="18" fill="#f5deb3"/>
+                        <!-- Hair -->
+                        <ellipse cx="60" cy="24" rx="18" ry="12" fill="#1a1a1a"/>
+                        <!-- Collar -->
+                        <path d="M46,52 L54,60 L60,56 L66,60 L74,52" fill="none" stroke="#f0f0f0" stroke-width="2"/>
+                        <!-- Shoes -->
+                        <ellipse cx="45" cy="215" rx="13" ry="5" fill="#0a0a0a"/>
+                        <ellipse cx="75" cy="215" rx="13" ry="5" fill="#0a0a0a"/>
+                    </svg>
+                    <span class="dress-outfit-label">Caballeros</span>
+                </div>
+
+                <!-- Center divider with gem chain -->
+                <div class="dress-divider-col">
+                    <svg viewBox="0 0 20 200" width="20" height="180">
+                        <line x1="10" y1="0" x2="10" y2="200" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4,4"/>
+                        <polygon points="10,30 15,40 10,50 5,40" fill="#2563eb" stroke="#d4af37" stroke-width="1"/>
+                        <polygon points="10,80 15,90 10,100 5,90" fill="#d4af37" stroke="#c59b27" stroke-width="1"/>
+                        <polygon points="10,130 15,140 10,150 5,140" fill="#2563eb" stroke="#d4af37" stroke-width="1"/>
+                    </svg>
+                </div>
+
+                <!-- Evening Gown (Damas) -->
+                <div class="dress-outfit-item">
+                    <svg viewBox="0 0 120 220" width="95" height="175" class="dress-svg-outfit">
+                        <!-- Gown skirt - flowing A-line -->
+                        <path d="M30,120 Q10,180 20,220 L100,220 Q110,180 90,120 Z" fill="#111111"/>
+                        <!-- Skirt highlights -->
+                        <path d="M48,130 Q40,165 42,210" fill="none" stroke="#333333" stroke-width="2"/>
+                        <path d="M72,130 Q80,165 78,210" fill="none" stroke="#333333" stroke-width="2"/>
+                        <!-- Slit on right -->
+                        <path d="M78,155 Q88,170 100,220" fill="#0a0a0a"/>
+                        <path d="M78,155 Q82,175 80,210" fill="#1a1a1a"/>
+                        <!-- Corset bodice -->
+                        <path d="M38,75 L30,120 L90,120 L82,75 C72,65 48,65 38,75 Z" fill="#111111"/>
+                        <!-- Sweetheart neckline -->
+                        <path d="M38,75 Q45,62 55,68 Q60,58 65,68 Q75,62 82,75" fill="none" stroke="#222222" stroke-width="2"/>
+                        <path d="M38,75 Q50,72 60,74 Q70,72 82,75" fill="#0d0d0d"/>
+                        <!-- Left arm/shoulder strap -->
+                        <path d="M38,75 Q30,60 33,45" fill="none" stroke="#111111" stroke-width="8" stroke-linecap="round"/>
+                        <!-- Right arm/shoulder strap -->
+                        <path d="M82,75 Q90,60 87,45" fill="none" stroke="#111111" stroke-width="8" stroke-linecap="round"/>
+                        <!-- Waist detail -->
+                        <path d="M32,105 L88,105" stroke="#222222" stroke-width="1.5" fill="none"/>
+                        <!-- Left arm -->
+                        <path d="M33,45 L22,95 L32,97 L38,48 Z" fill="#111111"/>
+                        <!-- Right arm -->
+                        <path d="M87,45 L98,95 L88,97 L82,48 Z" fill="#111111"/>
+                        <!-- Head -->
+                        <circle cx="60" cy="32" r="18" fill="#f5deb3"/>
+                        <!-- Hair - long -->
+                        <path d="M42,28 Q38,55 42,90" fill="none" stroke="#1a0d00" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M78,28 Q82,55 78,90" fill="none" stroke="#1a0d00" stroke-width="8" stroke-linecap="round"/>
+                        <ellipse cx="60" cy="22" rx="18" ry="13" fill="#1a0d00"/>
+                        <!-- Earrings -->
+                        <circle cx="43" cy="34" r="2" fill="#d4af37"/>
+                        <circle cx="77" cy="34" r="2" fill="#d4af37"/>
+                        <!-- Necklace hint -->
+                        <path d="M48,52 Q60,60 72,52" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                        <!-- Shoes peek from hem -->
+                        <ellipse cx="35" cy="217" rx="10" ry="4" fill="#0a0a0a"/>
+                        <ellipse cx="80" cy="217" rx="8" ry="4" fill="#0a0a0a"/>
+                    </svg>
+                    <span class="dress-outfit-label">Damas</span>
+                </div>
+            </div>
+
+            <!-- Lower Gold Ornament Divider -->
+            <div class="dress-lower-ornament" aria-hidden="true">
+                <svg viewBox="0 0 320 40" width="100%" height="36">
+                    <g fill="none" stroke="#c59b27" stroke-width="1.5">
+                        <path d="M10,20 Q60,20 100,20 Q120,5 140,20"/>
+                        <path d="M310,20 Q260,20 220,20 Q200,5 180,20"/>
+                        <path d="M55,20 C55,10 75,10 75,20 C75,26 65,26 65,20" stroke-width="1.2"/>
+                        <path d="M265,20 C265,10 245,10 245,20 C245,26 255,26 255,20" stroke-width="1.2"/>
+                        <circle cx="105" cy="14" r="3.5" fill="#d4af37" stroke="#c59b27" stroke-width="1"/>
+                        <circle cx="215" cy="14" r="3.5" fill="#d4af37" stroke="#c59b27" stroke-width="1"/>
+                    </g>
+                    <!-- Center gem -->
+                    <ellipse cx="160" cy="20" rx="10" ry="13" fill="#c59b27"/>
+                    <ellipse cx="160" cy="20" rx="7" ry="10" fill="url(#dressGemGrad)"/>
+                    <ellipse cx="157" cy="15" rx="2.5" ry="4" fill="#ffffff" opacity="0.4"/>
+                    <defs>
+                        <radialGradient id="dressGemGrad" cx="35%" cy="30%" r="70%">
+                            <stop offset="0%" stop-color="#93c5fd"/>
+                            <stop offset="40%" stop-color="#2563eb"/>
+                            <stop offset="100%" stop-color="#1e3a8a"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Color Reservation Note -->
+            <p class="dress-feature-note">
+                SE RESERVA EL COLOR VERDE Y AZUL<br>
+                <span class="dress-note-sub">(EN CUALQUIER TONO)</span><br>
+                SOLO PARA LA QUINCEAÑERA
+            </p>
+
+            <!-- Bottom Ornament Gem -->
+            <div class="dress-bottom-gem" aria-hidden="true">
+                <svg viewBox="0 0 24 28" width="20" height="24">
+                    <polygon points="12,0 24,10 12,28 0,10" fill="#2563eb" stroke="#d4af37" stroke-width="1.5"/>
+                    <polygon points="12,4 20,10 12,24 4,10" fill="#93c5fd" opacity="0.7"/>
+                    <polygon points="12,6 8,10 12,6" fill="#ffffff" opacity="0.5"/>
+                </svg>
+            </div>
         </article>
     </section>
 

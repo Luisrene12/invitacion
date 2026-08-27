@@ -1706,38 +1706,56 @@ body {
     text-align: center;
 }
 
-/* Faint Jasmine background pattern */
-.scroll-sheet-body::before {
-    content: '';
+/* Jasmine Silhouette Watermark Centered Behind Scroll Text */
+.jasmine-watermark {
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 80%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     pointer-events: none;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .scroll-filigree-divider {
     margin: 0.5rem 0 1.2rem;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 /* Scroll Invitation Text */
 .scroll-invitation-text {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1rem, 2.8vw, 1.3rem);
+    font-family: 'Playfair Display SC', 'Cinzel', serif;
+    font-size: clamp(0.92rem, 2.7vw, 1.25rem);
     font-weight: 700;
-    color: #6d4e12;
-    line-height: 2.1;
-    letter-spacing: 1.5px;
+    color: #7a4e0e;
+    line-height: 2.2;
+    letter-spacing: 2px;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
     position: relative;
     z-index: 2;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
+    word-spacing: 2px;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-/* Sparkle Dust Cloud under bottom roll */
+/* Sparkle Dust Cloud and Cylinder Trail */
+.cylinder-sparkle-trail {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 30%, rgba(255, 255, 255, 0.9) 0%, rgba(165, 243, 252, 0.5) 30%, rgba(253, 224, 71, 0.3) 60%, transparent 85%);
+    filter: drop-shadow(0 0 8px rgba(165, 243, 252, 0.8));
+    animation: sparklePulse 3s infinite ease-in-out;
+    pointer-events: none;
+}
+
 .sparkle-dust-cloud {
     position: absolute;
     bottom: -15px;
@@ -1750,8 +1768,8 @@ body {
 }
 
 @keyframes sparklePulse {
-    0%, 100% { opacity: 0.4; transform: scaleX(0.9); }
-    50%       { opacity: 1;   transform: scaleX(1.15); }
+    0%, 100% { opacity: 0.5; transform: scaleX(0.95); }
+    50%       { opacity: 1;   transform: scaleX(1.08); }
 }
 
 /* --- FAMILY CARDS GROUP (MI MADRE) --- */
@@ -3680,309 +3698,313 @@ body {
     box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
 }
 
+/* ===================================================
+   MISA / CEREMONIA SECTION (MATCHING REFERENCE 1:1)
+   =================================================== */
+
 .misa-card-wrap {
     position: relative;
     z-index: 5;
     display: flex;
     justify-content: center;
-    padding: 0 1rem 2rem;
-}
-
-.misa-card {
-    position: relative;
-    width: min(100%, 860px);
-    background: linear-gradient(180deg, #f8f5f0 0%, #f3efe7 100%);
-    border: 3px solid #d4af37;
-    border-radius: 26px 26px 0 0;
-    box-shadow: 0 18px 42px rgba(64, 47, 22, 0.12);
-    overflow: hidden;
-    padding-bottom: 0;
-}
-
-.misa-card::before {
-    content: "";
-    position: absolute;
-    inset: 12px 16px auto;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.8), transparent);
-}
-
-.misa-spray,
-.misa-bloom {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.misa-spray {
-    bottom: 68px;
-    width: 120px;
-    height: 120px;
-    opacity: 0.8;
-    background: radial-gradient(circle at center, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.03) 35%, transparent 72%);
-}
-
-.misa-spray::before,
-.misa-spray::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,0.9) 0 10%, transparent 11%),
-        radial-gradient(circle, rgba(255,255,255,0.9) 0 9%, transparent 10%),
-        radial-gradient(circle, rgba(255,255,255,0.9) 0 8%, transparent 9%),
-        linear-gradient(135deg, rgba(166,188,156,0.9), rgba(134,159,136,0.7));
-    border-radius: 50%;
-    filter: blur(1px);
-}
-
-.misa-spray-left {
-    left: 18px;
-    transform: rotate(-18deg);
-}
-
-.misa-spray-right {
-    right: 18px;
-    transform: scaleX(-1) rotate(-18deg);
-}
-
-.misa-bloom-top {
-    top: 78px;
-    left: 50%;
-    width: 180px;
-    height: 60px;
-    transform: translateX(-50%);
+    padding: 3rem 1rem 4rem;
     background:
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.9) 0 10%, transparent 11%),
-        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.9) 0 10%, transparent 11%),
-        radial-gradient(circle at 50% 25%, rgba(255,255,255,0.9) 0 12%, transparent 13%),
-        radial-gradient(circle at 65% 35%, rgba(255,255,255,0.9) 0 10%, transparent 11%),
-        radial-gradient(circle at 80% 50%, rgba(255,255,255,0.9) 0 10%, transparent 11%),
-        linear-gradient(135deg, rgba(169,188,156,0.7), rgba(130,160,130,0.5));
-    border-radius: 50%;
-    opacity: 0.75;
-    filter: blur(0.5px);
+        radial-gradient(ellipse at 80% 20%, rgba(254, 240, 138, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 70%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+        linear-gradient(180deg, #fdfbf7 0%, #f7f3e8 50%, #f4ede0 100%);
+    overflow: hidden;
 }
 
-.misa-date-row {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 0.45rem;
-    padding: 1.4rem 1rem 0.5rem;
-    font-family: 'Cinzel', serif;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    line-height: 0.8;
-}
-
-.misa-day,
-.misa-date,
-.misa-year {
-    background: linear-gradient(180deg, #f9e7a3 0%, #d5a63b 22%, #f5d984 48%, #b87d1f 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 900;
-    text-shadow: 0 6px 18px rgba(168, 114, 26, 0.18);
-    filter: drop-shadow(0 0 10px rgba(212,175,55,0.25));
-    font-size: clamp(2.6rem, 7vw, 6.6rem);
-}
-
-.misa-date {
-    display: inline-block;
-    min-width: 1.08ch;
-}
-
-.misa-ornament-top {
+.misa-card-container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    margin: 0 1.2rem 0.7rem;
-}
-
-.misa-ornament-top::before,
-.misa-ornament-top::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 33%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #d4af37 15%, #d4af37 85%, transparent);
-    transform: translateY(-50%);
-}
-
-.misa-ornament-top::before { left: 8%; }
-.misa-ornament-top::after { right: 8%; }
-
-.ornament-dot {
-    position: relative;
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #d4af37;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 35%, rgba(212,175,55,0.12) 100%);
-    box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
-    z-index: 1;
-}
-
-.ornament-center {
-    position: relative;
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    margin: 0 1.2rem;
-    border-radius: 50%;
-    background: radial-gradient(circle, #7fe2ff 0%, #1ab3c7 35%, #0d5d7a 100%);
-    border: 2px solid #d4af37;
-    box-shadow: 0 0 12px rgba(26, 179, 199, 0.45);
-    z-index: 2;
-}
-
-.misa-arch-frame {
-    position: relative;
-    width: min(100%, 700px);
+    width: min(100%, 580px);
     margin: 0 auto;
-    padding: 1rem 1.2rem 0;
-}
-
-.misa-arch-inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 470px;
-    border: 3px solid #d4af37;
-    border-radius: 46% 46% 0 0 / 82% 82% 0 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(176, 219, 226, 0.2) 100%);
-    box-shadow: inset 0 0 0 1px rgba(212,175,55,0.35), 0 0 0 2px rgba(255,255,255,0.35);
-    padding: 2.6rem 1rem 0.6rem;
     text-align: center;
 }
 
-.misa-arch-inner::before {
-    content: "";
+/* Side & Top Decors */
+.misa-decor-cloud-lamp {
     position: absolute;
-    inset: 22px 18px 34px;
-    border-radius: 40% 40% 0 0 / 70% 70% 0 0;
-    background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.42), rgba(255,255,255,0) 36%);
+    top: 55px;
+    left: -15px;
+    z-index: 2;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    animation: floatingCarpet 4s ease-in-out infinite alternate;
+}
+
+.misa-decor-orchid {
+    position: absolute;
+    top: 180px;
+    right: -25px;
+    z-index: 1;
     pointer-events: none;
 }
 
-.misa-script {
-    position: relative;
+.misa-decor-side-gem {
+    position: absolute;
+    top: 320px;
+    left: -10px;
     z-index: 1;
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(4.2rem, 8vw, 7.2rem);
-    line-height: 0.8;
-    color: #d4af37;
-    font-weight: 400;
-    margin-bottom: 0.7rem;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+    pointer-events: none;
 }
 
-.misa-address {
+/* Date Header */
+.misa-header-date {
     position: relative;
-    z-index: 1;
+    z-index: 3;
+    margin-bottom: 2.5rem;
+}
+
+.misa-month-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1.1rem, 2.2vw, 1.45rem);
-    line-height: 1.6;
-    color: #4a2d10;
+    font-size: clamp(2.4rem, 8vw, 4.2rem);
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    margin: 0 0 0.2rem;
+    background: linear-gradient(180deg, #fffbeb 0%, #ffd700 25%, #d4af37 55%, #854d0e 85%, #ffd700 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 3px 6px rgba(161, 98, 7, 0.35));
+}
+
+.misa-day-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 3vw, 1.2rem);
+    margin: 0 auto 0.4rem;
+}
+
+.misa-day-name,
+.misa-year-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    background: linear-gradient(180deg, #ffe082 0%, #d4af37 50%, #854d0e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(161, 98, 7, 0.25));
+}
+
+.misa-day-number {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3.2rem, 11vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #fef08a 20%, #eab308 45%, #b45309 75%, #fef08a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 4px 8px rgba(133, 77, 14, 0.45));
+}
+
+.misa-date-divider-v {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.misa-date-divider-v .v-line {
+    width: 2px;
+    height: 24px;
+    background: linear-gradient(180deg, transparent, #d4af37, transparent);
+}
+
+.misa-date-divider-v .v-diamond {
+    color: #059669;
+    font-size: 0.9rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px #10b981);
+}
+
+.misa-date-ornament-bar {
+    width: min(100%, 360px);
+    margin: 0.3rem auto 0;
+}
+
+/* Golden Portal Arch */
+.misa-golden-portal-wrap {
+    position: relative;
+    width: min(100%, 420px);
+    margin: 1.5rem auto 2rem;
+    z-index: 4;
+}
+
+.misa-arch-floral-crown {
+    position: absolute;
+    top: -46px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6;
+    pointer-events: none;
+}
+
+.misa-arch-window {
+    position: relative;
+    border: 3.5px solid #d4af37;
+    border-radius: 210px 210px 0 0;
+    background: linear-gradient(180deg, #ffffff 0%, #faf8f2 60%, #eaf4f4 100%);
+    box-shadow:
+        0 15px 35px rgba(180, 130, 40, 0.18),
+        inset 0 0 25px rgba(255, 255, 255, 0.9);
+    padding: 4.5rem 1.5rem 1.5rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.misa-script-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.8rem, 11vw, 5.4rem);
+    line-height: 1;
+    margin: 0 0 0.8rem;
+    background: linear-gradient(180deg, #ffe082 0%, #d4af37 50%, #92400e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(161, 98, 7, 0.3));
+}
+
+.misa-details-block {
     margin-bottom: 1.2rem;
 }
 
-.misa-cross {
-    position: relative;
-    z-index: 1;
-    width: 120px;
-    height: 150px;
-    margin-top: 0.4rem;
-    background: linear-gradient(180deg, #f7e4a6 0%, #d9af46 30%, #b67c1a 100%);
-    clip-path: polygon(42% 0%, 58% 0%, 58% 30%, 100% 30%, 100% 48%, 58% 48%, 58% 100%, 42% 100%, 42% 48%, 0% 48%, 0% 30%, 42% 30%);
-    box-shadow: 0 0 12px rgba(212, 175, 55, 0.26);
-}
-
-.misa-floral {
-    position: absolute;
-    top: 5.8rem;
-    width: 140px;
-    height: 120px;
-    opacity: 0.85;
-    background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.9) 0 11%, transparent 12%),
-        radial-gradient(circle at 20% 40%, rgba(255,255,255,0.9) 0 10%, transparent 11%),
-        radial-gradient(circle at 35% 25%, rgba(255,255,255,0.9) 0 9%, transparent 10%),
-        radial-gradient(circle at 68% 30%, rgba(255,255,255,0.9) 0 8%, transparent 9%),
-        radial-gradient(circle at 78% 55%, rgba(255,255,255,0.9) 0 9%, transparent 10%),
-        linear-gradient(135deg, rgba(169, 188, 156, 0.9), rgba(130, 160, 130, 0.75));
-    border-radius: 50% 50% 45% 55%;
-    filter: blur(1px);
-    z-index: 0;
-}
-
-.floral-left { left: 4%; transform: rotate(-18deg); }
-.floral-right { right: 4%; transform: rotate(18deg); }
-
-.misa-countdown-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1rem 0.4rem;
-    color: #f8f1d9;
+.misa-church-title {
     font-family: 'Cinzel', serif;
+    font-size: clamp(0.95rem, 3.2vw, 1.15rem);
     font-weight: 700;
+    color: #452a0a;
+    margin: 0 0 0.35rem;
+    line-height: 1.4;
+}
+
+.misa-church-col {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 2.8vw, 1rem);
+    font-weight: 600;
+    color: #5a380e;
+    margin: 0 0 0.4rem;
+}
+
+.misa-church-hour {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.1rem, 3.8vw, 1.35rem);
+    font-weight: 900;
+    color: #3b2005;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: linear-gradient(180deg, rgba(212,175,55,0.9), rgba(165,118,28,0.96));
-    border-top: 2px solid rgba(255,255,255,0.35);
-    border-bottom: 1px solid rgba(255,255,255,0.18);
+    margin: 0.2rem 0 0;
 }
 
-.misa-time {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    color: #fff9e7;
-    text-shadow: 0 0 12px rgba(255,255,255,0.18);
-}
-
-.misa-divider {
-    font-size: 1.4rem;
-    color: #f4d77d;
-}
-
-.misa-map-bar {
+/* Mint Watercolor + 3D Cross */
+.misa-cross-stage {
     position: relative;
+    width: 100%;
+    height: 150px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 0.7rem 1rem 1.2rem;
-    background: linear-gradient(180deg, rgba(212, 175, 55, 0.9), rgba(176, 131, 34, 0.96));
-    border-top: 2px solid rgba(255,255,255,0.4);
+    margin: 0.5rem 0 0.5rem;
 }
 
-.misa-map-bar a {
+.misa-mint-watercolor {
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    background: radial-gradient(ellipse at center, rgba(167, 243, 208, 0.65) 0%, rgba(153, 246, 228, 0.35) 45%, transparent 75%);
+    border-radius: 50%;
+    filter: blur(8px);
+    pointer-events: none;
+}
+
+.misa-gold-cross-svg {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 6px 14px rgba(161, 98, 7, 0.35));
+    animation: crossGleam 4s ease-in-out infinite alternate;
+}
+
+@keyframes crossGleam {
+    0% { filter: drop-shadow(0 4px 10px rgba(161, 98, 7, 0.3)); transform: scale(0.98); }
+    100% { filter: drop-shadow(0 8px 18px rgba(250, 204, 21, 0.6)); transform: scale(1.02); }
+}
+
+.misa-arch-bottom-filigree {
+    margin-top: 0.5rem;
+    opacity: 0.85;
+}
+
+/* Floating Genie */
+.misa-genie-floating {
+    position: absolute;
+    bottom: -20px;
+    left: -48px;
+    z-index: 7;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 16px rgba(0,0,0,0.3));
+    animation: genieFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes genieFloat {
+    0%   { transform: translateY(0) rotate(-2deg); }
+    100% { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* Action Button */
+.misa-action-btn-wrap {
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 5;
+}
+
+.btn-misa-gold-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.55rem;
-    width: min(100%, 380px);
-    padding: 0.9rem 1rem;
-    border-radius: 18px;
-    background: rgba(255,255,255,0.12);
-    color: #fff;
-    text-decoration: none;
+    gap: 0.6rem;
+    padding: 0.85rem 2.2rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ffe066 0%, #d4af37 50%, #9a6810 100%);
+    color: #3e2402;
     font-family: 'Cinzel', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-decoration: none;
     text-transform: uppercase;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+    box-shadow:
+        0 6px 20px rgba(180, 130, 40, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1.5px solid #ffe082;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.map-pin {
+.btn-misa-gold-pill:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 28px rgba(180, 130, 40, 0.55);
+    background: linear-gradient(135deg, #fff3a0 0%, #dfb845 50%, #b37916 100%);
+}
+
+.btn-misa-gold-pill .btn-pin {
     font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .misa-decor-cloud-lamp {
+        top: 20px;
+        left: -10px;
+        transform: scale(0.8);
+    }
+    .misa-genie-floating {
+        left: -25px;
+        bottom: -15px;
+        transform: scale(0.85);
+    }
+    .misa-golden-portal-wrap {
+        width: 94%;
+    }
 }
 
 .closing-section {
@@ -4183,65 +4205,197 @@ body {
 }
 
 .dress-feature-card {
-    padding-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(170deg, #f5f2eb 0%, #ede8d5 40%, #e8e0c8 100%);
+    padding: 2rem 1.5rem 2rem;
+    text-align: center;
+    border: none;
 }
 
-.dress-feature-ornament {
-    margin: 0.35rem 0 0.45rem;
-    color: #2e8b91;
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    letter-spacing: 0.55em;
+/* Palace / Mosque silhouette background */
+.dress-palace-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cg fill='none' stroke='%23c4b89a' stroke-width='1' opacity='0.25'%3E%3C!-- Main dome --%3E%3Cellipse cx='200' cy='140' rx='55' ry='60'/%3E%3Cline x1='200' y1='80' x2='200' y2='55'/%3E%3Ccircle cx='200' cy='50' r='7'/%3E%3C!-- Left minaret --%3E%3Crect x='95' y='110' width='18' height='90'/%3E%3Cellipse cx='104' cy='110' rx='9' ry='16'/%3E%3Cline x1='104' y1='94' x2='104' y2='75'/%3E%3Ccircle cx='104' cy='71' r='5'/%3E%3C!-- Right minaret --%3E%3Crect x='287' y='110' width='18' height='90'/%3E%3Cellipse cx='296' cy='110' rx='9' ry='16'/%3E%3Cline x1='296' y1='94' x2='296' y2='75'/%3E%3Ccircle cx='296' cy='71' r='5'/%3E%3C!-- Arched doorway --%3E%3Cpath d='M178,200 L178,165 Q200,148 222,165 L222,200 Z'/%3E%3C!-- Base platform --%3E%3Crect x='80' y='200' width='240' height='8' rx='3'/%3E%3C!-- Side arches --%3E%3Cpath d='M113,200 L113,175 Q125,162 137,175 L137,200'/%3E%3Cpath d='M263,200 L263,175 Q275,162 287,175 L287,200'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100% auto;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    pointer-events: none;
 }
 
-.dress-feature-card h2 {
-    margin: 0.25rem 0 0.8rem;
-    color: #b17b20;
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
-    font-weight: 700;
-    letter-spacing: 0.18em;
-}
-
-.dress-symbols {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(1.8rem, 10vw, 5rem);
-    margin: 1rem 0 1.4rem;
-    color: #2f777d;
-    font-size: clamp(2.9rem, 13vw, 5rem);
-}
-
-.dress-symbol-item {
+/* Lamp decorations */
+.dress-lamp {
+    position: absolute;
+    top: 48%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
+    gap: 4px;
+    opacity: 0.85;
+    animation: swayClouds 4s ease-in-out infinite;
+}
+.dress-lamp-left { left: 8px; }
+.dress-lamp-right { right: 8px; }
+
+.dress-clouds {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.d-cloud {
+    width: 28px;
+    height: 10px;
+    background: #b8cce0;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+.d-cloud:nth-child(2) { width: 20px; opacity: 0.4; }
+
+@keyframes swayClouds {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
-.dress-symbol-item small {
-    color: #87601b;
+/* Title Banner */
+.dress-title-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.dress-title-text-wrap {
+    background: linear-gradient(135deg, #f9f0d0, #efe3b0, #f9f0d0);
+    border: 2px solid #c59b27;
+    border-radius: 6px;
+    padding: 0.35rem 1.2rem 0.4rem;
+    box-shadow: 0 2px 8px rgba(197,155,39,0.25), inset 0 1px 0 rgba(255,255,255,0.5);
+    position: relative;
+}
+
+.dress-title-label {
     font-family: 'Cinzel', serif;
-    font-size: 0.62rem;
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.dress-symbols span {
-    color: #d4af37;
-    font-size: 1.6rem;
-}
-
-.dress-feature-note {
-    color: #6c4717;
-    font-family: 'Cinzel', serif;
-    font-size: clamp(0.8rem, 2.3vw, 1.05rem);
-    font-weight: 700;
+    color: #7a5010;
     letter-spacing: 0.08em;
-    line-height: 1.7;
+    display: block;
+    text-align: center;
+}
+
+.dress-banner-wing {
+    flex-shrink: 0;
+}
+
+/* Baroque Ornament */
+.dress-baroque-ornament {
+    margin: 0.2rem auto 0;
+    width: 100%;
+    max-width: 340px;
+    position: relative;
+    z-index: 2;
+}
+
+/* DE GALA row */
+.dress-gala-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 0.5rem 0 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.dress-gala-title {
+    font-family: 'Playfair Display SC', 'Cinzel', serif;
+    font-size: clamp(1.6rem, 7vw, 2.6rem);
+    font-weight: 900;
+    color: #5a3a08;
+    letter-spacing: 0.22em;
+    margin: 0;
+    text-shadow: 1px 1px 0 #e8c96a, 2px 2px 4px rgba(100,60,0,0.2);
+}
+
+/* Outfits Row */
+.dress-outfits-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    margin: 0.6rem auto 0.4rem;
+    position: relative;
+    z-index: 2;
+    max-width: 340px;
+}
+
+.dress-outfit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.dress-svg-outfit {
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.22));
+}
+
+.dress-outfit-label {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.65rem, 2.5vw, 0.78rem);
+    font-weight: 700;
+    color: #7a5010;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+}
+
+.dress-divider-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0 8px;
+    padding-bottom: 1.8rem;
+}
+
+/* Lower ornament */
+.dress-lower-ornament {
+    margin: 0.3rem auto 0.6rem;
+    width: 100%;
+    max-width: 340px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Note text */
+.dress-feature-note {
+    color: #3a2205;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.78rem, 2.8vw, 1rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 1.75;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    margin: 0.2rem 0 0.5rem;
+}
+
+.dress-note-sub {
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+/* Bottom gem */
+.dress-bottom-gem {
+    margin-top: 0.4rem;
+    position: relative;
+    z-index: 2;
 }
 
 .gifts-feature-section {
