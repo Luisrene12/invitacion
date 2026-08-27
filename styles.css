@@ -4248,135 +4248,477 @@ body {
     position: relative;
     z-index: 5;
     width: min(100%, 900px);
-    margin: 0 auto;
-    padding: 0 1rem 3rem;
+    margin: 3rem auto;
+    padding: 3rem 2rem;
     text-align: center;
+    background-color: #fbfaf5;
+    background-image: 
+        radial-gradient(circle at top right, rgba(212,175,55,0.08) 0%, transparent 40%),
+        radial-gradient(circle at bottom left, rgba(212,175,55,0.08) 0%, transparent 40%);
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+    border: 1px solid rgba(212,175,55,0.18);
+    overflow: hidden;
+}
+
+/* Gold Glitter Sprinkles Decor */
+.gift-glitter {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.gift-glitter-tr {
+    top: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%);
+}
+.gift-glitter-bl {
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%);
 }
 
 .gifts-feature-header {
-    margin-bottom: 1.2rem;
+    position: relative;
+    margin-bottom: 2.5rem;
     color: #6c4717;
 }
 
-.gifts-feature-header h2 {
-    margin: 0.35rem 0;
-    color: #a36d16;
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.8rem, 8vw, 4.4rem);
-    font-weight: 400;
-    line-height: 1;
-}
-
-.gifts-feature-header p {
+.gifts-main-title {
     font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
+    font-size: clamp(1.3rem, 3.8vw, 2rem);
+    font-weight: 700;
+    color: #c59b27;
+    background: linear-gradient(to bottom, #d4af37 0%, #c59b27 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    margin: 15px auto 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(197, 155, 39, 0.3);
+    display: inline-block;
+    padding-bottom: 8px;
 }
 
-.gifts-feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.6rem;
-    perspective: 1100px;
+.gifts-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+    color: #5c3910;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 500;
 }
 
-.gift-3d-card {
-    position: relative;
-    min-height: 260px;
-    padding: 1.6rem 1.2rem;
-    overflow: hidden;
-    color: #5e421c;
-    background: linear-gradient(145deg, #fffef7 0%, #e1f5ee 55%, #c7e8e2 100%);
-    border: 3px solid #d4af37;
-    border-radius: 18px;
-    box-shadow: 0 18px 0 rgba(161, 116, 35, 0.22), 0 22px 34px rgba(71, 71, 36, 0.22), inset 0 0 24px rgba(255,255,255,0.75);
-    transform: rotateY(-3deg) translateZ(0);
-    transform-style: preserve-3d;
-    animation: giftCardFloat 4.5s ease-in-out infinite;
-}
-
-.gift-3d-card:nth-child(2) {
-    transform: rotateY(3deg);
-    animation-delay: 0.6s;
-}
-
-.gift-3d-card::before {
-    content: "✦";
+/* Floating Moon & Butterfly decorations */
+.gifts-decorations {
     position: absolute;
-    top: 0.8rem;
-    right: 1rem;
-    color: #d4af37;
-    font-size: 1.2rem;
-}
-
-.gift-3d-card::after {
-    content: "";
-    position: absolute;
-    inset: 8px;
-    border: 1px solid rgba(212,175,55,0.45);
-    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     pointer-events: none;
 }
 
-@keyframes giftCardFloat {
-    0%, 100% { transform: rotateY(-3deg) translateY(0) translateZ(0); }
-    50% { transform: rotateY(-3deg) translateY(-8px) translateZ(12px); }
+.decor-moon {
+    position: absolute;
+    left: -10px;
+    top: 20%;
+    animation: floatMoon 4s ease-in-out infinite;
+    opacity: 0.9;
 }
 
-.gift-3d-card:nth-child(2) {
-    animation-name: giftCardFloatRight;
+.decor-butterfly {
+    position: absolute;
+    right: -10px;
+    top: 35%;
+    animation: floatButterfly 5s ease-in-out infinite;
+    opacity: 0.95;
 }
 
-@keyframes giftCardFloatRight {
-    0%, 100% { transform: rotateY(3deg) translateY(0) translateZ(0); }
-    50% { transform: rotateY(3deg) translateY(-8px) translateZ(12px); }
+@keyframes floatMoon {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(6deg) scale(1.03); }
 }
 
-.gift-3d-card .gift-card-icon {
+@keyframes floatButterfly {
+    0%, 100% { transform: translateY(0) rotate(0deg) scaleX(-1); }
+    50% { transform: translateY(-10px) rotate(-8deg) scaleX(-1) scale(1.05); }
+}
+
+/* Alternating Row Structure Layout */
+.gifts-feature-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
     position: relative;
-    z-index: 1;
-    color: #2e8f91;
-    font-size: 3rem;
-    filter: drop-shadow(3px 5px 0 rgba(184,138,54,0.3));
+    z-index: 10;
 }
 
-.gift-3d-card h3,
-.gift-3d-card p,
-.gift-3d-card .bank-details {
-    position: relative;
-    z-index: 1;
+.gift-row-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3.5rem;
+    text-align: left;
 }
 
-.gift-3d-card h3 {
-    margin: 0.8rem 0 0.6rem;
-    color: #936315;
+.gift-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.gift-row-media {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-row-text {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gift-row-title {
     font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    letter-spacing: 0.08em;
+    font-size: clamp(1.15rem, 2.8vw, 1.4rem);
+    color: #85591d;
+    margin-bottom: 0.6rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.gift-3d-card p {
+.gift-row-desc {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    line-height: 1.55;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #5c3910;
+    margin-bottom: 0.8rem;
 }
 
-.gift-3d-card .bank-details {
-    margin-top: 0.7rem;
-    font-size: 0.72rem;
+.gift-row-tag {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.8rem, 2.2vw, 1rem);
+    color: #c59b27;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 5px;
+    line-height: 1.4;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.6);
 }
 
-.gift-3d-card .bank-details p {
-    margin: 0.2rem 0;
+/* 3D SCENE & OBJECTS */
+.gift-row-media .scene-3d {
+    width: 200px;
+    height: 140px;
+    perspective: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3D Envelope */
+.envelope-3d {
+    width: 160px;
+    height: 110px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(12deg) rotateY(-12deg);
+    animation: swingEnvelope 6s ease-in-out infinite alternate;
+}
+
+@keyframes swingEnvelope {
+    0% { transform: rotateX(12deg) rotateY(-15deg) translateY(0); }
+    100% { transform: rotateX(8deg) rotateY(15deg) translateY(-6px); }
+}
+
+.envelope-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* 3D Gift Box (80px Cube) */
+.cube-3d {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(45deg);
+    animation: spinCube 12s linear infinite;
+}
+
+@keyframes spinCube {
+    0% { transform: rotateX(-20deg) rotateY(0deg); }
+    100% { transform: rotateX(-20deg) rotateY(360deg); }
+}
+
+.cube-face {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #a4d7cc;
+    border: 2px solid #2d6a5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Gold ribbons on the cube faces */
+.cube-face::before {
+    content: "";
+    position: absolute;
+    background: #d4af37;
+}
+
+/* Vertical ribbon */
+.cube-front::before, .cube-back::before, .cube-left::before, .cube-right::before {
+    width: 16px;
+    height: 100%;
+    top: 0;
+    left: 32px;
+}
+
+/* Horizontal ribbon */
+.cube-front::after, .cube-back::after, .cube-left::after, .cube-right::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 16px;
+    top: 32px;
+    left: 0;
+    background: #d4af37;
+}
+
+/* Crossing ribbons on top/bottom */
+.cube-top::before, .cube-bottom::before {
+    width: 16px;
+    height: 100%;
+    top: 0;
+    left: 32px;
+}
+.cube-top::after, .cube-bottom::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 16px;
+    top: 32px;
+    left: 0;
+    background: #d4af37;
+}
+
+/* Positioning faces of the box */
+.cube-front  { transform: rotateY(  0deg) translateZ(40px); }
+.cube-back   { transform: rotateY(180deg) translateZ(40px); }
+.cube-right  { transform: rotateY( 90deg) translateZ(40px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(40px); }
+.cube-top    { transform: rotateX( 90deg) translateZ(40px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+/* Gift bow on top */
+.gift-bow {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 24px;
+    left: 24px;
+    transform: translateZ(1px);
+    z-index: 10;
+}
+.gift-bow::before, .gift-bow::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #c59b27;
+    background: #ffd700;
+    border-radius: 50% 50% 0 50%;
+}
+.gift-bow::before {
+    transform: rotate(45deg);
+    top: -3px;
+    left: -3px;
+}
+.gift-bow::after {
+    transform: rotate(-45deg) scaleX(-1);
+    top: -3px;
+    right: -3px;
+}
+
+/* Bank Details Styling */
+.gift-row-text .bank-details {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    background: rgba(197, 155, 39, 0.05);
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    border: 1px dashed rgba(197, 155, 39, 0.25);
+    text-align: left;
+    max-width: 320px;
+}
+
+.gift-row-text .bank-details p {
+    margin: 0.3rem 0;
     overflow-wrap: anywhere;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
+    color: #4a3725;
+    line-height: 1.4;
+}
+
+.gift-row-text .bank-details strong {
+    color: #85591d;
+    font-family: 'Cinzel', serif;
+}
+
+/* Golden Pill Copiar Button */
+.btn-copy-gold {
+    margin-top: 12px;
+    padding: 0.55rem 1.4rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffd700 0%, #c59b27 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(197, 155, 39, 0.35);
+    max-width: fit-content;
+}
+
+.btn-copy-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 155, 39, 0.55);
+    background: linear-gradient(135deg, #ffe066 0%, #d4af37 100%);
 }
 
 @media (max-width: 650px) {
-    .gifts-feature-section { padding: 0 0.7rem 2.5rem; }
-    .gifts-feature-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-    .gift-3d-card { min-height: 0; }
+    .gifts-feature-section { padding: 2rem 0.5rem 3rem; margin: 2rem auto; }
+    .gifts-feature-rows { gap: 2rem; }
+    .gift-row-item {
+        flex-direction: row !important;
+        gap: 1.2rem;
+        text-align: left;
+    }
+    .gift-row-media .scene-3d {
+        width: 120px;
+        height: 90px;
+    }
+    .envelope-3d {
+        width: 110px;
+        height: 76px;
+    }
+    .envelope-3d svg {
+        width: 110px;
+        height: 76px;
+    }
+    .cube-3d {
+        width: 55px;
+        height: 55px;
+    }
+    .cube-face {
+        width: 55px;
+        height: 55px;
+    }
+    /* Reposition 55px cube faces */
+    .cube-front  { transform: rotateY(  0deg) translateZ(27.5px); }
+    .cube-back   { transform: rotateY(180deg) translateZ(27.5px); }
+    .cube-right  { transform: rotateY( 90deg) translateZ(27.5px); }
+    .cube-left   { transform: rotateY(-90deg) translateZ(27.5px); }
+    .cube-top    { transform: rotateX( 90deg) translateZ(27.5px); }
+    .cube-bottom { transform: rotateX(-90deg) translateZ(27.5px); }
+    /* Ribbons for 55px cube */
+    .cube-front::before, .cube-back::before, .cube-left::before, .cube-right::before {
+        width: 11px;
+        left: 22px;
+    }
+    .cube-front::after, .cube-back::after, .cube-left::after, .cube-right::after {
+        height: 11px;
+        top: 22px;
+    }
+    .cube-top::before, .cube-bottom::before {
+        width: 11px;
+        left: 22px;
+    }
+    .cube-top::after, .cube-bottom::after {
+        height: 11px;
+        top: 22px;
+    }
+    /* Bow for 55px cube */
+    .gift-bow {
+        width: 22px;
+        height: 22px;
+        top: 16.5px;
+        left: 16.5px;
+    }
+    .gift-bow::before, .gift-bow::after {
+        width: 13px;
+        height: 13px;
+    }
+    
+    .gift-row-text {
+        flex: 1.5;
+        align-items: flex-start;
+    }
+    .gift-row-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+    }
+    .gift-row-desc {
+        font-size: 0.78rem;
+        line-height: 1.5;
+        margin-bottom: 0.4rem;
+    }
+    .gift-row-tag {
+        font-size: 0.75rem;
+    }
+    .gift-row-text .bank-details {
+        padding: 0.6rem;
+        border-radius: 8px;
+        margin-top: 0.4rem;
+    }
+    .gift-row-text .bank-details p {
+        font-size: 0.72rem;
+        margin: 0.2rem 0;
+    }
+    .btn-copy-gold {
+        padding: 0.45rem 1rem;
+        font-size: 0.7rem;
+        margin-top: 8px;
+    }
+    .decor-moon { left: 5px; top: 15%; width: 22px; height: 22px; }
+    .decor-butterfly { right: 5px; top: 25%; width: 22px; height: 22px; }
+}
+
+@media (max-width: 480px) {
+    /* Stack only on extremely small screens */
+    .gift-row-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.2rem;
+    }
+    /* For Row 2, when stacked vertically, we want media (gift box) on top */
+    .gift-row-item:nth-child(2) {
+        flex-direction: column-reverse !important;
+    }
+    .gift-row-text {
+        align-items: center;
+    }
+    .gift-row-text .bank-details {
+        margin: 0.6rem auto 0;
+    }
 }
 
 @media (max-width: 650px) {
