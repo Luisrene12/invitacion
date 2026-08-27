@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         padreName: "José Rodríguez Martínez",
         churchName: "Parroquia de San Juan Bautista",
         churchAddress: "Av. Principal #123, Colonia Centro",
-        hallName: "Gran Salón de Eventos Palacio Imperial",
-        hallAddress: "Blvd. de las Estrellas #456",
+        hallName: "Gran Salón de Eventos Mimin",
+        hallAddress: "B/ Centro Azul #456",
         bankName: "BBVA / Banco Central",
         bankOwner: "Familia de la Quinceañera",
         bankCbu: "JAZMIN.XV.ALADDIN",
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clear old conflicting localStorage state from previous version
     const savedVersion = localStorage.getItem('jazmin_xv_version');
-    if (savedVersion !== '4') {
+    if (savedVersion !== '5') {
         localStorage.removeItem('jazmin_xv_state');
-        localStorage.setItem('jazmin_xv_version', '4');
+        localStorage.setItem('jazmin_xv_version', '5');
     }
 
     let appState = loadStateFromURL() || loadStateFromLocalStorage() || defaultData;
@@ -299,12 +299,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('fx-canvas');
     const ctx = canvas.getContext('2d');
 
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvasFrameInterval = window.matchMedia('(max-width: 768px)').matches ? 50 : 16;
+    let width = 0;
+    let height = 0;
+    let canvasScale = 1;
+    let animationFrameId = 0;
+
+    function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvasScale = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 768 ? 1.25 : 1.5);
+        canvas.width = Math.floor(width * canvasScale);
+        canvas.height = Math.floor(height * canvasScale);
+        ctx.setTransform(canvasScale, 0, 0, canvasScale, 0, 0);
+    }
+
+    resizeCanvas();
 
     window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+        resizeCanvas();
     });
 
     let stars = [];
@@ -355,7 +369,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function animateCanvas() {
+    let lastCanvasFrame = 0;
+
+    function animateCanvas(timestamp = 0) {
+        if (document.hidden || reduceMotion) {
+            animationFrameId = 0;
+            return;
+        }
+        animationFrameId = requestAnimationFrame(animateCanvas);
+        if (timestamp - lastCanvasFrame < canvasFrameInterval) return;
+        lastCanvasFrame = timestamp;
         ctx.clearRect(0, 0, width, height);
 
         // Draw Twinkling Stars
@@ -401,10 +424,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         ctx.globalAlpha = 1;
 
-        requestAnimationFrame(animateCanvas);
     }
 
-    animateCanvas();
+    if (!reduceMotion) animateCanvas();
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && !reduceMotion && !animationFrameId) {
+            lastCanvasFrame = 0;
+            animateCanvas();
+        }
+    });
 
     // --- 6. MAGIC LAMP LOGIC ---
     if (rubLampBtn) {

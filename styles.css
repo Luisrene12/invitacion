@@ -4077,7 +4077,7 @@ body {
     justify-content: center;
     background:
         linear-gradient(rgba(8, 20, 35, 0.2), rgba(8, 20, 35, 0.2)),
-        url('assets/ballroom.jpg') center / cover no-repeat;
+    url('assets/recep.png') center / cover no-repeat;
 }
 
 .reception-feature-card .event-feature-arch {
