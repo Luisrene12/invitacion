@@ -4136,10 +4136,18 @@ body {
     inset: 0;
     background-image: url('assets/image2-optimized.jpg');
     background-size: cover;
-    background-position: center top;
+    background-position: 82% 20%;
     background-repeat: no-repeat;
+    transform-origin: 82% 20%;
     z-index: 0;
     animation: closingZoom 20s ease-in-out infinite alternate;
+}
+
+@media (max-width: 768px) {
+    .closing-bg-photo {
+        background-position: 80% 15%;
+        transform-origin: 80% 15%;
+    }
 }
 
 @keyframes closingZoom {
