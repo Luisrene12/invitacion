@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hallAddress: "B/ Centro Azul #456",
         bankName: "BBVA / Banco Central",
         bankOwner: "Familia de la Quinceañera",
-        bankCbu: "JAZMIN.XV.ALADDIN",
+        bankCbu: "Ana Paula ",
         whatsappNum: "5215551234567",
         photos: [
             { url: "assets/hero_bg.jpg", caption: "Noche Mágica ✨" },
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    audio.play().catch(() => {});
+                    audio.play().catch(() => { });
                 }
             });
         }, { threshold: 0.55 });
