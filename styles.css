@@ -4117,84 +4117,116 @@ body {
     }
 }
 
+/* ===== TE ESPERAMOS — HERO FULL SCREEN ===== */
 .closing-section {
     position: relative;
     z-index: 2;
-    min-height: 360px;
-    padding: 6rem 1.5rem;
+    width: 100%;
+    min-height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    border-top: none;
+}
+
+.closing-bg-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/image2-optimized.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 0;
+    animation: closingZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes closingZoom {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.07); }
+}
+
+.closing-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.04) 0%,
+        rgba(0,0,0,0.12) 40%,
+        rgba(5,2,0,0.70) 72%,
+        rgba(5,2,0,0.90) 100%
+    );
+    z-index: 1;
+}
+
+.closing-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
     text-align: center;
-    background:
-        radial-gradient(ellipse at 50% 100%, rgba(111, 211, 219, 0.45), transparent 58%),
-        linear-gradient(180deg, #fffdf4 0%, #f8f0d9 52%, #cbeff0 100%);
-    border-top: 3px solid #d4af37;
+    padding: 3rem 1.5rem 5rem;
 }
 
 .closing-section::before,
-.closing-section::after {
-    content: "✧";
-    position: absolute;
-    color: rgba(212, 175, 55, 0.65);
-    font-size: 1.5rem;
-}
-
-.closing-section::before { top: 2rem; left: 18%; }
-.closing-section::after { top: 3.5rem; right: 20%; }
+.closing-section::after { display: none; }
 
 .closing-section h2 {
     position: relative;
-    margin: 0;
-    color: #9a6515;
+    margin: 0 0 0.2rem;
+    color: #ffd700;
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.8rem, 12vw, 7rem);
+    font-size: clamp(4.2rem, 15vw, 9rem);
     font-weight: 400;
-    line-height: 1.1;
-    text-shadow: 0 2px 4px rgba(255,255,255,0.9);
+    line-height: 1.0;
+    text-shadow:
+        0 2px 12px rgba(0,0,0,0.9),
+        0 0 50px rgba(255,215,0,0.6);
 }
 
 .closing-divider {
-    margin: 1rem auto;
-    color: #2e9297;
-    font-size: 1.6rem;
+    margin: 0.6rem auto;
+    color: #ffe066;
+    font-size: 1.8rem;
+    text-shadow: 0 0 14px rgba(255,215,0,0.85);
 }
 
 .closing-section p {
-    color: #73501c;
+    color: rgba(255,255,255,0.93);
     font-family: 'Cinzel', serif;
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
-    letter-spacing: 0.1em;
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    letter-spacing: 0.2em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+    margin: 0;
+    text-transform: uppercase;
 }
 
-.closing-photo-wrapper {
-    max-width: 480px;
-    width: 90%;
-    margin: 2rem auto 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-    border: 3px solid #d4af37;
-    background: #fff;
-    display: inline-block;
+/* Sparkles animadas */
+.closing-sparkles {
+    position: relative;
+    height: 2.8rem;
+    margin-bottom: 0.8rem;
 }
 
-.closing-photo-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-.closing-ornament {
+.closing-spark {
     position: absolute;
-    top: 50%;
-    color: #b9872d;
-    font-size: clamp(2rem, 7vw, 4rem);
-    opacity: 0.8;
-    transform: translateY(-50%);
+    color: #ffd700;
+    font-size: 1.2rem;
+    text-shadow: 0 0 12px rgba(255,215,0,0.95);
+    animation: sparkFloat 3s ease-in-out infinite alternate;
 }
 
-.closing-ornament-left { left: 7%; }
-.closing-ornament-right { right: 7%; }
+.s1 { left: 10%;  top: 0;      animation-delay: 0s;    font-size: 1.5rem; }
+.s2 { left: 28%;  top: 0.6rem; animation-delay: 0.7s; }
+.s3 { right: 28%; top: 0.6rem; animation-delay: 1.4s; }
+.s4 { right: 10%; top: 0;      animation-delay: 2.1s;  font-size: 1.5rem; }
+
+@keyframes sparkFloat {
+    from { opacity: 0.3; transform: translateY(0)    scale(0.8); }
+    to   { opacity: 1;   transform: translateY(-10px) scale(1.4); }
+}
+
+.closing-ornament { display: none; }
 
 .event-feature-section {
     position: relative;
