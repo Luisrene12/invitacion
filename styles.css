@@ -130,37 +130,7 @@ body {
     border: none;
 }
 
-/* Foto Destacada (image2) debajo de la portada */
-.featured-photo-section {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-    line-height: 0;
-}
 
-.featured-photo-wrapper {
-    width: 100%;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-}
-
-.featured-photo-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-@media (max-width: 768px) {
-    .featured-photo-section {
-        margin: 0;
-        padding: 0;
-    }
-}
 
 /* ============================================================
    HERO COVER - PORTADA ESTILO EDITORIAL / REVISTA (XV AÑOS)
@@ -4093,6 +4063,25 @@ body {
     font-family: 'Cinzel', serif;
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     letter-spacing: 0.1em;
+}
+
+.closing-photo-wrapper {
+    max-width: 480px;
+    width: 90%;
+    margin: 2rem auto 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    border: 3px solid #d4af37;
+    background: #fff;
+    display: inline-block;
+}
+
+.closing-photo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .closing-ornament {
