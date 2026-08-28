@@ -114,19 +114,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1800);
 
     function initHomeAudioAutoplay() {
-        const audioCard = document.querySelector('.home-audio-card');
-        const audio = audioCard ? audioCard.querySelector('audio') : null;
-        if (!audio || !('IntersectionObserver' in window)) return;
+        const audio = document.querySelector('.home-audio-card audio') ||
+                      document.querySelector('audio');
+        if (!audio) return;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    audio.play().catch(() => { });
-                }
-            });
-        }, { threshold: 0.55 });
+        audio.loop = true;
+        audio.volume = 0.75;
 
-        observer.observe(audioCard);
+        // 1) Intentar reproducir inmediatamente
+        const tryPlay = () => audio.play().catch(() => {});
+        tryPlay();
+
+        // 2) Si el navegador bloquea (política de autoplay), activar con
+        //    el primer gesto del usuario (toque, clic o tecla)
+        const unlockAudio = () => {
+            if (audio.paused) {
+                audio.play().catch(() => {});
+            }
+            // Quitar los listeners una vez desbloqueado
+            ['click', 'touchstart', 'keydown'].forEach(evt =>
+                document.removeEventListener(evt, unlockAudio)
+            );
+        };
+        ['click', 'touchstart', 'keydown'].forEach(evt =>
+            document.addEventListener(evt, unlockAudio, { once: true })
+        );
+
+        // 3) Pausar al salir de la pestaña, reanudar al volver
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                audio.pause();
+            } else {
+                audio.play().catch(() => {});
+            }
+        });
     }
 
     // --- 2. PERSISTENCE HELPERS ---
