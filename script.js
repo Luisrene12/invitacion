@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollText: "CON LA BENDICIÓN DE DIOS Y EL AMOR QUE MI FAMILIA ME HA DADO, ME SIENTO FELIZ DE LLEGAR A ESTE MOMENTO DE MI VIDA; EL DÍA QUE DEJARÉ ATRÁS MI INFANCIA Y COMENZARÉ UN NUEVO VIAJE. PORQUE SON PARTE DE MI VIDA ES MI DESEO QUE COMPARTAN CONMIGO LA ALEGRÍA DE MIS QUINCE AÑOS..",
         madreName: "Guadalupe Rodríguez Juache",
         padreName: "José Rodríguez Martínez",
-        churchName: "Parroquia basílica de guadalupe,",
-        churchAddress: "#1005 Col. Santuario.",
+        churchName: "Salon de Eventos Mimin,",
+        churchAddress: "#1005 B/Centro Azul.",
         hallName: "Gran Salón de Eventos Mimin",
         hallAddress: "B/ Centro Azul #456",
         bankName: "BBVA / Banco Central",
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clear old conflicting localStorage state from previous version
     const savedVersion = localStorage.getItem('jazmin_xv_version');
-    if (savedVersion !== '6') {
+    if (savedVersion !== '7') {
         localStorage.removeItem('jazmin_xv_state');
-        localStorage.setItem('jazmin_xv_version', '6');
+        localStorage.setItem('jazmin_xv_version', '7');
     }
 
     let appState = loadStateFromURL() || loadStateFromLocalStorage() || defaultData;
