@@ -167,9 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
         churchAddressEl.textContent = appState.churchAddress;
         hallNameEl.textContent = appState.hallName;
         hallAddressEl.textContent = appState.hallAddress;
-        bankNameEl.textContent = appState.bankName || defaultData.bankName || "BBVA / Banco Central";
-        bankOwnerEl.textContent = appState.bankOwner || defaultData.bankOwner || "Familia de la Quinceañera";
-        bankCbuEl.textContent = appState.bankCbu || defaultData.bankCbu || "JAZMIN.XV.ALADDIN";
+        if (bankNameEl) bankNameEl.textContent = appState.bankName || defaultData.bankName || "BBVA / Banco Central";
+        if (bankOwnerEl) bankOwnerEl.textContent = appState.bankOwner || defaultData.bankOwner || "Familia de la Quinceañera";
+        if (bankCbuEl) bankCbuEl.textContent = appState.bankCbu || defaultData.bankCbu || "JAZMIN.XV.ALADDIN";
 
         // Update scroll pergamino text
         const scrollEl = document.getElementById('scroll-invitation-text');
