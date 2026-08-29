@@ -34,7 +34,7 @@
         }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=20260828_qr_banco">
+    <link rel="stylesheet" href="styles.css?v=20260828_qr_only">
 </head>
 
 <body>
@@ -1552,48 +1552,12 @@
         </div>
 
         <div class="gifts-feature-rows">
-            <!-- Row 1: Envelope (Left) & Envelope Info (Right) -->
+            <!-- Single Row: QR Code (Left) & Lluvia de Sobres Text (Right) -->
             <div class="gift-row-item">
                 <div class="gift-row-media">
-                    <!-- 3D Floating Envelope -->
-                    <div class="scene-3d">
-                        <div class="envelope-3d">
-                            <div class="envelope-front">
-                                <svg viewBox="0 0 160 110" width="160" height="110">
-                                    <!-- Base flap shadow/border -->
-                                    <rect x="2" y="2" width="156" height="106" rx="6" fill="#a4d7cc" stroke="#3d8274"
-                                        stroke-width="2" />
-                                    <!-- Bottom Fold -->
-                                    <path d="M 2 108 L 80 55 L 158 108" fill="none" stroke="#2d6a5e" stroke-width="1.5"
-                                        opacity="0.6" />
-                                    <!-- Side Folds -->
-                                    <path d="M 2 2 L 65 55 L 2 108" fill="none" stroke="#2d6a5e" stroke-width="1.5"
-                                        opacity="0.6" />
-                                    <path d="M 158 2 L 95 55 L 158 108" fill="none" stroke="#2d6a5e" stroke-width="1.5"
-                                        opacity="0.6" />
-                                    <!-- Top Flap -->
-                                    <path d="M 2 2 L 80 55 L 158 2 Z" fill="#b0e0d6" stroke="#3d8274"
-                                        stroke-width="1.5" />
-                                    <!-- Gold Wax Seal -->
-                                    <g transform="translate(80, 55)">
-                                        <circle cx="0" cy="0" r="16" fill="url(#goldSealGrad)" stroke="#b59023"
-                                            stroke-width="1.5" />
-                                        <circle cx="0" cy="0" r="11" fill="none" stroke="#ffd700" stroke-width="1"
-                                            stroke-dasharray="2,2" />
-                                        <polygon points="0,-8 6,0 0,8 -6,0" fill="#0089b3" stroke="#ffd700"
-                                            stroke-width="1" />
-                                        <circle cx="-2" cy="-2" r="2" fill="#ffffff" opacity="0.7" />
-                                    </g>
-                                    <defs>
-                                        <radialGradient id="goldSealGrad" cx="35%" cy="35%" r="65%">
-                                            <stop offset="0%" stop-color="#ffd700" />
-                                            <stop offset="60%" stop-color="#d4af37" />
-                                            <stop offset="100%" stop-color="#8c6208" />
-                                        </radialGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
+                    <div class="gift-qr-card" title="Toca para ver en grande">
+                        <img src="assets/qr_banco.jpg" alt="QR Banco Unión - Daisy Herbas" class="gift-qr-img">
+                        <span class="gift-qr-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ampliar</span>
                     </div>
                 </div>
                 <div class="gift-row-text">
@@ -1603,29 +1567,6 @@
                     <span class="gift-row-tag">PUEDE SER UN SOBRE CON DINERO.</span>
                     <span class="gift-row-tag" style="margin-top: 10px; display: block;">Ó PUEDE SER UN REGALO DE TU
                         PREFERENCIA.</span>
-                </div>
-            </div>
-
-            <!-- Row 2: QR Bancario / Transferencia -->
-            <div class="gift-row-item gift-row-reverse">
-                <div class="gift-row-media">
-                    <div class="gift-qr-card" title="Toca para ver en grande">
-                        <img src="assets/qr_banco.jpg" alt="QR Banco Unión - Daisy Herbas" class="gift-qr-img">
-                        <span class="gift-qr-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ampliar QR</span>
-                    </div>
-                </div>
-                <div class="gift-row-text">
-                    <h3 class="gift-row-title">Transferencia / QR Bancario</h3>
-                    <p class="gift-row-desc">Si deseas hacerme un regalo digital, puedes escanear el código QR de Banco Unión o copiar el número de cuenta:</p>
-                    <div class="bank-details">
-                        <p><strong>Banco:</strong> <span id="bank-name">BANCO UNIÓN S.A.</span></p>
-                        <p><strong>Titular:</strong> <span id="bank-owner">Daisy Herbas</span></p>
-                        <p><strong>N° de Cuenta:</strong> <span id="bank-cbu">10000003682726</span></p>
-                        <p><strong>Glosa:</strong> <span>XV Años ANA PAULA</span></p>
-                    </div>
-                    <button class="btn-copy-gold" id="copy-cbu-btn">
-                        <i class="fa-solid fa-copy"></i> Copiar N° de Cuenta
-                    </button>
                 </div>
             </div>
         </div>
