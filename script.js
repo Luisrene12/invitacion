@@ -114,37 +114,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1800);
 
     function initHomeAudioAutoplay() {
-        const audio = document.querySelector('.home-audio-card audio') ||
+        const audio = document.getElementById('bg-audio') ||
+                      document.querySelector('.home-audio-card audio') ||
                       document.querySelector('audio');
         if (!audio) return;
 
         audio.loop = true;
-        audio.volume = 0.75;
+        audio.volume = 0.85;
 
-        // 1) Intentar reproducir inmediatamente
-        const tryPlay = () => audio.play().catch(() => {});
+        // 1) Intentar reproducir inmediatamente al cargar
+        const tryPlay = () => {
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Autoplay bloqueado por políticas del navegador, esperará al primer toque
+                });
+            }
+        };
+
         tryPlay();
+        window.addEventListener('load', tryPlay, { once: true });
 
-        // 2) Si el navegador bloquea (política de autoplay), activar con
-        //    el primer gesto del usuario (toque, clic o tecla)
+        // 2) Desbloqueo garantizado al primer toque, scroll, clic o interacción en cualquier parte
+        const events = ['touchstart', 'touchend', 'pointerdown', 'mousedown', 'click', 'scroll', 'keydown'];
         const unlockAudio = () => {
             if (audio.paused) {
                 audio.play().catch(() => {});
             }
-            // Quitar los listeners una vez desbloqueado
-            ['click', 'touchstart', 'keydown'].forEach(evt =>
-                document.removeEventListener(evt, unlockAudio)
-            );
+            // Si ya está reproduciendo, quitamos los listeners
+            if (!audio.paused) {
+                events.forEach(evt => {
+                    window.removeEventListener(evt, unlockAudio, true);
+                    document.removeEventListener(evt, unlockAudio, true);
+                });
+            }
         };
-        ['click', 'touchstart', 'keydown'].forEach(evt =>
-            document.addEventListener(evt, unlockAudio, { once: true })
-        );
 
-        // 3) Pausar al salir de la pestaña, reanudar al volver
+        events.forEach(evt => {
+            window.addEventListener(evt, unlockAudio, { capture: true, passive: true });
+            document.addEventListener(evt, unlockAudio, { capture: true, passive: true });
+        });
+
+        // 3) Reanudar automáticamente si el usuario regresa a la pestaña
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                audio.pause();
-            } else {
+            if (!document.hidden && audio.paused) {
                 audio.play().catch(() => {});
             }
         });
