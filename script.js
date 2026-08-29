@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
         churchAddress: "#1005 B/Centro Azul.",
         hallName: "Gran Salón de Eventos Mimin",
         hallAddress: "B/ Centro Azul #456",
-        bankName: "BBVA / Banco Central",
-        bankOwner: "Familia de la Quinceañera",
-        bankCbu: "Ana Paula ",
+        bankName: "BANCO UNIÓN S.A.",
+        bankOwner: "Daisy Herbas",
+        bankCbu: "10000003682726",
         whatsappNum: "5215551234567",
         photos: [
             { url: "assets/hero_bg.jpg", caption: "Noche Mágica ✨" },
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clear old conflicting localStorage state from previous version
     const savedVersion = localStorage.getItem('jazmin_xv_version');
-    if (savedVersion !== '7') {
+    if (savedVersion !== '8') {
         localStorage.removeItem('jazmin_xv_state');
-        localStorage.setItem('jazmin_xv_version', '7');
+        localStorage.setItem('jazmin_xv_version', '8');
     }
 
     let appState = loadStateFromURL() || loadStateFromLocalStorage() || defaultData;
@@ -585,8 +585,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // QR Lightbox
+    const qrCard = document.querySelector('.gift-qr-card');
+    if (qrCard && lightbox) {
+        qrCard.addEventListener('click', () => {
+            lightboxImg.src = 'assets/qr_banco.jpg';
+            lightboxCaption.textContent = 'QR Banco Unión S.A. - Daisy Herbas';
+            lightbox.classList.remove('hidden');
+        });
+    }
+
     if (lightboxClose) {
         lightboxClose.addEventListener('click', () => lightbox.classList.add('hidden'));
+    }
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.add('hidden');
+        });
     }
 
     function renderWishes() {
